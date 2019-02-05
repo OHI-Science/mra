@@ -1,0 +1,646 @@
+---
+title: "Explore OHI Global Data & Data Gaps for French Polynesia"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+---
+```{r setup explore, include=FALSE}
+knitr::opts_chunk$set(warning = FALSE, message=FALSE)
+rgn_name <- 'French Polynesia'
+```
+
+```{r setup files, echo=FALSE}
+## libraries
+library(tidyverse)
+library(DT)
+
+
+## to build filepaths ----
+## local! - if you have cloned these repositories locally
+# rawkey_prefix <- "~/github/ohi-global"
+# rawprep_prefix <- "~/github/ohiprep_v2017"
+
+## remote!! - if you prefer to pull from remote
+rawkey_prefix <- "https://raw.githubusercontent.com/OHI-Science/ohi-global/draft"
+rawprep_prefix <- "https://raw.githubusercontent.com/OHI-Science/ohiprep_v2017/master/"
+
+
+## read in all data----
+
+## get global rgn_id
+rgn_global <- read_csv(file.path(rawkey_prefix, 'eez/layers/rgn_global.csv')) %>%
+  filter(label == rgn_name) # ken is 43
+
+## scores, gapfilling
+scores_csv <- read_csv(file.path(rawkey_prefix, "eez/scores.csv")) 
+scores_gf_csv <- read_csv(file.path(rawkey_prefix, "global2015/gapFilling/scores.csv")) 
+
+## FP
+fis_meancatch_csv <- read_csv(file.path(rawkey_prefix, "eez/layers/fis_meancatch.csv"))
+fis_b_bmsy_csv <- read_csv(file.path(rawkey_prefix, "eez/layers/fis_b_bmsy.csv"))
+fis_b_bmsy_gf_csv <- read_csv(file.path(rawkey_prefix, "global2017/gapfilling/layers/fis_b_bmsy.csv"))
+stock_catch <- read_csv("data/stock_catch_by_rgn.csv")
+mar_harvest_tonnes_csv <- read_csv(file.path(rawkey_prefix, "eez/layers/mar_harvest_tonnes.csv"))
+taxon_lookup_csv <- read_csv(file.path(rawprep_prefix, "globalprep/fis/v2017/data/taxon_resilience_lookup.csv"))
+
+## NP
+np_harvest_tonnes_csv <- read_csv(file.path(rawkey_prefix, "global2017/gapfilling/layers/np_harvest_tonnes.csv"))
+
+## Species goals
+ico_spp_cat_csv <- read_csv(file.path(rawprep_prefix, "globalprep/spp_ico/v2017/int/ico_spp_cat.csv")) ## maybe don't need
+ico_spp_rgn_prepped_csv <- read_csv(file.path(rawprep_prefix, "globalprep/spp_ico/v2017/int/ico_spp_rgn_prepped.csv")) ## maybe don't need
+risk_code_lookup <- read_csv(file.path(rawprep_prefix, "globalprep/spp_ico/v2017/raw/risk_code_lookup.csv"))
+rgn_spp_gl_csv <- read_csv("data/rgn_spp_gl.csv")
+ico_spp_iucn_status_csv <- read_csv(file.path(rawprep_prefix, "globalprep/spp_ico/v2017/output/ico_spp_iucn_status.csv"))
+ico_global_list <- read_csv(file.path(rawprep_prefix, "globalprep/spp_ico/v2017/int/ico_global_list.csv"))
+
+
+## Habitat goals extent
+hab_mangrove_extent_csv <- read_csv(file.path(rawkey_prefix, "eez/layers/hab_mangrove_extent.csv"))
+hab_seagrass_extent_csv <- read_csv(file.path(rawkey_prefix, "eez/layers/hab_seagrass_extent.csv"))
+hab_saltmarsh_extent_csv <- read_csv(file.path(rawkey_prefix, "eez/layers/hab_saltmarsh_extent.csv"))
+hab_coral_extent_csv <- read_csv(file.path(rawkey_prefix, "eez/layers/hab_coral_extent.csv"))
+hab_seaice_extent_csv <- read_csv(file.path(rawkey_prefix, "eez/layers/hab_seaice_extent.csv"))
+hab_softbottom_extent_csv <- read_csv(file.path(rawkey_prefix, "eez/layers/hab_softbottom_extent.csv"))
+
+## Habitat health
+hab_mangrove_health_csv <- read_csv(file.path(rawkey_prefix, "eez/layers/hab_mangrove_health.csv"))
+hab_seagrass_health_csv <- read_csv(file.path(rawkey_prefix, "eez/layers/hab_seagrass_health.csv"))
+hab_saltmarsh_health_csv <- read_csv(file.path(rawkey_prefix, "eez/layers/hab_saltmarsh_health.csv"))
+hab_coral_health_csv <- read_csv(file.path(rawkey_prefix, "eez/layers/hab_coral_health.csv"))
+hab_seaice_health_csv <- read_csv(file.path(rawkey_prefix, "eez/layers/hab_seaice_health.csv"))
+hab_softbottom_health_csv <- read_csv(file.path(rawkey_prefix, "eez/layers/hab_softbottom_health.csv"))
+
+## LSP
+lsp_prot_area_inland1km_csv <- read_csv(file.path(rawkey_prefix, "eez/layers/lsp_prot_area_inland1km.csv"))
+lsp_prot_area_offshore3nm_csv <- read_csv(file.path(rawkey_prefix, "eez/layers/lsp_prot_area_offshore3nm.csv"))       
+```
+
+## Objectives
+
+To explore the OHI Global data for French Polynesia, focusing on where data are estimated (gapfilled) instead of available in global data sets for French Polynesia.
+
+----
+
+## Gapfilling in French Polynesia
+
+Let's look a bit deeper to see numerically the percent gapfilling by goal to help us prioritize which goals we want to explore more deeply. We can pull directly from the data from the [Frazier et al. 2015](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0160377) publication. 
+
+It's interesting to compare the percent gapfilling by goal to the scores by goal. Let's look at this figure and discuss what we see. 
+
+### Figure: % Gapfilled vs. Status Scores
+
+There may be a few places where there are overlaps because goals have the exact same scores.
+
+```{r plot scores_gf, echo=FALSE, warning=FALSE}
+## gapfilled scores
+scores_gf <- scores_gf_csv %>% 
+  filter(region_id == rgn_global$rgn_id,
+         dimension == "status") %>%
+  select(goal, percent_gapfilled = score) %>%
+  arrange(percent_gapfilled) 
+
+## scores
+scores <- scores_csv %>% 
+  filter(region_id == rgn_global$rgn_id,
+         dimension == "status",  
+         year == max(year)) %>%
+  select(goal, score) %>%
+  arrange(goal) 
+
+## left join
+scores_plot <- scores %>%
+  left_join(scores_gf, by = "goal") %>% 
+  arrange(percent_gapfilled)
+
+## expecting overlapping labels for FP and BD: hacky workaround
+scores_plot_noBDFP <- scores_plot %>%
+  filter(!goal %in% c("FP", "BD"))
+scores_plot_BDFP <- scores_plot %>%
+  filter(goal %in% c("FP", "BD"))
+
+ggplot(data = scores_plot_noBDFP, aes(x = score, y = percent_gapfilled, label = goal)) + 
+  geom_point() + 
+  geom_text(aes(label = goal), nudge_x = 2, nudge_y = 2) +
+  geom_point(data = scores_plot_BDFP) +
+  geom_text(data = scores_plot_BDFP, aes(label = goal), nudge_x = -2, nudge_y = -3) +
+  xlab("status score") +
+  ylab("percent gapfilled")
+
+## finally, for in-line text below: 
+gf100 <- scores_plot %>% 
+  filter(percent_gapfilled == 100)
+
+gf125 <- scores_plot %>% 
+  filter(percent_gapfilled <= 12.5)
+
+s50 <- scores_plot %>% 
+  filter(score >= 50)
+```
+
+```{r, echo=FALSE, eval=FALSE}
+## to see as a table:
+## custom arrange: https://stackoverflow.com/questions/26548495/reorder-rows-using-custom-order
+targets_order <-  c("FP", "FIS", "MAR", "AO", "NP", "CS", "CP", "TR", "LE", "ECO", "LIV", "SP", "LSP", "ICO", "CW", "BD", "HAB", "SPP")
+ 
+scores_plot <- scores_plot %>%
+  mutate(targets_id =  factor(goal, levels = targets_order)) %>%
+  arrange(targets_id) %>%
+  select(-targets_id)
+
+## display
+scores_plot %>% 
+  DT::datatable()
+```
+
+
+## Gapfilling Observations
+
+Let's brainstorm together: let's list overall observations and observations by goal. Then we will prioritize which to dive deeply into and look at the underlying data with the time we have.
+
+<br> 
+
+### Overall 
+
+**Observations:**
+
+- `r nrow(gf100)` goals were 100% gapfilled (`r gf100$goal`)
+- `r nrow(gf125)` goals have low amounts of gapfilling — under 12.5% (on the y-axis)
+- `r nrow(s50)` goals have scores over 50 (on the x-axis)
+- Most high-scoring goals have low gapfilling
+
+<br>
+
+
+### Food Provision (FP)
+
+**Observations**:
+
+- if FP and FIS are plotted on top of each other, it means that the FP score is the same as FIS. This means that MAR contributes nothing to the FP score, and in fact the MAR score is 0. 
+
+<br>
+
+### Tourism and Recreation (TR)
+ 
+<br>
+
+### Species-based goals (ICO, SPP)
+
+<br>
+
+### Livelihoods and Economies (LE, LIV, ECO)
+
+**Observations**:
+
+- The LE goal is not on the figure. We didn't include them in our gapfilling analyses because our models rely on old data (pre-2012). 
+
+<br>
+
+Now, where should we start? What order should we discuss these?
+
+----
+
+## Data discussion: deep dive
+
+Let's look into the data behind some of these goals. 
+
+We will use several resources for each goal, all linked from [ohi-science.org/ohi-global](http://ohi-science.org/ohi-global]): 
+
+- [ohi-science.org/ohi-global/goals](http://ohi-science.org/ohi-global/goals)
+- [ohi-science.org/ohi-global/layers_table](http://ohi-science.org/ohi-global/layers_table.html)
+- [Global supplemental information](https://rawgit.com/OHI-Science/ohi-global/draft/global_supplement/Supplement.html)
+
+<br>
+
+## [Food Provision: Fisheries](http://ohi-science.org/ohi-global/goals.html#food_provision:_fisheries)
+
+**Questions:**
+
+- Which species are included in the FIS calculation? Where do the data come from?
+
+<br>
+
+#### Global Data
+
+Global data are from the [**Sea Around Us Project**](http://www.seaaroundus.org), which does spatial allocation modeling of FAO catch. Many species do not have formal stock assessments, but they do have tons of catch through time. The criteria we use for our fisheries model is data that has:
+
+- **catch by species**: only what is fished within French Polynesia's EEZ
+- **years**: at least 10 years of data (preferably 20)
+
+
+We can look at these data in several ways. Let's start by looking on SAUP's website at an interactive visualization of fish caught in French Polynesia's exclusive economic zone (EEZ). Here's how: 
+
+1. Navigate to [seaaroundus.org](http://www.seaaroundus.org)
+1. Click "Tools & Data"
+1. Search "French Polynesia"
+
+We can also look at the mapped locations of fishing effort by French Polynesia (remember that OHI only includes catch caught withing French Polynesia's EEZ. 
+
+1. Click "Mapped Data"
+
+<br>
+
+Let's look through the species listed and see if there are any included that don't represent French Polynesia's fisheries within the EEZ. 
+
+
+#### Mean catch 
+
+The mean catch layer ([fis_meancatch](https://github.com/OHI-Science/mra/blob/master/global_explore/data/fis_meancatch_lookup.csv)) is in some ways a historic list because it includes species that may not be caught any more (i.e. was fished in the past and stopped for some reason). It is calculated as the average (mean) of each species' catch through time, so if it was a big catch in the past but now is 0, it will still average (it keeps all species in the dataset).
+
+It will be more useful for us to look at the raw catch values, and see if any of them don't seem right. Below the scientific name is listed, with the common name (if known).
+
+
+```{r fis_meancatch list, echo=FALSE}
+
+fis_meancatch <- fis_meancatch_csv %>%
+  filter(rgn_id == rgn_global$rgn_id) %>%
+  mutate(stock_name = str_remove_all(stock_id_taxonkey, "-[0-9]+_[0-9]+"))
+
+taxon_lookup <- taxon_lookup_csv %>%
+  mutate(stock_name = str_replace(sciname, " ", "_"))
+
+fis_meancatch_lookup <- left_join(
+  fis_meancatch %>%
+    distinct(stock_name),
+  taxon_lookup, by = "stock_name") %>%
+  select(stock_name, common)
+
+## display as interactive DT table
+fis_meancatch_lookup %>%
+  DT::datatable()
+
+## save as csv: 
+fis_meancatch_lookup %>% write_csv("data/fis_meancatch_lookup.csv")
+
+```
+
+There are `r fis_meancatch_lookup %>% nrow()` species in the [fis_meancatch](https://github.com/OHI-Science/mra/blob/master/global_explore/data/fis_meancatch_lookup.csv) layer for French Polynesia.
+
+
+#### Raw catch data
+
+To understand mean catch, dive into catch by species. 
+
+Let's do two things. First, look through the list of species to see if any of them should be removed.
+
+```{r stock_catch_by_rgn.csv, echo=FALSE}
+# View(stock_catch)
+
+## run this to copy into presentation to format for better viewing: 
+# stock_catch %>% 
+#   distinct(taxon_scientific_name, taxon_common_name) %>%
+#   as.data.frame()
+```
+
+There are `r n_distinct(stock_catch$taxon_scientific_name)` unique species. 
+
+<br>
+
+Do we want to look at the timeseries for any species? For example:
+
+```{r stock_catch_by_rgn.csv2, echo=FALSE}
+stock_catch %>%
+  filter(taxon_scientific_name == "Acanthuridae") %>% 
+  select(year, taxon_scientific_name, taxon_common_name, tons, stock_id) %>%
+  arrange(taxon_common_name, desc(year)) %>%
+  DT::datatable()
+```
+
+#### B/Bmsy
+
+These are the species stocks that we have data for [fis_b_bmsy](https://github.com/OHI-Science/mra/blob/master/global_explore/data/fis_b_bmsy_lookup.csv):
+
+```{r fis_b_bmsy list, echo=FALSE}
+fis_b_bmsy <- fis_b_bmsy_csv %>%
+  filter(rgn_id == rgn_global$rgn_id) %>%
+  mutate(stock_name = str_remove_all(stock_id, "-[0-9]+"))
+
+taxon_lookup <- taxon_lookup_csv %>%
+  mutate(stock_name = str_replace(sciname, " ", "_"))
+
+fis_b_bmsy_lookup <- left_join(
+  fis_b_bmsy %>%
+    distinct(stock_name), 
+  taxon_lookup, by = "stock_name") %>%
+  select(stock_name, common)
+  
+## display as interactive DT table
+fis_b_bmsy_lookup %>%
+  DT::datatable()
+
+## save as csv:
+fis_b_bmsy_lookup %>% write_csv("data/fis_b_bmsy_lookup.csv")
+```
+
+There are only `r fis_b_bmsy_lookup %>% nrow()` species in the [fis_b_bmsy](https://github.com/OHI-Science/mra/blob/master/global_explore/data/fis_b_bmsy_lookup.csv) layer for French Polynesia.
+
+Let's look at these too. Are there any species that don't seem right?
+
+#### Discussion
+
+- Are there any species that don't seem right and we should remove, for meancatch or B/Bmsy?
+- There are many categories that we only have information at the genus or family levels. Do you have information for species level?
+
+
+<br>
+
+## [Food Provision: Mariculture](http://ohi-science.org/ohi-global/goals.html#food_provision:_mariculture)
+
+**Questions:**
+
+- How do we interpret the MAR score?
+
+### Global Data 
+
+#### Tonnes of Harvest
+
+Let's look at the list of species that are represented in the MAR model as tonnes of harvest: (the [mar_harvest_tonnes](https://github.com/OHI-Science/mra/blob/master/eez/layers/mar_harvest_tonnes.csv) layer). 
+
+
+```{r mar_harvest_tonnes, echo=FALSE}
+mar_harvest_tonnes <- mar_harvest_tonnes_csv %>%
+  filter(rgn_id == rgn_global$rgn_id) %>%
+  mutate(taxa = str_remove_all(taxa_code, "_.*"))
+
+## display as interactive DT table
+  mar_harvest_tonnes %>%
+    distinct(taxa) %>%
+  DT::datatable()
+```
+
+<br> 
+
+So there are only 5 species reported to FAO, and they are all clams. 
+
+Let's have a peek at the data: 
+
+```{r mar_harvest_tonnes data, echo=FALSE}
+
+mar_harvest_tonnes %>%
+  select(-rgn_id, taxa_code) %>%
+  group_by(taxa_code) %>%
+  summarize(year_min = min(year),
+            year_max = max(year),
+            total_tonnes = sum(tonnes),
+            mean_tonnes  = mean(tonnes)) %>%
+  DT::datatable()
+```
+
+<br>
+
+#### Discussion
+
+- are better data available for these species?
+- are there other species that should be represented in French Polynesia?
+
+<br>
+
+## [Lasting Special Places](http://ohi-science.org/ohi-global/goals.html#sense_of_place:_lasting_special_places)
+
+The model measures the percentage of coastal marine protected area and protected coastline in each country, against a reference percentage. We focus only on coastal waters (within 3nmi of shore) for marine special places because it was assumed that lasting special places are primarily in coastal areas; we wanted our estimates of percent area protected to be bounded to this coastal region. For coastlines, we focused only on the first km-wide strip of land as a way to increase the likelihood that the area being protected by terrestrial parks is connected to the marine system in some way.
+
+
+### Global Data
+
+Data is from the United Nations Environment Programme - World Conservation Monitoring Centre’s World Database on Protected Areas: [protectedplanet.net](http://www.protectedplanet.net). 
+
+Data details: 
+
+- includes all nationally designated (e.g., National Parks, Nature Reserves)
+- includes internationally recognized protected areas (e.g., UNESCO World Heritage Sites, Ramsar Wetlands of International Importance)
+- includes WDPA polygons only (excludes points)
+- includes status of “designated” only (excludes “proposed”)
+
+The model measures the percentage of coastal marine protected area and protected coastline in each country, against a reference percentage (30%). 
+
+```{r lsp, echo=FALSE}
+lsp_prot_area_inland1km <- lsp_prot_area_inland1km_csv %>%
+  filter(rgn_id == rgn_global$rgn_id)
+
+lsp_prot_area_offshore3nm <- lsp_prot_area_offshore3nm_csv %>%
+  filter(rgn_id == rgn_global$rgn_id)
+
+lsp_combo <- left_join(
+  lsp_prot_area_inland1km,
+  lsp_prot_area_offshore3nm, 
+  by = c("rgn_id", "year")) %>%
+  select(-rgn_id)
+  
+lsp_combo %>%
+  DT::datatable()
+
+```
+
+<br>
+
+There is a lag in the WDPA database, as discussed [in this article](https://www.protectedplanet.net/c/the-lag-effect-in-the-world-database-on-protected-areas). Therefore, there may be more information available for the next global assessment.
+
+
+#### Discussion
+
+- are there other coastal or marine parks that are not accounted for? 
+
+<br>
+
+## Habitat-based goals
+
+**Questions:**
+
+- Which habitats are heavily gapfilled in HAB? (Or, which are not gapfilled in CP, CS?)
+
+### Global Data
+
+**[Carbon Storage](http://ohi-science.org/ohi-global/goals.html#carbon_storage)**: 3 coastal habitats: mangroves, seagrasses, and salt marshes
+
+**[Coastal Protection](http://ohi-science.org/ohi-global/goals.html#coastal_protection)**: 5 coastal habitats: mangroves, seagrasses, salt marshes, coral reefs, and sea ice
+
+**[Habitats (BD sub-goal)](http://ohi-science.org/ohi-global/goals.html#biodiversity:_habitats)**: 6 coastal habitats: mangroves, seagrasses, salt marshes, coral reefs, sea ice, and subtidal soft-bottom habitats
+
+All models include Habitat Extent, which is not gapfilled, and is half of the calculation. But HAB is entirely modeled with Habitat Condition, which is all gapfilled for most places. 
+
+Habitats are one of our worst data sets.
+CP, CS goes down by ~50% because extent is ~50% of the score and extent is not gapfilled.
+
+#### Habitat extent
+
+
+```{r hab extent, echo=FALSE, message=FALSE, warning=FALSE}
+## extract
+hab_mangrove_extent <- hab_mangrove_extent_csv %>%
+  filter(rgn_id == rgn_global$rgn_id)
+
+hab_seagrass_extent <- hab_seagrass_extent_csv %>%
+  filter(rgn_id == rgn_global$rgn_id)
+
+hab_saltmarsh_extent <- hab_saltmarsh_extent_csv %>%
+  filter(rgn_id == rgn_global$rgn_id)
+
+hab_coral_extent <- hab_coral_extent_csv %>%
+  filter(rgn_id == rgn_global$rgn_id)
+
+hab_seaice_extent <- hab_seaice_extent_csv %>%
+  filter(rgn_id == rgn_global$rgn_id)
+
+hab_softbottom_extent <- hab_softbottom_extent_csv %>%
+  filter(rgn_id == rgn_global$rgn_id)
+
+hab_extent_rgn <- rbind(
+  hab_mangrove_extent,
+  hab_seagrass_extent,
+  hab_saltmarsh_extent,
+  hab_coral_extent,
+  hab_seaice_extent,
+  hab_softbottom_extent) 
+
+hab_extent_rgn %>%
+  DT::datatable()
+```
+
+
+#### Habitat health
+
+Let's have a look at the data included for French Polynesia:
+
+```{r hab health, echo=FALSE, message=FALSE, warning=FALSE}
+## extract
+hab_mangrove_health <- hab_mangrove_health_csv %>%
+  filter(rgn_id == rgn_global$rgn_id)
+
+hab_seagrass_health <- hab_seagrass_health_csv %>%
+  filter(rgn_id == rgn_global$rgn_id)
+
+hab_saltmarsh_health <- hab_saltmarsh_health_csv %>%
+  filter(rgn_id == rgn_global$rgn_id)
+
+hab_coral_health <- hab_coral_health_csv %>%
+  filter(rgn_id == rgn_global$rgn_id)
+
+hab_seaice_health <- hab_seaice_health_csv %>%
+  filter(rgn_id == rgn_global$rgn_id)
+
+hab_softbottom_health <- hab_softbottom_health_csv %>%
+  filter(rgn_id == rgn_global$rgn_id)
+
+hab_health_rgn <- rbind(
+  hab_mangrove_health,
+  hab_seagrass_health,
+  hab_saltmarsh_health,
+  hab_coral_health,
+  hab_seaice_health,
+  hab_softbottom_health) 
+
+hab_health_rgn %>%
+  DT::datatable()
+```
+
+
+
+#### Discussion
+
+- Are there better data available? 
+- Should we look into the gapfilling question more?
+
+## [Tourism & Recreation](http://ohi-science.org/ohi-global/goals.html#tourism__recreation)
+
+
+## [Natural Products](http://ohi-science.org/ohi-global/goals.html#natural_products)
+
+### Global Data
+
+Which Natural Products are included for French Polynesia?
+
+```{r np, echo=FALSE}
+np_harvest_tonnes <- np_harvest_tonnes_csv %>%
+  filter(rgn_id == rgn_global$rgn_id)
+
+np_harvest_tonnes %>%
+  distinct(commodity, product) %>%
+  DT::datatable()
+```
+
+<br>
+
+So there are `r nrow(np_harvest_tonnes %>% distinct(commodity, product))` NP products included.
+
+We can also look at how much of this was gapfilled:
+
+```{r np_gf, echo=FALSE}
+## shows gapfilling too
+np_harvest_tonnes %>%
+  select(commodity, product, year, gapfill) %>%
+  DT::datatable()
+```
+
+#### Discussion
+
+- are there other products that should be included?
+- is this a goal that represents French Polynesia well?
+
+<br>
+
+
+## Species-based goals
+
+### Global data
+
+```{r spp count, echo=FALSE}
+## filter and join species name
+rgn_spp_gl <- rgn_spp_gl_csv %>%
+  filter(rgn_id == rgn_global$rgn_id) %>%
+  left_join(ico_global_list %>%
+              select(sciname, comname), 
+            by = "sciname") %>%
+  select(sciname, comname, iucn_sid, cat_code) # n_spp_rgn; this = n_rows: 1467 for French Polynesia
+
+rgn_spp_gl_distinct <- rgn_spp_gl %>%
+  select(comname, sciname) %>% distinct() %>% data.frame()
+```
+
+```{r ico count, echo=FALSE}
+## filter and join species name
+ico_spp_iucn_status <- ico_spp_iucn_status_csv %>%
+  filter(rgn_id == rgn_global$rgn_id) %>%
+  left_join(ico_global_list %>%
+              select(sciname, comname), 
+            by = "sciname") %>%
+  select(sciname, comname, iucn_sid, year, category)
+
+ico_spp_iucn_status_distinct <- ico_spp_iucn_status %>%
+  select(comname, sciname) %>% distinct() %>% data.frame()
+
+```
+
+**[Species subgoal of Biodiversity](http://ohi-science.org/ohi-global/goals.html#biodiversity:_species)**: There are `r nrow(rgn_spp_gl_distinct)` unique species included
+
+**[Iconic Species subgoal of Sense of Place](http://ohi-science.org/ohi-global/goals.html#sense_of_place:_iconic_species)**: There are `r nrow(ico_spp_iucn_status_distinct)` unique species included
+
+For Species, there are probably more than we can go through today. But, here is a table that has the full list:
+
+```{r spp display, echo=FALSE}
+## display
+rgn_spp_gl %>%
+  select(comname, sciname) %>%
+  DT::datatable()
+```
+
+<br>
+
+It might be more manageable to work with the Iconic Species list:
+
+```{r ico display, echo=FALSE}
+## join iucn category language
+ico_spp_code <- ico_spp_iucn_status %>%
+  dplyr::rename(cat_code = category) %>%
+  left_join(risk_code_lookup %>%
+              select(cat_code = code,
+                     category, 
+                     cat_score) %>%
+              distinct(), 
+            by = "cat_code")
+
+## display
+ico_spp_code %>%
+  select(comname, sciname) %>% distinct() %>% #data.frame()
+  DT::datatable()
+```
