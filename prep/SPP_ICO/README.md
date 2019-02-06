@@ -2,7 +2,7 @@
 
 This folder contain information about data processing, in which R scripts, metadata and data are available. 
 
-A full description about Iconic Species subgoal can be found [here] (http://ohi-science.org/goals/#sense-of-place)
+A full description about Iconic Species subgoal can be found [here](http://ohi-science.org/goals/#sense-of-place)
 
 **Processing plan**
 
@@ -10,11 +10,11 @@ French Polynesia iconic species are subtracted from the original list used in th
 
 This dataset is completed with local datasets of iconic spcies in French Polynesia, specifically Moorea. 
 
-In French Polynesia, sharks and cetacean are classified within B category, which includes species known as *patrimonial*, having a cultural value. Check [*Le Code de l'environnement de la Polynésie française*](http://www.2dattitude.org/ressources/k2d/pdf/1/1D/1D05/1D05-01/1D05-01-01.pdf) and *Profil d'écosystèmes de la Polynésie Française – Région Pacifique, 2016* (see reference below). Therefore, sharks and cetacean encountered from Moorea were checked in [Moorea BIOCODE Species Database] (http://biocode.berkeley.edu/cgi/biocode_species_query_form). 
+In French Polynesia, sharks and cetacean are classified within B category, which includes species known as *patrimonial*, having a cultural value. Check [*Le Code de l'environnement de la Polynésie française*](http://www.2dattitude.org/ressources/k2d/pdf/1/1D/1D05/1D05-01/1D05-01-01.pdf) and *Profil d'écosystèmes de la Polynésie Française – Région Pacifique, 2016* (see reference below). Therefore, sharks and cetacean encountered from Moorea were checked in [Moorea BIOCODE Species Database](http://biocode.berkeley.edu/cgi/biocode_species_query_form). 
 
-The last step was to check their IUCN status and the historical changes in the [IUCN Red List of Threatened Species] (https://www.iucnredlist.org/).
+The last step was to check their IUCN status and the historical changes in the [IUCN Red List of Threatened Species](https://www.iucnredlist.org/).
 
-
+**Some references**
 
 Ocean Health Index. 2018. ohiprep version 2018: Preparation of data for global scenarios of the Ocean Health Index, [04/02/2019]. National Center for Ecological Analysis and Synthesis, University of California, Santa Barbara. Available at: https://github.com/OHI-Science/ohiprep/releases.
 
