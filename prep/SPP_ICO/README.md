@@ -2,17 +2,17 @@
 
 This folder contain information about data processing, in which R scripts, metadata and data are available. 
 
-A full description about Iconic Species subgoal can be found [here](http://ohi-science.org/goals/#sense-of-place)
+A full description about Iconic Species subgoal can be found [here](http://ohi-science.org/goals/#sense-of-place).
 
 **Processing plan**
 
-French Polynesia iconic species are subtracted from the original list used in the [2018 global analysis](https://github.com/OHI-Science/ohiprep_v2018/blob/gh-pages/globalprep/ico/v2018/int/ico_spp_cat.csv), which includes flagship and priority species defined by the World Wildlife Fund for Nature.
+French Polynesia iconic species are subtracted from the original list used in the [2018 global analysis](https://github.com/OHI-Science/ohiprep_v2018/blob/gh-pages/globalprep/ico/v2018/int/ico_spp_cat.csv), which includes flagship and priority species defined by the World Wildlife Fund for Nature (*ico_spp_rgn_cat*).
 
-This dataset is completed with local datasets of iconic spcies in French Polynesia, specifically Moorea. 
+This dataset is completed with local information of iconic spcies in French Polynesia, specifically Moorea (*ico_spp_mra_cat*). 
 
-In French Polynesia, sharks and cetacean are classified within B category, which includes species known as *patrimonial*, having a cultural value. Check [*Le Code de l'environnement de la Polynésie française*](http://www.2dattitude.org/ressources/k2d/pdf/1/1D/1D05/1D05-01/1D05-01-01.pdf) and *Profil d'écosystèmes de la Polynésie Française – Région Pacifique, 2016* (see reference below). Therefore, sharks and cetacean encountered from Moorea were checked in [Moorea BIOCODE Species Database](http://biocode.berkeley.edu/cgi/biocode_species_query_form). 
+In French Polynesia, sharks and cetacean are classified within B category, which includes species known as *patrimonial*, having a cultural value. Check [*Le Code de l'environnement de la Polynésie française*](http://www.2dattitude.org/ressources/k2d/pdf/1/1D/1D05/1D05-01/1D05-01-01.pdf) and *Profil d'écosystèmes de la Polynésie Française – Région Pacifique, 2016* (see reference below). Therefore, sharks and cetacean encountered from Moorea are checked in [Moorea BIOCODE Species Database](http://biocode.berkeley.edu/cgi/biocode_species_query_form) (*ico_spp_biocode_cat*). 
 
-The last step was to check their IUCN status and the historical changes in the [IUCN Red List of Threatened Species](https://www.iucnredlist.org/).
+The last step is to check their IUCN status and the historical changes in the [IUCN Red List of Threatened Species](https://www.iucnredlist.org/). 
 
 **Some references**
 
