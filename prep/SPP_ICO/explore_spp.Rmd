@@ -1,0 +1,95 @@
+---
+title: "explore_spp"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+#Species Goal: Data exploration and wrangling 
+## Import dataset
+```{r , echo=FALSE}
+library(readr)
+rgn_spp_gl <- read_csv("prep/SPP_ICO/rgn_spp_gl.csv")
+```
+##Observations
+
+These are the species from French Polynesia. NA : missing values 
+Does this datasets include just marine species? Lets check--> we can join rgn_spp_gl table and spp_marine_from_api. 
+
+Time series data? Join the resultant datasets with iucn_risk_timeseries
+
+##Join rgn_spp_gl and spp_marine_from_api and explore the dataset
+
+```{r joining , echo=FALSE, warning=FALSE}
+spp_marineapi <- read_csv("prep/SPP_ICO/spp_marine_from_api_2018-1.csv")
+
+library (tidyr)
+library (dplyr)
+rgn_spp_mar <- rgn_spp_gl %>%
+inner_join(spp_marineapi)
+```
+
+```{r exploration , echo=FALSE, warning=FALSE}
+str (rgn_spp_gl)
+str (rgn_spp_mar)
+ncol(rgn_spp_gl)
+ncol(rgn_spp_mar)
+nrow(rgn_spp_gl)
+nrow(rgn_spp_mar)
+summary(rgn_spp_gl)
+summary(rgn_spp_mar)
+dim(rgn_spp_gl)
+dim(rgn_spp_mar)
+```
+
+The dataset *rgn_spp_gl* has 6825 observations/ species and 11 variables/columns, whereas the dataset *rgn_spp_mar* has 1876 observations and 13 variables. The second one is the resultant dataframe of innerjoinning between *rgn_spp_gl* ( species from French Polynesia) and *spp_marine_from_api_2008_1* (global marine species). **Then, could we assume that *rgn_spp_mar* include just marine species?**
+
+##Join rgn_spp_mar and iucn_risk_timeseries (joining by "iucn_sid")
+
+The aim is to have French Polyesia marine species and time-series IUCN status, to get ready the dataset for calculating trend. Once we have it, we explore the resultant dataset: structure, dimensions, unique values...
+
+```{r explore, echo=FALSE, warning=FALSE}
+rgn_spp_time<- rgn_spp_mar %>%
+  inner_join(iucn_risk_timeseries_2018_1) %>%
+  select(iucn_sid, sciname, rgn_name, year, cat_ts,cat_ts_score)
+View(rgn_spp_time)
+str(rgn_spp_time)
+ncol(rgn_spp_time)
+nrow(rgn_spp_time)
+dim(rgn_spp_time)
+skim(rgn_spp_time, iucn_sid)
+unique_values=unique(rgn_spp_time$iucn_sid)
+uniquemar_values= unique (rgn_spp_mar$iucn_sid)
+length (unique_values)
+length(uniquemar_values)
+
+```
+
+I would like to check if both datasets contain the same number of species (iucn_sid), it has been checked with the function *unique* and *length*. The species number varies: 1739 (after joining with status time series) and 1874 (before joining). It is may be because the missing species did not have available IUCN assessments/time series. 
+
+** Does the data need any further processing?**We will see...
+Compare with Moorea database? The spatial scale of our study is "lagoon of Moorea", thus we may be overestimating the species abundance. Should we compare with Moorea Biocode species database?...I guess yes. So at the end we would obtain species from Moorea that have been assessed by IUCN. 
+
+**export the table**
+Let's write data to csv files:  
+decimal point = "." and value separators = comma (",")
+
+```{r , echo=FALSE}
+library(xlsx)
+write.xlsx(rgn_spp_time, "c:/rgn_spp_time.xlsx")
+write.csv(rgn_spp_time, file = "rgn_spp_time.csv")
+```
+
+##NOTE 
+We need : 
+- Average species condition
+- Average species condition trend
+Check OHI 2018 for calculations
