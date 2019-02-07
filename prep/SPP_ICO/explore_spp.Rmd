@@ -18,6 +18,7 @@ When you click the **Knit** button a document will be generated that includes bo
 ```{r , echo=FALSE}
 library(readr)
 rgn_spp_gl <- read_csv("prep/SPP_ICO/rgn_spp_gl.csv")
+
 ```
 ##Observations
 
@@ -77,6 +78,8 @@ I would like to check if both datasets contain the same number of species (iucn_
 
 ** Does the data need any further processing?**We will see...
 Compare with Moorea database? The spatial scale of our study is "lagoon of Moorea", thus we may be overestimating the species abundance. Should we compare with Moorea Biocode species database?...I guess yes. So at the end we would obtain species from Moorea that have been assessed by IUCN. 
+
+**NA**?? How to deal with? Does it means the species is not in FP? Why do they have count cells? Maybe it is included all assessed species and then 1 in presence indicate the species that are in FP (makes sense) --> There are sp. as *Dermochelys coriacea* that indicates in presence "NA" although it is encountered in FP.
 
 **export the table**
 Let's write data to csv files:  
