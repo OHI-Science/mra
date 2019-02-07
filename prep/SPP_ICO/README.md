@@ -31,6 +31,10 @@ Then, for time-series data, *rgn_spp_mar* was joint with *iucn_risk_timeseries*,
 
 *rgn_spp_gl*, *spp_marine_from_api_2018-1* and *iucn_risk_timeseries* are original datasets from the [2018 global analysis](https://github.com/OHI-Science/ohiprep_v2018/tree/gh-pages/globalprep/spp/v2018/_data).
  
+
+**Note**
+To keep in mind: the spatial scale of our study is "lagoon of Moorea", thus we may be overestimating the biodiversity. The question is if should we compare with Moorea Biocode species database? One option is to inner-joining FP marine species with Moorea datasets and thus, we would obtain Moorea species hat have been assessed by IUCN.
+
 It is still ongoing...
 
 
