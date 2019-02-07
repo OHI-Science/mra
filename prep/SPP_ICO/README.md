@@ -33,7 +33,8 @@ Then, for time-series data, *rgn_spp_mar* was joint with *iucn_risk_timeseries*,
  
 
 **Note**
-To keep in mind: the spatial scale of our study is "lagoon of Moorea", thus we may be overestimating the biodiversity. The question is if should we compare with Moorea Biocode species database? One option is to inner-joining FP marine species with Moorea datasets and thus, we would obtain Moorea species hat have been assessed by IUCN.
+
+To keep in mind: the spatial scale of our study is "lagoon of Moorea", thus we may be overestimating the biodiversity. The question is if we should compare with Moorea Biocode species database. One option is to inner-joining FP marine species with Moorea datasets and thus, we would obtain Moorea species hat have been assessed by IUCN.
 
 It is still ongoing...
 
