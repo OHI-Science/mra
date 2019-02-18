@@ -1,730 +1,1036 @@
-﻿iucn_sid,sciname,year,cat,cat_score,eval_yr,rgn_id,rgn_name,comname,ico_gl,ico_rgn_id,presence,
-3897,Caretta caretta,1992,VU,0.4,1990,147,French Polynesia,Loggerhead Turtle,TRUE,NA,Extant,
-3897,Caretta caretta,1993,VU,0.4,1990,147,French Polynesia,Loggerhead Turtle,TRUE,NA,Extant,
-3897,Caretta caretta,1994,VU,0.4,1994,147,French Polynesia,Loggerhead Turtle,TRUE,NA,Extant,
-3897,Caretta caretta,1995,VU,0.4,1994,147,French Polynesia,Loggerhead Turtle,TRUE,NA,Extant,
-3897,Caretta caretta,1996,EN,0.6,1996,147,French Polynesia,Loggerhead Turtle,TRUE,NA,Extant,
-3897,Caretta caretta,1997,EN,0.6,1996,147,French Polynesia,Loggerhead Turtle,TRUE,NA,Extant,
-3897,Caretta caretta,1998,EN,0.6,1996,147,French Polynesia,Loggerhead Turtle,TRUE,NA,Extant,
-3897,Caretta caretta,1999,EN,0.6,1996,147,French Polynesia,Loggerhead Turtle,TRUE,NA,Extant,
-3897,Caretta caretta,2.00E+03,EN,0.6,1996,147,French Polynesia,Loggerhead Turtle,TRUE,NA,Extant,
-3897,Caretta caretta,2001,EN,0.6,1996,147,French Polynesia,Loggerhead Turtle,TRUE,NA,Extant,
-3897,Caretta caretta,2002,EN,0.6,1996,147,French Polynesia,Loggerhead Turtle,TRUE,NA,Extant,
-3897,Caretta caretta,2003,EN,0.6,1996,147,French Polynesia,Loggerhead Turtle,TRUE,NA,Extant,
-3897,Caretta caretta,2004,EN,0.6,1996,147,French Polynesia,Loggerhead Turtle,TRUE,NA,Extant,
-3897,Caretta caretta,2005,EN,0.6,1996,147,French Polynesia,Loggerhead Turtle,TRUE,NA,Extant,
-3897,Caretta caretta,2006,EN,0.6,1996,147,French Polynesia,Loggerhead Turtle,TRUE,NA,Extant,
-3897,Caretta caretta,2007,EN,0.6,1996,147,French Polynesia,Loggerhead Turtle,TRUE,NA,Extant,
-3897,Caretta caretta,2008,EN,0.6,1996,147,French Polynesia,Loggerhead Turtle,TRUE,NA,Extant,
-3897,Caretta caretta,2009,EN,0.6,1996,147,French Polynesia,Loggerhead Turtle,TRUE,NA,Extant,
-3897,Caretta caretta,2010,EN,0.6,1996,147,French Polynesia,Loggerhead Turtle,TRUE,NA,Extant,
-3897,Caretta caretta,2011,EN,0.6,1996,147,French Polynesia,Loggerhead Turtle,TRUE,NA,Extant,
-3897,Caretta caretta,2012,EN,0.6,1996,147,French Polynesia,Loggerhead Turtle,TRUE,NA,Extant,
-3897,Caretta caretta,2013,EN,0.6,1996,147,French Polynesia,Loggerhead Turtle,TRUE,NA,Extant,
-3897,Caretta caretta,2014,EN,0.6,1996,147,French Polynesia,Loggerhead Turtle,TRUE,NA,Extant,
-3897,Caretta caretta,2015,VU,0.4,2015,147,French Polynesia,Loggerhead Turtle,TRUE,NA,Extant,
-3897,Caretta caretta,2016,VU,0.4,2015,147,French Polynesia,Loggerhead Turtle,TRUE,NA,Extant,
-3897,Caretta caretta,2017,VU,0.4,2017,147,French Polynesia,Loggerhead Turtle,TRUE,NA,Extant,
-3897,Caretta caretta,2018,VU,0.4,2017,147,French Polynesia,Loggerhead Turtle,TRUE,NA,Extant,
-4592,Cheilinus undulatus,1992,VU,0.4,NA,147,French Polynesia,"Humphead wrasse, Napoleon Wrasse",TRUE,NA,Extant,
-4592,Cheilinus undulatus,1993,VU,0.4,NA,147,French Polynesia,"Humphead wrasse, Napoleon Wrasse",TRUE,NA,Extant,
-4592,Cheilinus undulatus,1994,VU,0.4,NA,147,French Polynesia,"Humphead wrasse, Napoleon Wrasse",TRUE,NA,Extant,
-4592,Cheilinus undulatus,1995,VU,0.4,NA,147,French Polynesia,"Humphead wrasse, Napoleon Wrasse",TRUE,NA,Extant,
-4592,Cheilinus undulatus,1996,VU,0.4,1996,147,French Polynesia,"Humphead wrasse, Napoleon Wrasse",TRUE,NA,Extant,
-4592,Cheilinus undulatus,1997,VU,0.4,1996,147,French Polynesia,"Humphead wrasse, Napoleon Wrasse",TRUE,NA,Extant,
-4592,Cheilinus undulatus,1998,VU,0.4,1996,147,French Polynesia,"Humphead wrasse, Napoleon Wrasse",TRUE,NA,Extant,
-4592,Cheilinus undulatus,1999,VU,0.4,1996,147,French Polynesia,"Humphead wrasse, Napoleon Wrasse",TRUE,NA,Extant,
-4592,Cheilinus undulatus,2.00E+03,VU,0.4,1996,147,French Polynesia,"Humphead wrasse, Napoleon Wrasse",TRUE,NA,Extant,
-4592,Cheilinus undulatus,2001,VU,0.4,1996,147,French Polynesia,"Humphead wrasse, Napoleon Wrasse",TRUE,NA,Extant,
-4592,Cheilinus undulatus,2002,VU,0.4,1996,147,French Polynesia,"Humphead wrasse, Napoleon Wrasse",TRUE,NA,Extant,
-4592,Cheilinus undulatus,2003,VU,0.4,1996,147,French Polynesia,"Humphead wrasse, Napoleon Wrasse",TRUE,NA,Extant,
-4592,Cheilinus undulatus,2004,EN,0.6,2004,147,French Polynesia,"Humphead wrasse, Napoleon Wrasse",TRUE,NA,Extant,
-4592,Cheilinus undulatus,2005,EN,0.6,2004,147,French Polynesia,"Humphead wrasse, Napoleon Wrasse",TRUE,NA,Extant,
-4592,Cheilinus undulatus,2006,EN,0.6,2004,147,French Polynesia,"Humphead wrasse, Napoleon Wrasse",TRUE,NA,Extant,
-4592,Cheilinus undulatus,2007,EN,0.6,2004,147,French Polynesia,"Humphead wrasse, Napoleon Wrasse",TRUE,NA,Extant,
-4592,Cheilinus undulatus,2008,EN,0.6,2004,147,French Polynesia,"Humphead wrasse, Napoleon Wrasse",TRUE,NA,Extant,
-4592,Cheilinus undulatus,2009,EN,0.6,2004,147,French Polynesia,"Humphead wrasse, Napoleon Wrasse",TRUE,NA,Extant,
-4592,Cheilinus undulatus,2010,EN,0.6,2004,147,French Polynesia,"Humphead wrasse, Napoleon Wrasse",TRUE,NA,Extant,
-4592,Cheilinus undulatus,2011,EN,0.6,2004,147,French Polynesia,"Humphead wrasse, Napoleon Wrasse",TRUE,NA,Extant,
-4592,Cheilinus undulatus,2012,EN,0.6,2004,147,French Polynesia,"Humphead wrasse, Napoleon Wrasse",TRUE,NA,Extant,
-4592,Cheilinus undulatus,2013,EN,0.6,2004,147,French Polynesia,"Humphead wrasse, Napoleon Wrasse",TRUE,NA,Extant,
-4592,Cheilinus undulatus,2014,EN,0.6,2004,147,French Polynesia,"Humphead wrasse, Napoleon Wrasse",TRUE,NA,Extant,
-4592,Cheilinus undulatus,2015,EN,0.6,2004,147,French Polynesia,"Humphead wrasse, Napoleon Wrasse",TRUE,NA,Extant,
-4592,Cheilinus undulatus,2016,EN,0.6,2004,147,French Polynesia,"Humphead wrasse, Napoleon Wrasse",TRUE,NA,Extant,
-4592,Cheilinus undulatus,2017,EN,0.6,2004,147,French Polynesia,"Humphead wrasse, Napoleon Wrasse",TRUE,NA,Extant,
-4592,Cheilinus undulatus,2018,EN,0.6,2004,147,French Polynesia,"Humphead wrasse, Napoleon Wrasse",TRUE,NA,Extant,
-4615,Chelonia mydas,1992,EN,0.6,1990,147,French Polynesia,Green Turtle,TRUE,NA,Extant,
-4615,Chelonia mydas,1993,EN,0.6,1990,147,French Polynesia,Green Turtle,TRUE,NA,Extant,
-4615,Chelonia mydas,1994,EN,0.6,1994,147,French Polynesia,Green Turtle,TRUE,NA,Extant,
-4615,Chelonia mydas,1995,EN,0.6,1994,147,French Polynesia,Green Turtle,TRUE,NA,Extant,
-4615,Chelonia mydas,1996,EN,0.6,1996,147,French Polynesia,Green Turtle,TRUE,NA,Extant,
-4615,Chelonia mydas,1997,EN,0.6,1996,147,French Polynesia,Green Turtle,TRUE,NA,Extant,
-4615,Chelonia mydas,1998,EN,0.6,1996,147,French Polynesia,Green Turtle,TRUE,NA,Extant,
-4615,Chelonia mydas,1999,EN,0.6,1996,147,French Polynesia,Green Turtle,TRUE,NA,Extant,
-4615,Chelonia mydas,2.00E+03,EN,0.6,1996,147,French Polynesia,Green Turtle,TRUE,NA,Extant,
-4615,Chelonia mydas,2001,EN,0.6,1996,147,French Polynesia,Green Turtle,TRUE,NA,Extant,
-4615,Chelonia mydas,2002,EN,0.6,1996,147,French Polynesia,Green Turtle,TRUE,NA,Extant,
-4615,Chelonia mydas,2003,EN,0.6,1996,147,French Polynesia,Green Turtle,TRUE,NA,Extant,
-4615,Chelonia mydas,2004,EN,0.6,2004,147,French Polynesia,Green Turtle,TRUE,NA,Extant,
-4615,Chelonia mydas,2005,EN,0.6,2004,147,French Polynesia,Green Turtle,TRUE,NA,Extant,
-4615,Chelonia mydas,2006,EN,0.6,2004,147,French Polynesia,Green Turtle,TRUE,NA,Extant,
-4615,Chelonia mydas,2007,EN,0.6,2004,147,French Polynesia,Green Turtle,TRUE,NA,Extant,
-4615,Chelonia mydas,2008,EN,0.6,2004,147,French Polynesia,Green Turtle,TRUE,NA,Extant,
-4615,Chelonia mydas,2009,EN,0.6,2004,147,French Polynesia,Green Turtle,TRUE,NA,Extant,
-4615,Chelonia mydas,2010,EN,0.6,2004,147,French Polynesia,Green Turtle,TRUE,NA,Extant,
-4615,Chelonia mydas,2011,EN,0.6,2004,147,French Polynesia,Green Turtle,TRUE,NA,Extant,
-4615,Chelonia mydas,2012,EN,0.6,2004,147,French Polynesia,Green Turtle,TRUE,NA,Extant,
-4615,Chelonia mydas,2013,EN,0.6,2004,147,French Polynesia,Green Turtle,TRUE,NA,Extant,
-4615,Chelonia mydas,2014,EN,0.6,2004,147,French Polynesia,Green Turtle,TRUE,NA,Extant,
-4615,Chelonia mydas,2015,EN,0.6,2004,147,French Polynesia,Green Turtle,TRUE,NA,Extant,
-4615,Chelonia mydas,2016,EN,0.6,2004,147,French Polynesia,Green Turtle,TRUE,NA,Extant,
-4615,Chelonia mydas,2017,EN,0.6,2004,147,French Polynesia,Green Turtle,TRUE,NA,Extant,
-4615,Chelonia mydas,2018,EN,0.6,2004,147,French Polynesia,Green Turtle,TRUE,NA,Extant,
-6494,Dermochelys coriacea,1992,EN,0.6,1990,147,French Polynesia,Leatherback Turtle,TRUE,NA,Extant,
-6494,Dermochelys coriacea,1993,EN,0.6,1990,147,French Polynesia,Leatherback Turtle,TRUE,NA,Extant,
-6494,Dermochelys coriacea,1994,EN,0.6,1994,147,French Polynesia,Leatherback Turtle,TRUE,NA,Extant,
-6494,Dermochelys coriacea,1995,EN,0.6,1994,147,French Polynesia,Leatherback Turtle,TRUE,NA,Extant,
-6494,Dermochelys coriacea,1996,EN,0.6,1996,147,French Polynesia,Leatherback Turtle,TRUE,NA,Extant,
-6494,Dermochelys coriacea,1997,EN,0.6,1996,147,French Polynesia,Leatherback Turtle,TRUE,NA,Extant,
-6494,Dermochelys coriacea,1998,EN,0.6,1996,147,French Polynesia,Leatherback Turtle,TRUE,NA,Extant,
-6494,Dermochelys coriacea,1999,EN,0.6,1996,147,French Polynesia,Leatherback Turtle,TRUE,NA,Extant,
-6494,Dermochelys coriacea,2.00E+03,CR,0.8,2000,147,French Polynesia,Leatherback Turtle,TRUE,NA,Extant,
-6494,Dermochelys coriacea,2001,CR,0.8,2000,147,French Polynesia,Leatherback Turtle,TRUE,NA,Extant,
-6494,Dermochelys coriacea,2002,CR,0.8,2000,147,French Polynesia,Leatherback Turtle,TRUE,NA,Extant,
-6494,Dermochelys coriacea,2003,CR,0.8,2000,147,French Polynesia,Leatherback Turtle,TRUE,NA,Extant,
-6494,Dermochelys coriacea,2004,CR,0.8,2000,147,French Polynesia,Leatherback Turtle,TRUE,NA,Extant,
-6494,Dermochelys coriacea,2005,CR,0.8,2000,147,French Polynesia,Leatherback Turtle,TRUE,NA,Extant,
-6494,Dermochelys coriacea,2006,CR,0.8,2000,147,French Polynesia,Leatherback Turtle,TRUE,NA,Extant,
-6494,Dermochelys coriacea,2007,CR,0.8,2000,147,French Polynesia,Leatherback Turtle,TRUE,NA,Extant,
-6494,Dermochelys coriacea,2008,CR,0.8,2000,147,French Polynesia,Leatherback Turtle,TRUE,NA,Extant,
-6494,Dermochelys coriacea,2009,CR,0.8,2000,147,French Polynesia,Leatherback Turtle,TRUE,NA,Extant,
-6494,Dermochelys coriacea,2010,CR,0.8,2000,147,French Polynesia,Leatherback Turtle,TRUE,NA,Extant,
-6494,Dermochelys coriacea,2011,CR,0.8,2000,147,French Polynesia,Leatherback Turtle,TRUE,NA,Extant,
-6494,Dermochelys coriacea,2012,CR,0.8,2000,147,French Polynesia,Leatherback Turtle,TRUE,NA,Extant,
-6494,Dermochelys coriacea,2013,VU,0.4,2013,147,French Polynesia,Leatherback Turtle,TRUE,NA,Extant,
-6494,Dermochelys coriacea,2014,VU,0.4,2013,147,French Polynesia,Leatherback Turtle,TRUE,NA,Extant,
-6494,Dermochelys coriacea,2015,VU,0.4,2013,147,French Polynesia,Leatherback Turtle,TRUE,NA,Extant,
-6494,Dermochelys coriacea,2016,VU,0.4,2013,147,French Polynesia,Leatherback Turtle,TRUE,NA,Extant,
-6494,Dermochelys coriacea,2017,VU,0.4,2013,147,French Polynesia,Leatherback Turtle,TRUE,NA,Extant,
-6494,Dermochelys coriacea,2018,VU,0.4,2013,147,French Polynesia,Leatherback Turtle,TRUE,NA,Extant,
-13006,Megaptera novaeangliae,1992,VU,0.4,1990,147,French Polynesia,Humpback Whale,TRUE,NA,Extant,
-13006,Megaptera novaeangliae,1993,VU,0.4,1990,147,French Polynesia,Humpback Whale,TRUE,NA,Extant,
-13006,Megaptera novaeangliae,1994,VU,0.4,1994,147,French Polynesia,Humpback Whale,TRUE,NA,Extant,
-13006,Megaptera novaeangliae,1995,VU,0.4,1994,147,French Polynesia,Humpback Whale,TRUE,NA,Extant,
-13006,Megaptera novaeangliae,1996,VU,0.4,1996,147,French Polynesia,Humpback Whale,TRUE,NA,Extant,
-13006,Megaptera novaeangliae,1997,VU,0.4,1996,147,French Polynesia,Humpback Whale,TRUE,NA,Extant,
-13006,Megaptera novaeangliae,1998,VU,0.4,1996,147,French Polynesia,Humpback Whale,TRUE,NA,Extant,
-13006,Megaptera novaeangliae,1999,VU,0.4,1996,147,French Polynesia,Humpback Whale,TRUE,NA,Extant,
-13006,Megaptera novaeangliae,2.00E+03,VU,0.4,1996,147,French Polynesia,Humpback Whale,TRUE,NA,Extant,
-13006,Megaptera novaeangliae,2001,VU,0.4,1996,147,French Polynesia,Humpback Whale,TRUE,NA,Extant,
-13006,Megaptera novaeangliae,2002,VU,0.4,1996,147,French Polynesia,Humpback Whale,TRUE,NA,Extant,
-13006,Megaptera novaeangliae,2003,VU,0.4,1996,147,French Polynesia,Humpback Whale,TRUE,NA,Extant,
-13006,Megaptera novaeangliae,2004,VU,0.4,1996,147,French Polynesia,Humpback Whale,TRUE,NA,Extant,
-13006,Megaptera novaeangliae,2005,VU,0.4,1996,147,French Polynesia,Humpback Whale,TRUE,NA,Extant,
-13006,Megaptera novaeangliae,2006,VU,0.4,1996,147,French Polynesia,Humpback Whale,TRUE,NA,Extant,
-13006,Megaptera novaeangliae,2007,VU,0.4,1996,147,French Polynesia,Humpback Whale,TRUE,NA,Extant,
-13006,Megaptera novaeangliae,2008,LC,0,2008,147,French Polynesia,Humpback Whale,TRUE,NA,Extant,
-13006,Megaptera novaeangliae,2009,LC,0,2008,147,French Polynesia,Humpback Whale,TRUE,NA,Extant,
-13006,Megaptera novaeangliae,2010,LC,0,2008,147,French Polynesia,Humpback Whale,TRUE,NA,Extant,
-13006,Megaptera novaeangliae,2011,LC,0,2008,147,French Polynesia,Humpback Whale,TRUE,NA,Extant,
-13006,Megaptera novaeangliae,2012,LC,0,2008,147,French Polynesia,Humpback Whale,TRUE,NA,Extant,
-13006,Megaptera novaeangliae,2013,LC,0,2008,147,French Polynesia,Humpback Whale,TRUE,NA,Extant,
-13006,Megaptera novaeangliae,2014,LC,0,2008,147,French Polynesia,Humpback Whale,TRUE,NA,Extant,
-13006,Megaptera novaeangliae,2015,LC,0,2008,147,French Polynesia,Humpback Whale,TRUE,NA,Extant,
-13006,Megaptera novaeangliae,2016,LC,0,2008,147,French Polynesia,Humpback Whale,TRUE,NA,Extant,
-13006,Megaptera novaeangliae,2017,LC,0,2008,147,French Polynesia,Humpback Whale,TRUE,NA,Extant,
-13006,Megaptera novaeangliae,2018,LC,0,2008,147,French Polynesia,Humpback Whale,TRUE,NA,Extant,
-19488,Rhincodon typus,1992,VU,0.4,NA,147,French Polynesia,Whale Shark,TRUE,NA,Extant,
-19488,Rhincodon typus,1993,VU,0.4,NA,147,French Polynesia,Whale Shark,TRUE,NA,Extant,
-19488,Rhincodon typus,1994,VU,0.4,NA,147,French Polynesia,Whale Shark,TRUE,NA,Extant,
-19488,Rhincodon typus,1995,VU,0.4,NA,147,French Polynesia,Whale Shark,TRUE,NA,Extant,
-19488,Rhincodon typus,1996,VU,0.4,NA,147,French Polynesia,Whale Shark,TRUE,NA,Extant,
-19488,Rhincodon typus,1997,VU,0.4,NA,147,French Polynesia,Whale Shark,TRUE,NA,Extant,
-19488,Rhincodon typus,1998,VU,0.4,NA,147,French Polynesia,Whale Shark,TRUE,NA,Extant,
-19488,Rhincodon typus,1999,VU,0.4,NA,147,French Polynesia,Whale Shark,TRUE,NA,Extant,
-19488,Rhincodon typus,2.00E+03,VU,0.4,2000,147,French Polynesia,Whale Shark,TRUE,NA,Extant,
-19488,Rhincodon typus,2001,VU,0.4,2000,147,French Polynesia,Whale Shark,TRUE,NA,Extant,
-19488,Rhincodon typus,2002,VU,0.4,2000,147,French Polynesia,Whale Shark,TRUE,NA,Extant,
-19488,Rhincodon typus,2003,VU,0.4,2000,147,French Polynesia,Whale Shark,TRUE,NA,Extant,
-19488,Rhincodon typus,2004,VU,0.4,2000,147,French Polynesia,Whale Shark,TRUE,NA,Extant,
-19488,Rhincodon typus,2005,VU,0.4,2005,147,French Polynesia,Whale Shark,TRUE,NA,Extant,
-19488,Rhincodon typus,2006,VU,0.4,2005,147,French Polynesia,Whale Shark,TRUE,NA,Extant,
-19488,Rhincodon typus,2007,VU,0.4,2005,147,French Polynesia,Whale Shark,TRUE,NA,Extant,
-19488,Rhincodon typus,2008,VU,0.4,2005,147,French Polynesia,Whale Shark,TRUE,NA,Extant,
-19488,Rhincodon typus,2009,VU,0.4,2005,147,French Polynesia,Whale Shark,TRUE,NA,Extant,
-19488,Rhincodon typus,2010,VU,0.4,2005,147,French Polynesia,Whale Shark,TRUE,NA,Extant,
-19488,Rhincodon typus,2011,VU,0.4,2005,147,French Polynesia,Whale Shark,TRUE,NA,Extant,
-19488,Rhincodon typus,2012,VU,0.4,2005,147,French Polynesia,Whale Shark,TRUE,NA,Extant,
-19488,Rhincodon typus,2013,VU,0.4,2005,147,French Polynesia,Whale Shark,TRUE,NA,Extant,
-19488,Rhincodon typus,2014,VU,0.4,2005,147,French Polynesia,Whale Shark,TRUE,NA,Extant,
-19488,Rhincodon typus,2015,VU,0.4,2005,147,French Polynesia,Whale Shark,TRUE,NA,Extant,
-19488,Rhincodon typus,2016,EN,0.6,2016,147,French Polynesia,Whale Shark,TRUE,NA,Extant,
-19488,Rhincodon typus,2017,EN,0.6,2016,147,French Polynesia,Whale Shark,TRUE,NA,Extant,
-19488,Rhincodon typus,2018,EN,0.6,2016,147,French Polynesia,Whale Shark,TRUE,NA,Extant,
-20738,Steno bredanensis,1992,LC,0,NA,147,French Polynesia,Rough Toothed Dolphin,TRUE,NA,Extant,
-20738,Steno bredanensis,1993,LC,0,NA,147,French Polynesia,Rough Toothed Dolphin,TRUE,NA,Extant,
-20738,Steno bredanensis,1994,LC,0,NA,147,French Polynesia,Rough Toothed Dolphin,TRUE,NA,Extant,
-20738,Steno bredanensis,1995,LC,0,NA,147,French Polynesia,Rough Toothed Dolphin,TRUE,NA,Extant,
-20738,Steno bredanensis,1996,LC,0,NA,147,French Polynesia,Rough Toothed Dolphin,TRUE,NA,Extant,
-20738,Steno bredanensis,1997,LC,0,NA,147,French Polynesia,Rough Toothed Dolphin,TRUE,NA,Extant,
-20738,Steno bredanensis,1998,LC,0,NA,147,French Polynesia,Rough Toothed Dolphin,TRUE,NA,Extant,
-20738,Steno bredanensis,1999,LC,0,NA,147,French Polynesia,Rough Toothed Dolphin,TRUE,NA,Extant,
-20738,Steno bredanensis,2.00E+03,LC,0,NA,147,French Polynesia,Rough Toothed Dolphin,TRUE,NA,Extant,
-20738,Steno bredanensis,2001,LC,0,NA,147,French Polynesia,Rough Toothed Dolphin,TRUE,NA,Extant,
-20738,Steno bredanensis,2002,LC,0,NA,147,French Polynesia,Rough Toothed Dolphin,TRUE,NA,Extant,
-20738,Steno bredanensis,2003,LC,0,NA,147,French Polynesia,Rough Toothed Dolphin,TRUE,NA,Extant,
-20738,Steno bredanensis,2004,LC,0,NA,147,French Polynesia,Rough Toothed Dolphin,TRUE,NA,Extant,
-20738,Steno bredanensis,2005,LC,0,NA,147,French Polynesia,Rough Toothed Dolphin,TRUE,NA,Extant,
-20738,Steno bredanensis,2006,LC,0,NA,147,French Polynesia,Rough Toothed Dolphin,TRUE,NA,Extant,
-20738,Steno bredanensis,2007,LC,0,NA,147,French Polynesia,Rough Toothed Dolphin,TRUE,NA,Extant,
-20738,Steno bredanensis,2008,LC,0,2008,147,French Polynesia,Rough Toothed Dolphin,TRUE,NA,Extant,
-20738,Steno bredanensis,2009,LC,0,2008,147,French Polynesia,Rough Toothed Dolphin,TRUE,NA,Extant,
-20738,Steno bredanensis,2010,LC,0,2008,147,French Polynesia,Rough Toothed Dolphin,TRUE,NA,Extant,
-20738,Steno bredanensis,2011,LC,0,2008,147,French Polynesia,Rough Toothed Dolphin,TRUE,NA,Extant,
-20738,Steno bredanensis,2012,LC,0,2012,147,French Polynesia,Rough Toothed Dolphin,TRUE,NA,Extant,
-20738,Steno bredanensis,2013,LC,0,2012,147,French Polynesia,Rough Toothed Dolphin,TRUE,NA,Extant,
-20738,Steno bredanensis,2014,LC,0,2012,147,French Polynesia,Rough Toothed Dolphin,TRUE,NA,Extant,
-20738,Steno bredanensis,2015,LC,0,2012,147,French Polynesia,Rough Toothed Dolphin,TRUE,NA,Extant,
-20738,Steno bredanensis,2016,LC,0,2012,147,French Polynesia,Rough Toothed Dolphin,TRUE,NA,Extant,
-20738,Steno bredanensis,2017,LC,0,2012,147,French Polynesia,Rough Toothed Dolphin,TRUE,NA,Extant,
-20738,Steno bredanensis,2018,LC,0,2012,147,French Polynesia,Rough Toothed Dolphin,TRUE,NA,Extant,
-39339,Alopias vulpinus,1992,VU,0.4,NA,147,French Polynesia,Thresher Shark,TRUE,NA,Extant,
-39339,Alopias vulpinus,1993,VU,0.4,NA,147,French Polynesia,Thresher Shark,TRUE,NA,Extant,
-39339,Alopias vulpinus,1994,VU,0.4,NA,147,French Polynesia,Thresher Shark,TRUE,NA,Extant,
-39339,Alopias vulpinus,1995,VU,0.4,NA,147,French Polynesia,Thresher Shark,TRUE,NA,Extant,
-39339,Alopias vulpinus,1996,VU,0.4,NA,147,French Polynesia,Thresher Shark,TRUE,NA,Extant,
-39339,Alopias vulpinus,1997,VU,0.4,NA,147,French Polynesia,Thresher Shark,TRUE,NA,Extant,
-39339,Alopias vulpinus,1998,VU,0.4,NA,147,French Polynesia,Thresher Shark,TRUE,NA,Extant,
-39339,Alopias vulpinus,1999,VU,0.4,NA,147,French Polynesia,Thresher Shark,TRUE,NA,Extant,
-39339,Alopias vulpinus,2.00E+03,VU,0.4,NA,147,French Polynesia,Thresher Shark,TRUE,NA,Extant,
-39339,Alopias vulpinus,2001,VU,0.4,NA,147,French Polynesia,Thresher Shark,TRUE,NA,Extant,
-39339,Alopias vulpinus,2002,VU,0.4,NA,147,French Polynesia,Thresher Shark,TRUE,NA,Extant,
-39339,Alopias vulpinus,2003,VU,0.4,NA,147,French Polynesia,Thresher Shark,TRUE,NA,Extant,
-39339,Alopias vulpinus,2004,VU,0.4,NA,147,French Polynesia,Thresher Shark,TRUE,NA,Extant,
-39339,Alopias vulpinus,2005,VU,0.4,NA,147,French Polynesia,Thresher Shark,TRUE,NA,Extant,
-39339,Alopias vulpinus,2006,VU,0.4,NA,147,French Polynesia,Thresher Shark,TRUE,NA,Extant,
-39339,Alopias vulpinus,2007,VU,0.4,NA,147,French Polynesia,Thresher Shark,TRUE,NA,Extant,
-39339,Alopias vulpinus,2008,VU,0.4,NA,147,French Polynesia,Thresher Shark,TRUE,NA,Extant,
-39339,Alopias vulpinus,2009,VU,0.4,2009,147,French Polynesia,Thresher Shark,TRUE,NA,Extant,
-39339,Alopias vulpinus,2010,VU,0.4,2009,147,French Polynesia,Thresher Shark,TRUE,NA,Extant,
-39339,Alopias vulpinus,2011,VU,0.4,2009,147,French Polynesia,Thresher Shark,TRUE,NA,Extant,
-39339,Alopias vulpinus,2012,VU,0.4,2009,147,French Polynesia,Thresher Shark,TRUE,NA,Extant,
-39339,Alopias vulpinus,2013,VU,0.4,2009,147,French Polynesia,Thresher Shark,TRUE,NA,Extant,
-39339,Alopias vulpinus,2014,VU,0.4,2009,147,French Polynesia,Thresher Shark,TRUE,NA,Extant,
-39339,Alopias vulpinus,2015,VU,0.4,2009,147,French Polynesia,Thresher Shark,TRUE,NA,Extant,
-39339,Alopias vulpinus,2016,VU,0.4,2009,147,French Polynesia,Thresher Shark,TRUE,NA,Extant,
-39339,Alopias vulpinus,2017,VU,0.4,2009,147,French Polynesia,Thresher Shark,TRUE,NA,Extant,
-39339,Alopias vulpinus,2018,VU,0.4,2009,147,French Polynesia,Thresher Shark,TRUE,NA,Extant,
-39341,Isurus oxyrinchus,1992,NT,0.2,NA,147,French Polynesia,Shortfin Mako,TRUE,NA,Extant,
-39341,Isurus oxyrinchus,1993,NT,0.2,NA,147,French Polynesia,Shortfin Mako,TRUE,NA,Extant,
-39341,Isurus oxyrinchus,1994,NT,0.2,NA,147,French Polynesia,Shortfin Mako,TRUE,NA,Extant,
-39341,Isurus oxyrinchus,1995,NT,0.2,NA,147,French Polynesia,Shortfin Mako,TRUE,NA,Extant,
-39341,Isurus oxyrinchus,1996,NT,0.2,NA,147,French Polynesia,Shortfin Mako,TRUE,NA,Extant,
-39341,Isurus oxyrinchus,1997,NT,0.2,NA,147,French Polynesia,Shortfin Mako,TRUE,NA,Extant,
-39341,Isurus oxyrinchus,1998,NT,0.2,NA,147,French Polynesia,Shortfin Mako,TRUE,NA,Extant,
-39341,Isurus oxyrinchus,1999,NT,0.2,NA,147,French Polynesia,Shortfin Mako,TRUE,NA,Extant,
-39341,Isurus oxyrinchus,2.00E+03,NT,0.2,2000,147,French Polynesia,Shortfin Mako,TRUE,NA,Extant,
-39341,Isurus oxyrinchus,2001,NT,0.2,2000,147,French Polynesia,Shortfin Mako,TRUE,NA,Extant,
-39341,Isurus oxyrinchus,2002,NT,0.2,2000,147,French Polynesia,Shortfin Mako,TRUE,NA,Extant,
-39341,Isurus oxyrinchus,2003,NT,0.2,2000,147,French Polynesia,Shortfin Mako,TRUE,NA,Extant,
-39341,Isurus oxyrinchus,2004,NT,0.2,2000,147,French Polynesia,Shortfin Mako,TRUE,NA,Extant,
-39341,Isurus oxyrinchus,2005,NT,0.2,2000,147,French Polynesia,Shortfin Mako,TRUE,NA,Extant,
-39341,Isurus oxyrinchus,2006,NT,0.2,2000,147,French Polynesia,Shortfin Mako,TRUE,NA,Extant,
-39341,Isurus oxyrinchus,2007,NT,0.2,2000,147,French Polynesia,Shortfin Mako,TRUE,NA,Extant,
-39341,Isurus oxyrinchus,2008,NT,0.2,2000,147,French Polynesia,Shortfin Mako,TRUE,NA,Extant,
-39341,Isurus oxyrinchus,2009,VU,0.4,2009,147,French Polynesia,Shortfin Mako,TRUE,NA,Extant,
-39341,Isurus oxyrinchus,2010,VU,0.4,2009,147,French Polynesia,Shortfin Mako,TRUE,NA,Extant,
-39341,Isurus oxyrinchus,2011,VU,0.4,2009,147,French Polynesia,Shortfin Mako,TRUE,NA,Extant,
-39341,Isurus oxyrinchus,2012,VU,0.4,2009,147,French Polynesia,Shortfin Mako,TRUE,NA,Extant,
-39341,Isurus oxyrinchus,2013,VU,0.4,2009,147,French Polynesia,Shortfin Mako,TRUE,NA,Extant,
-39341,Isurus oxyrinchus,2014,VU,0.4,2009,147,French Polynesia,Shortfin Mako,TRUE,NA,Extant,
-39341,Isurus oxyrinchus,2015,VU,0.4,2009,147,French Polynesia,Shortfin Mako,TRUE,NA,Extant,
-39341,Isurus oxyrinchus,2016,VU,0.4,2009,147,French Polynesia,Shortfin Mako,TRUE,NA,Extant,
-39341,Isurus oxyrinchus,2017,VU,0.4,2009,147,French Polynesia,Shortfin Mako,TRUE,NA,Extant,
-39341,Isurus oxyrinchus,2018,VU,0.4,2009,147,French Polynesia,Shortfin Mako,TRUE,NA,Extant,
-39365,Carcharhinus amblyrhynchos,1992,NT,0.2,NA,147,French Polynesia,Gray reef shark,TRUE,NA,Extant,
-39365,Carcharhinus amblyrhynchos,1993,NT,0.2,NA,147,French Polynesia,Gray reef shark,TRUE,NA,Extant,
-39365,Carcharhinus amblyrhynchos,1994,NT,0.2,NA,147,French Polynesia,Gray reef shark,TRUE,NA,Extant,
-39365,Carcharhinus amblyrhynchos,1995,NT,0.2,NA,147,French Polynesia,Gray reef shark,TRUE,NA,Extant,
-39365,Carcharhinus amblyrhynchos,1996,NT,0.2,NA,147,French Polynesia,Gray reef shark,TRUE,NA,Extant,
-39365,Carcharhinus amblyrhynchos,1997,NT,0.2,NA,147,French Polynesia,Gray reef shark,TRUE,NA,Extant,
-39365,Carcharhinus amblyrhynchos,1998,NT,0.2,NA,147,French Polynesia,Gray reef shark,TRUE,NA,Extant,
-39365,Carcharhinus amblyrhynchos,1999,NT,0.2,NA,147,French Polynesia,Gray reef shark,TRUE,NA,Extant,
-39365,Carcharhinus amblyrhynchos,2.00E+03,NT,0.2,2000,147,French Polynesia,Gray reef shark,TRUE,NA,Extant,
-39365,Carcharhinus amblyrhynchos,2001,NT,0.2,2000,147,French Polynesia,Gray reef shark,TRUE,NA,Extant,
-39365,Carcharhinus amblyrhynchos,2002,NT,0.2,2000,147,French Polynesia,Gray reef shark,TRUE,NA,Extant,
-39365,Carcharhinus amblyrhynchos,2003,NT,0.2,2000,147,French Polynesia,Gray reef shark,TRUE,NA,Extant,
-39365,Carcharhinus amblyrhynchos,2004,NT,0.2,2000,147,French Polynesia,Gray reef shark,TRUE,NA,Extant,
-39365,Carcharhinus amblyrhynchos,2005,NT,0.2,2000,147,French Polynesia,Gray reef shark,TRUE,NA,Extant,
-39365,Carcharhinus amblyrhynchos,2006,NT,0.2,2000,147,French Polynesia,Gray reef shark,TRUE,NA,Extant,
-39365,Carcharhinus amblyrhynchos,2007,NT,0.2,2000,147,French Polynesia,Gray reef shark,TRUE,NA,Extant,
-39365,Carcharhinus amblyrhynchos,2008,NT,0.2,2000,147,French Polynesia,Gray reef shark,TRUE,NA,Extant,
-39365,Carcharhinus amblyrhynchos,2009,NT,0.2,2009,147,French Polynesia,Gray reef shark,TRUE,NA,Extant,
-39365,Carcharhinus amblyrhynchos,2010,NT,0.2,2009,147,French Polynesia,Gray reef shark,TRUE,NA,Extant,
-39365,Carcharhinus amblyrhynchos,2011,NT,0.2,2009,147,French Polynesia,Gray reef shark,TRUE,NA,Extant,
-39365,Carcharhinus amblyrhynchos,2012,NT,0.2,2009,147,French Polynesia,Gray reef shark,TRUE,NA,Extant,
-39365,Carcharhinus amblyrhynchos,2013,NT,0.2,2009,147,French Polynesia,Gray reef shark,TRUE,NA,Extant,
-39365,Carcharhinus amblyrhynchos,2014,NT,0.2,2009,147,French Polynesia,Gray reef shark,TRUE,NA,Extant,
-39365,Carcharhinus amblyrhynchos,2015,NT,0.2,2009,147,French Polynesia,Gray reef shark,TRUE,NA,Extant,
-39365,Carcharhinus amblyrhynchos,2016,NT,0.2,2009,147,French Polynesia,Gray reef shark,TRUE,NA,Extant,
-39365,Carcharhinus amblyrhynchos,2017,NT,0.2,2009,147,French Polynesia,Gray reef shark,TRUE,NA,Extant,
-39365,Carcharhinus amblyrhynchos,2018,NT,0.2,2009,147,French Polynesia,Gray reef shark,TRUE,NA,Extant,
-39378,Galeocerdo cuvier,1992,NT,0.2,NA,147,French Polynesia,Tiger Shark,TRUE,NA,Extant,
-39378,Galeocerdo cuvier,1993,NT,0.2,NA,147,French Polynesia,Tiger Shark,TRUE,NA,Extant,
-39378,Galeocerdo cuvier,1994,NT,0.2,NA,147,French Polynesia,Tiger Shark,TRUE,NA,Extant,
-39378,Galeocerdo cuvier,1995,NT,0.2,NA,147,French Polynesia,Tiger Shark,TRUE,NA,Extant,
-39378,Galeocerdo cuvier,1996,NT,0.2,NA,147,French Polynesia,Tiger Shark,TRUE,NA,Extant,
-39378,Galeocerdo cuvier,1997,NT,0.2,NA,147,French Polynesia,Tiger Shark,TRUE,NA,Extant,
-39378,Galeocerdo cuvier,1998,NT,0.2,NA,147,French Polynesia,Tiger Shark,TRUE,NA,Extant,
-39378,Galeocerdo cuvier,1999,NT,0.2,NA,147,French Polynesia,Tiger Shark,TRUE,NA,Extant,
-39378,Galeocerdo cuvier,2.00E+03,NT,0.2,2000,147,French Polynesia,Tiger Shark,TRUE,NA,Extant,
-39378,Galeocerdo cuvier,2001,NT,0.2,2000,147,French Polynesia,Tiger Shark,TRUE,NA,Extant,
-39378,Galeocerdo cuvier,2002,NT,0.2,2000,147,French Polynesia,Tiger Shark,TRUE,NA,Extant,
-39378,Galeocerdo cuvier,2003,NT,0.2,2000,147,French Polynesia,Tiger Shark,TRUE,NA,Extant,
-39378,Galeocerdo cuvier,2004,NT,0.2,2000,147,French Polynesia,Tiger Shark,TRUE,NA,Extant,
-39378,Galeocerdo cuvier,2005,NT,0.2,2000,147,French Polynesia,Tiger Shark,TRUE,NA,Extant,
-39378,Galeocerdo cuvier,2006,NT,0.2,2000,147,French Polynesia,Tiger Shark,TRUE,NA,Extant,
-39378,Galeocerdo cuvier,2007,NT,0.2,2000,147,French Polynesia,Tiger Shark,TRUE,NA,Extant,
-39378,Galeocerdo cuvier,2008,NT,0.2,2000,147,French Polynesia,Tiger Shark,TRUE,NA,Extant,
-39378,Galeocerdo cuvier,2009,NT,0.2,2009,147,French Polynesia,Tiger Shark,TRUE,NA,Extant,
-39378,Galeocerdo cuvier,2010,NT,0.2,2009,147,French Polynesia,Tiger Shark,TRUE,NA,Extant,
-39378,Galeocerdo cuvier,2011,NT,0.2,2009,147,French Polynesia,Tiger Shark,TRUE,NA,Extant,
-39378,Galeocerdo cuvier,2012,NT,0.2,2009,147,French Polynesia,Tiger Shark,TRUE,NA,Extant,
-39378,Galeocerdo cuvier,2013,NT,0.2,2009,147,French Polynesia,Tiger Shark,TRUE,NA,Extant,
-39378,Galeocerdo cuvier,2014,NT,0.2,2009,147,French Polynesia,Tiger Shark,TRUE,NA,Extant,
-39378,Galeocerdo cuvier,2015,NT,0.2,2009,147,French Polynesia,Tiger Shark,TRUE,NA,Extant,
-39378,Galeocerdo cuvier,2016,NT,0.2,2009,147,French Polynesia,Tiger Shark,TRUE,NA,Extant,
-39378,Galeocerdo cuvier,2017,NT,0.2,2009,147,French Polynesia,Tiger Shark,TRUE,NA,Extant,
-39378,Galeocerdo cuvier,2018,NT,0.2,2009,147,French Polynesia,Tiger Shark,TRUE,NA,Extant,
-39381,Prionace glauca,1992,NT,0.2,NA,147,French Polynesia,Blue Shark,TRUE,NA,Extant,* OCEANIC
-39381,Prionace glauca,1993,NT,0.2,NA,147,French Polynesia,Blue Shark,TRUE,NA,Extant,exclude?
-39381,Prionace glauca,1994,NT,0.2,NA,147,French Polynesia,Blue Shark,TRUE,NA,Extant,
-39381,Prionace glauca,1995,NT,0.2,NA,147,French Polynesia,Blue Shark,TRUE,NA,Extant,
-39381,Prionace glauca,1996,NT,0.2,NA,147,French Polynesia,Blue Shark,TRUE,NA,Extant,
-39381,Prionace glauca,1997,NT,0.2,NA,147,French Polynesia,Blue Shark,TRUE,NA,Extant,
-39381,Prionace glauca,1998,NT,0.2,NA,147,French Polynesia,Blue Shark,TRUE,NA,Extant,
-39381,Prionace glauca,1999,NT,0.2,NA,147,French Polynesia,Blue Shark,TRUE,NA,Extant,
-39381,Prionace glauca,2.00E+03,NT,0.2,2000,147,French Polynesia,Blue Shark,TRUE,NA,Extant,
-39381,Prionace glauca,2001,NT,0.2,2000,147,French Polynesia,Blue Shark,TRUE,NA,Extant,
-39381,Prionace glauca,2002,NT,0.2,2000,147,French Polynesia,Blue Shark,TRUE,NA,Extant,
-39381,Prionace glauca,2003,NT,0.2,2000,147,French Polynesia,Blue Shark,TRUE,NA,Extant,
-39381,Prionace glauca,2004,NT,0.2,2000,147,French Polynesia,Blue Shark,TRUE,NA,Extant,
-39381,Prionace glauca,2005,NT,0.2,2000,147,French Polynesia,Blue Shark,TRUE,NA,Extant,
-39381,Prionace glauca,2006,NT,0.2,2000,147,French Polynesia,Blue Shark,TRUE,NA,Extant,
-39381,Prionace glauca,2007,NT,0.2,2000,147,French Polynesia,Blue Shark,TRUE,NA,Extant,
-39381,Prionace glauca,2008,NT,0.2,2000,147,French Polynesia,Blue Shark,TRUE,NA,Extant,
-39381,Prionace glauca,2009,NT,0.2,2009,147,French Polynesia,Blue Shark,TRUE,NA,Extant,
-39381,Prionace glauca,2010,NT,0.2,2009,147,French Polynesia,Blue Shark,TRUE,NA,Extant,
-39381,Prionace glauca,2011,NT,0.2,2009,147,French Polynesia,Blue Shark,TRUE,NA,Extant,
-39381,Prionace glauca,2012,NT,0.2,2009,147,French Polynesia,Blue Shark,TRUE,NA,Extant,
-39381,Prionace glauca,2013,NT,0.2,2009,147,French Polynesia,Blue Shark,TRUE,NA,Extant,
-39381,Prionace glauca,2014,NT,0.2,2009,147,French Polynesia,Blue Shark,TRUE,NA,Extant,
-39381,Prionace glauca,2015,NT,0.2,2009,147,French Polynesia,Blue Shark,TRUE,NA,Extant,
-39381,Prionace glauca,2016,NT,0.2,2009,147,French Polynesia,Blue Shark,TRUE,NA,Extant,
-39381,Prionace glauca,2017,NT,0.2,2009,147,French Polynesia,Blue Shark,TRUE,NA,Extant,
-39381,Prionace glauca,2018,NT,0.2,2009,147,French Polynesia,Blue Shark,TRUE,NA,Extant,
-39384,Triaenodon obesus,1992,NT,0.2,NA,147,French Polynesia,Whitetip reef shark,TRUE,NA,Extant,
-39384,Triaenodon obesus,1993,NT,0.2,NA,147,French Polynesia,Whitetip reef shark,TRUE,NA,Extant,
-39384,Triaenodon obesus,1994,NT,0.2,NA,147,French Polynesia,Whitetip reef shark,TRUE,NA,Extant,
-39384,Triaenodon obesus,1995,NT,0.2,NA,147,French Polynesia,Whitetip reef shark,TRUE,NA,Extant,
-39384,Triaenodon obesus,1996,NT,0.2,NA,147,French Polynesia,Whitetip reef shark,TRUE,NA,Extant,
-39384,Triaenodon obesus,1997,NT,0.2,NA,147,French Polynesia,Whitetip reef shark,TRUE,NA,Extant,
-39384,Triaenodon obesus,1998,NT,0.2,NA,147,French Polynesia,Whitetip reef shark,TRUE,NA,Extant,
-39384,Triaenodon obesus,1999,NT,0.2,NA,147,French Polynesia,Whitetip reef shark,TRUE,NA,Extant,
-39384,Triaenodon obesus,2.00E+03,NT,0.2,2000,147,French Polynesia,Whitetip reef shark,TRUE,NA,Extant,
-39384,Triaenodon obesus,2001,NT,0.2,2000,147,French Polynesia,Whitetip reef shark,TRUE,NA,Extant,
-39384,Triaenodon obesus,2002,NT,0.2,2000,147,French Polynesia,Whitetip reef shark,TRUE,NA,Extant,
-39384,Triaenodon obesus,2003,NT,0.2,2000,147,French Polynesia,Whitetip reef shark,TRUE,NA,Extant,
-39384,Triaenodon obesus,2004,NT,0.2,2000,147,French Polynesia,Whitetip reef shark,TRUE,NA,Extant,
-39384,Triaenodon obesus,2005,NT,0.2,2000,147,French Polynesia,Whitetip reef shark,TRUE,NA,Extant,
-39384,Triaenodon obesus,2006,NT,0.2,2000,147,French Polynesia,Whitetip reef shark,TRUE,NA,Extant,
-39384,Triaenodon obesus,2007,NT,0.2,2000,147,French Polynesia,Whitetip reef shark,TRUE,NA,Extant,
-39384,Triaenodon obesus,2008,NT,0.2,2000,147,French Polynesia,Whitetip reef shark,TRUE,NA,Extant,
-39384,Triaenodon obesus,2009,NT,0.2,2009,147,French Polynesia,Whitetip reef shark,TRUE,NA,Extant,
-39384,Triaenodon obesus,2010,NT,0.2,2009,147,French Polynesia,Whitetip reef shark,TRUE,NA,Extant,
-39384,Triaenodon obesus,2011,NT,0.2,2009,147,French Polynesia,Whitetip reef shark,TRUE,NA,Extant,
-39384,Triaenodon obesus,2012,NT,0.2,2009,147,French Polynesia,Whitetip reef shark,TRUE,NA,Extant,
-39384,Triaenodon obesus,2013,NT,0.2,2009,147,French Polynesia,Whitetip reef shark,TRUE,NA,Extant,
-39384,Triaenodon obesus,2014,NT,0.2,2009,147,French Polynesia,Whitetip reef shark,TRUE,NA,Extant,
-39384,Triaenodon obesus,2015,NT,0.2,2009,147,French Polynesia,Whitetip reef shark,TRUE,NA,Extant,
-39384,Triaenodon obesus,2016,NT,0.2,2009,147,French Polynesia,Whitetip reef shark,TRUE,NA,Extant,
-39384,Triaenodon obesus,2017,NT,0.2,2009,147,French Polynesia,Whitetip reef shark,TRUE,NA,Extant,
-39384,Triaenodon obesus,2018,NT,0.2,2009,147,French Polynesia,Whitetip reef shark,TRUE,NA,Extant,
-132832,Megaptera novaeangliae,1992,EN,0.6,NA,147,French Polynesia,Humpback Whale,TRUE,NA,Extant,
-132832,Megaptera novaeangliae,1993,EN,0.6,NA,147,French Polynesia,Humpback Whale,TRUE,NA,Extant,
-132832,Megaptera novaeangliae,1994,EN,0.6,NA,147,French Polynesia,Humpback Whale,TRUE,NA,Extant,
-132832,Megaptera novaeangliae,1995,EN,0.6,NA,147,French Polynesia,Humpback Whale,TRUE,NA,Extant,
-132832,Megaptera novaeangliae,1996,EN,0.6,NA,147,French Polynesia,Humpback Whale,TRUE,NA,Extant,
-132832,Megaptera novaeangliae,1997,EN,0.6,NA,147,French Polynesia,Humpback Whale,TRUE,NA,Extant,
-132832,Megaptera novaeangliae,1998,EN,0.6,NA,147,French Polynesia,Humpback Whale,TRUE,NA,Extant,
-132832,Megaptera novaeangliae,1999,EN,0.6,NA,147,French Polynesia,Humpback Whale,TRUE,NA,Extant,
-132832,Megaptera novaeangliae,2.00E+03,EN,0.6,NA,147,French Polynesia,Humpback Whale,TRUE,NA,Extant,
-132832,Megaptera novaeangliae,2001,EN,0.6,NA,147,French Polynesia,Humpback Whale,TRUE,NA,Extant,
-132832,Megaptera novaeangliae,2002,EN,0.6,NA,147,French Polynesia,Humpback Whale,TRUE,NA,Extant,
-132832,Megaptera novaeangliae,2003,EN,0.6,NA,147,French Polynesia,Humpback Whale,TRUE,NA,Extant,
-132832,Megaptera novaeangliae,2004,EN,0.6,NA,147,French Polynesia,Humpback Whale,TRUE,NA,Extant,
-132832,Megaptera novaeangliae,2005,EN,0.6,NA,147,French Polynesia,Humpback Whale,TRUE,NA,Extant,
-132832,Megaptera novaeangliae,2006,EN,0.6,NA,147,French Polynesia,Humpback Whale,TRUE,NA,Extant,
-132832,Megaptera novaeangliae,2007,EN,0.6,NA,147,French Polynesia,Humpback Whale,TRUE,NA,Extant,
-132832,Megaptera novaeangliae,2008,EN,0.6,2008,147,French Polynesia,Humpback Whale,TRUE,NA,Extant,
-132832,Megaptera novaeangliae,2009,EN,0.6,2008,147,French Polynesia,Humpback Whale,TRUE,NA,Extant,
-132832,Megaptera novaeangliae,2010,EN,0.6,2008,147,French Polynesia,Humpback Whale,TRUE,NA,Extant,
-132832,Megaptera novaeangliae,2011,EN,0.6,2008,147,French Polynesia,Humpback Whale,TRUE,NA,Extant,
-132832,Megaptera novaeangliae,2012,EN,0.6,2008,147,French Polynesia,Humpback Whale,TRUE,NA,Extant,
-132832,Megaptera novaeangliae,2013,EN,0.6,2008,147,French Polynesia,Humpback Whale,TRUE,NA,Extant,
-132832,Megaptera novaeangliae,2014,EN,0.6,2008,147,French Polynesia,Humpback Whale,TRUE,NA,Extant,
-132832,Megaptera novaeangliae,2015,EN,0.6,2008,147,French Polynesia,Humpback Whale,TRUE,NA,Extant,
-132832,Megaptera novaeangliae,2016,EN,0.6,2008,147,French Polynesia,Humpback Whale,TRUE,NA,Extant,
-132832,Megaptera novaeangliae,2017,EN,0.6,2008,147,French Polynesia,Humpback Whale,TRUE,NA,Extant,
-132832,Megaptera novaeangliae,2018,EN,0.6,2008,147,French Polynesia,Humpback Whale,TRUE,NA,Extant,
-46967817,Dermochelys coriacea,1992,CR,0.8,NA,147,French Polynesia,Leatherback Turtle,TRUE,NA,Extant,
-46967817,Dermochelys coriacea,1993,CR,0.8,NA,147,French Polynesia,Leatherback Turtle,TRUE,NA,Extant,
-46967817,Dermochelys coriacea,1994,CR,0.8,NA,147,French Polynesia,Leatherback Turtle,TRUE,NA,Extant,
-46967817,Dermochelys coriacea,1995,CR,0.8,NA,147,French Polynesia,Leatherback Turtle,TRUE,NA,Extant,
-46967817,Dermochelys coriacea,1996,CR,0.8,NA,147,French Polynesia,Leatherback Turtle,TRUE,NA,Extant,
-46967817,Dermochelys coriacea,1997,CR,0.8,NA,147,French Polynesia,Leatherback Turtle,TRUE,NA,Extant,
-46967817,Dermochelys coriacea,1998,CR,0.8,NA,147,French Polynesia,Leatherback Turtle,TRUE,NA,Extant,
-46967817,Dermochelys coriacea,1999,CR,0.8,NA,147,French Polynesia,Leatherback Turtle,TRUE,NA,Extant,
-46967817,Dermochelys coriacea,2.00E+03,CR,0.8,NA,147,French Polynesia,Leatherback Turtle,TRUE,NA,Extant,
-46967817,Dermochelys coriacea,2001,CR,0.8,NA,147,French Polynesia,Leatherback Turtle,TRUE,NA,Extant,
-46967817,Dermochelys coriacea,2002,CR,0.8,NA,147,French Polynesia,Leatherback Turtle,TRUE,NA,Extant,
-46967817,Dermochelys coriacea,2003,CR,0.8,NA,147,French Polynesia,Leatherback Turtle,TRUE,NA,Extant,
-46967817,Dermochelys coriacea,2004,CR,0.8,NA,147,French Polynesia,Leatherback Turtle,TRUE,NA,Extant,
-46967817,Dermochelys coriacea,2005,CR,0.8,NA,147,French Polynesia,Leatherback Turtle,TRUE,NA,Extant,
-46967817,Dermochelys coriacea,2006,CR,0.8,NA,147,French Polynesia,Leatherback Turtle,TRUE,NA,Extant,
-46967817,Dermochelys coriacea,2007,CR,0.8,NA,147,French Polynesia,Leatherback Turtle,TRUE,NA,Extant,
-46967817,Dermochelys coriacea,2008,CR,0.8,NA,147,French Polynesia,Leatherback Turtle,TRUE,NA,Extant,
-46967817,Dermochelys coriacea,2009,CR,0.8,NA,147,French Polynesia,Leatherback Turtle,TRUE,NA,Extant,
-46967817,Dermochelys coriacea,2010,CR,0.8,NA,147,French Polynesia,Leatherback Turtle,TRUE,NA,Extant,
-46967817,Dermochelys coriacea,2011,CR,0.8,NA,147,French Polynesia,Leatherback Turtle,TRUE,NA,Extant,
-46967817,Dermochelys coriacea,2012,CR,0.8,NA,147,French Polynesia,Leatherback Turtle,TRUE,NA,Extant,
-46967817,Dermochelys coriacea,2013,CR,0.8,2013,147,French Polynesia,Leatherback Turtle,TRUE,NA,Extant,
-46967817,Dermochelys coriacea,2014,CR,0.8,2013,147,French Polynesia,Leatherback Turtle,TRUE,NA,Extant,
-46967817,Dermochelys coriacea,2015,CR,0.8,2013,147,French Polynesia,Leatherback Turtle,TRUE,NA,Extant,
-46967817,Dermochelys coriacea,2016,CR,0.8,2013,147,French Polynesia,Leatherback Turtle,TRUE,NA,Extant,
-46967817,Dermochelys coriacea,2017,CR,0.8,2013,147,French Polynesia,Leatherback Turtle,TRUE,NA,Extant,
-46967817,Dermochelys coriacea,2018,CR,0.8,2013,147,French Polynesia,Leatherback Turtle,TRUE,NA,Extant,
-84156809,Caretta caretta,1992,CR,0.8,NA,147,French Polynesia,Loggerhead Turtle,TRUE,NA,Extant,
-84156809,Caretta caretta,1993,CR,0.8,NA,147,French Polynesia,Loggerhead Turtle,TRUE,NA,Extant,
-84156809,Caretta caretta,1994,CR,0.8,NA,147,French Polynesia,Loggerhead Turtle,TRUE,NA,Extant,
-84156809,Caretta caretta,1995,CR,0.8,NA,147,French Polynesia,Loggerhead Turtle,TRUE,NA,Extant,
-84156809,Caretta caretta,1996,CR,0.8,NA,147,French Polynesia,Loggerhead Turtle,TRUE,NA,Extant,
-84156809,Caretta caretta,1997,CR,0.8,NA,147,French Polynesia,Loggerhead Turtle,TRUE,NA,Extant,
-84156809,Caretta caretta,1998,CR,0.8,NA,147,French Polynesia,Loggerhead Turtle,TRUE,NA,Extant,
-84156809,Caretta caretta,1999,CR,0.8,NA,147,French Polynesia,Loggerhead Turtle,TRUE,NA,Extant,
-84156809,Caretta caretta,2.00E+03,CR,0.8,NA,147,French Polynesia,Loggerhead Turtle,TRUE,NA,Extant,
-84156809,Caretta caretta,2001,CR,0.8,NA,147,French Polynesia,Loggerhead Turtle,TRUE,NA,Extant,
-84156809,Caretta caretta,2002,CR,0.8,NA,147,French Polynesia,Loggerhead Turtle,TRUE,NA,Extant,
-84156809,Caretta caretta,2003,CR,0.8,NA,147,French Polynesia,Loggerhead Turtle,TRUE,NA,Extant,
-84156809,Caretta caretta,2004,CR,0.8,NA,147,French Polynesia,Loggerhead Turtle,TRUE,NA,Extant,
-84156809,Caretta caretta,2005,CR,0.8,NA,147,French Polynesia,Loggerhead Turtle,TRUE,NA,Extant,
-84156809,Caretta caretta,2006,CR,0.8,NA,147,French Polynesia,Loggerhead Turtle,TRUE,NA,Extant,
-84156809,Caretta caretta,2007,CR,0.8,NA,147,French Polynesia,Loggerhead Turtle,TRUE,NA,Extant,
-84156809,Caretta caretta,2008,CR,0.8,NA,147,French Polynesia,Loggerhead Turtle,TRUE,NA,Extant,
-84156809,Caretta caretta,2009,CR,0.8,NA,147,French Polynesia,Loggerhead Turtle,TRUE,NA,Extant,
-84156809,Caretta caretta,2010,CR,0.8,NA,147,French Polynesia,Loggerhead Turtle,TRUE,NA,Extant,
-84156809,Caretta caretta,2011,CR,0.8,NA,147,French Polynesia,Loggerhead Turtle,TRUE,NA,Extant,
-84156809,Caretta caretta,2012,CR,0.8,NA,147,French Polynesia,Loggerhead Turtle,TRUE,NA,Extant,
-84156809,Caretta caretta,2013,CR,0.8,NA,147,French Polynesia,Loggerhead Turtle,TRUE,NA,Extant,
-84156809,Caretta caretta,2014,CR,0.8,NA,147,French Polynesia,Loggerhead Turtle,TRUE,NA,Extant,
-84156809,Caretta caretta,2015,CR,0.8,2015,147,French Polynesia,Loggerhead Turtle,TRUE,NA,Extant,
-84156809,Caretta caretta,2016,CR,0.8,2015,147,French Polynesia,Loggerhead Turtle,TRUE,NA,Extant,
-84156809,Caretta caretta,2017,CR,0.8,2015,147,French Polynesia,Loggerhead Turtle,TRUE,NA,Extant,
-84156809,Caretta caretta,2018,CR,0.8,2015,147,French Polynesia,Loggerhead Turtle,TRUE,NA,Extant,
-,Carcharhinus melanopterus,1992,NT,0.2,NA,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus melanopterus,1993,NT,0.2,NA,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus melanopterus,1994,NT,0.2,NA,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus melanopterus,1995,NT,0.2,NA,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus melanopterus,1996,NT,0.2,NA,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus melanopterus,1997,NT,0.2,NA,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus melanopterus,1998,NT,0.2,NA,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus melanopterus,1999,NT,0.2,NA,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus melanopterus,2.00E+03,NT,0.2,2000,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus melanopterus,2001,NT,0.2,2000,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus melanopterus,2002,NT,0.2,2000,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus melanopterus,2003,NT,0.2,2000,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus melanopterus,2004,NT,0.2,2000,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus melanopterus,2005,NT,0.2,2005,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus melanopterus,2006,NT,0.2,2005,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus melanopterus,2007,NT,0.2,2005,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus melanopterus,2008,NT,0.2,2005,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus melanopterus,2009,NT,0.2,2005,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus melanopterus,2010,NT,0.2,2005,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus melanopterus,2011,NT,0.2,2005,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus melanopterus,2012,NT,0.2,2005,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus melanopterus,2013,NT,0.2,2005,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus melanopterus,2014,NT,0.2,2005,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus melanopterus,2015,NT,0.2,2005,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus melanopterus,2016,NT,0.2,2005,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus melanopterus,2017,NT,0.2,2005,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus melanopterus,2018,NT,0.2,2005,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus albimarginatus,1992,NA,0.2,NA,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus albimarginatus,1993,NA,0.2,NA,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus albimarginatus,1994,NA,0.2,NA,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus albimarginatus,1995,NA,0.2,NA,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus albimarginatus,1996,NA,0.2,NA,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus albimarginatus,1997,NA,0.2,NA,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus albimarginatus,1998,NA,0.2,NA,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus albimarginatus,1999,NA,0.2,NA,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus albimarginatus,2.00E+03,NA,0.2,NA,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus albimarginatus,2001,NA,0.2,NA,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus albimarginatus,2002,NA,0.2,NA,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus albimarginatus,2003,NA,0.2,NA,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus albimarginatus,2004,NA,0.2,NA,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus albimarginatus,2005,NA,0.2,NA,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus albimarginatus,2006,NA,0.2,NA,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus albimarginatus,2007,NT,0.2,2007,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus albimarginatus,2008,NT,0.2,2007,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus albimarginatus,2009,NT,0.2,2007,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus albimarginatus,2010,NT,0.2,2007,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus albimarginatus,2011,NT,0.2,2007,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus albimarginatus,2012,NT,0.2,2007,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus albimarginatus,2013,NT,0.2,2007,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus albimarginatus,2014,NT,0.2,2007,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus albimarginatus,2015,VU,0.4,2015,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus albimarginatus,2016,VU,0.4,2015,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus albimarginatus,2017,VU,0.4,2015,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus albimarginatus,2018,VU,0.4,2015,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus falciformis,1992,,,NA,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus falciformis,1993,,,NA,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus falciformis,1994,,,NA,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus falciformis,1995,,,NA,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus falciformis,1996,,,NA,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus falciformis,1997,,,NA,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus falciformis,1998,,,NA,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus falciformis,1999,,,NA,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus falciformis,2.00E+03,LC,,2000,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus falciformis,2001,LC,,2000,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus falciformis,2002,LC,,2000,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus falciformis,2003,LC,,2000,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus falciformis,2004,LC,,2000,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus falciformis,2005,LC,,2000,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus falciformis,2006,LC,,2000,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus falciformis,2007,LC,,2000,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus falciformis,2008,LC,,2000,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus falciformis,2009,NT,0.2,2009,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus falciformis,2010,NT,0.2,2009,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus falciformis,2011,NT,0.2,2009,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus falciformis,2012,NT,0.2,2009,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus falciformis,2013,NT,0.2,2009,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus falciformis,2014,NT,0.2,2009,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus falciformis,2015,NT,0.2,2009,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus falciformis,2016,NT,0.2,2016,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus falciformis,2017,VU,0.4,2017,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus falciformis,2018,VU,0.4,2017,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus galapagensis,1992,NT,0.2,NA,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus galapagensis,1993,NT,0.2,NA,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus galapagensis,1994,NT,0.2,NA,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus galapagensis,1995,NT,0.2,NA,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus galapagensis,1996,NT,0.2,NA,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus galapagensis,1997,NT,0.2,NA,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus galapagensis,1998,NT,0.2,NA,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus galapagensis,1999,NT,0.2,NA,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus galapagensis,2.00E+03,NT,0.2,NA,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus galapagensis,2001,NT,0.2,NA,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus galapagensis,2002,NT,0.2,NA,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus galapagensis,2003,NT,0.2,2003,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus galapagensis,2004,NT,0.2,2003,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus galapagensis,2005,NT,0.2,2003,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus galapagensis,2006,NT,0.2,2003,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus galapagensis,2007,NT,0.2,2003,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus galapagensis,2008,NT,0.2,2003,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus galapagensis,2009,NT,0.2,2003,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus galapagensis,2010,NT,0.2,2003,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus galapagensis,2011,NT,0.2,2003,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus galapagensis,2012,NT,0.2,2003,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus galapagensis,2013,NT,0.2,2003,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus galapagensis,2014,NT,0.2,2003,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus galapagensis,2015,NT,0.2,2003,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus galapagensis,2016,NT,0.2,2003,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus galapagensis,2017,NT,0.2,2003,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus galapagensis,2018,NT,0.2,2003,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus leucas,1992,NT,0.2,NA,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus leucas,1993,NT,0.2,NA,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus leucas,1994,NT,0.2,NA,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus leucas,1995,NT,0.2,NA,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus leucas,1996,NT,0.2,NA,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus leucas,1997,NT,0.2,NA,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus leucas,1998,NT,0.2,NA,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus leucas,1999,NT,0.2,NA,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus leucas,2.00E+03,NT,0.2,2000,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus leucas,2001,NT,0.2,2000,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus leucas,2002,NT,0.2,2000,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus leucas,2003,NT,0.2,2000,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus leucas,2004,NT,0.2,2000,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus leucas,2005,NT,0.2,2005,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus leucas,2006,NT,0.2,2005,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus leucas,2007,NT,0.2,2005,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus leucas,2008,NT,0.2,2005,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus leucas,2009,NT,0.2,2005,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus leucas,2010,NT,0.2,2005,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus leucas,2011,NT,0.2,2005,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus leucas,2012,NT,0.2,2005,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus leucas,2013,NT,0.2,2005,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus leucas,2014,NT,0.2,2005,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus leucas,2015,NT,0.2,2005,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus leucas,2016,NT,0.2,2005,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus leucas,2017,NT,0.2,2005,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus leucas,2018,NT,0.2,2005,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus limbatus,1992,VU,0.4,NA,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus limbatus,1993,VU,0.4,NA,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus limbatus,1994,VU,0.4,NA,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus limbatus,1995,VU,0.4,NA,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus limbatus,1996,VU,0.4,1996,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus limbatus,1997,VU,0.4,1996,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus limbatus,1998,VU,0.4,1996,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus limbatus,1999,VU,0.4,1996,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus limbatus,2.00E+03,NT,0.2,2000,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus limbatus,2001,NT,0.2,2000,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus limbatus,2002,NT,0.2,2000,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus limbatus,2003,NT,0.2,2000,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus limbatus,2004,NT,0.2,2000,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus limbatus,2005,NT,0.2,2005,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus limbatus,2006,NT,0.2,2005,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus limbatus,2007,NT,0.2,2005,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus limbatus,2008,NT,0.2,2005,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus limbatus,2009,NT,0.2,2005,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus limbatus,2010,NT,0.2,2005,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus limbatus,2011,NT,0.2,2005,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus limbatus,2012,NT,0.2,2005,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus limbatus,2013,NT,0.2,2005,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus limbatus,2014,NT,0.2,2005,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus limbatus,2015,NT,0.2,2005,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus limbatus,2016,NT,0.2,2005,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus limbatus,2017,NT,0.2,2005,147,Moorea,,TRUE,NA,Extant,
-,Carcharhinus limbatus,2018,NT,0.2,2005,147,Moorea,,TRUE,NA,Extant,
-,Negaprion acutidens,1992,VU,0.4,NA,147,Moorea,,TRUE,NA,Extant,
-,Negaprion acutidens,1993,VU,0.4,NA,147,Moorea,,TRUE,NA,Extant,
-,Negaprion acutidens,1994,VU,0.4,NA,147,Moorea,,TRUE,NA,Extant,
-,Negaprion acutidens,1995,VU,0.4,NA,147,Moorea,,TRUE,NA,Extant,
-,Negaprion acutidens,1996,VU,0.4,NA,147,Moorea,,TRUE,NA,Extant,
-,Negaprion acutidens,1997,VU,0.4,NA,147,Moorea,,TRUE,NA,Extant,
-,Negaprion acutidens,1998,VU,0.4,NA,147,Moorea,,TRUE,NA,Extant,
-,Negaprion acutidens,1999,VU,0.4,NA,147,Moorea,,TRUE,NA,Extant,
-,Negaprion acutidens,2.00E+03,VU,0.4,NA,147,Moorea,,TRUE,NA,Extant,
-,Negaprion acutidens,2001,VU,0.4,NA,147,Moorea,,TRUE,NA,Extant,
-,Negaprion acutidens,2002,VU,0.4,NA,147,Moorea,,TRUE,NA,Extant,
-,Negaprion acutidens,2003,VU,0.4,2003,147,Moorea,,TRUE,NA,Extant,
-,Negaprion acutidens,2004,VU,0.4,2003,147,Moorea,,TRUE,NA,Extant,
-,Negaprion acutidens,2005,VU,0.4,2003,147,Moorea,,TRUE,NA,Extant,
-,Negaprion acutidens,2006,VU,0.4,2003,147,Moorea,,TRUE,NA,Extant,
-,Negaprion acutidens,2007,VU,0.4,2003,147,Moorea,,TRUE,NA,Extant,
-,Negaprion acutidens,2008,VU,0.4,2003,147,Moorea,,TRUE,NA,Extant,
-,Negaprion acutidens,2009,VU,0.4,2003,147,Moorea,,TRUE,NA,Extant,
-,Negaprion acutidens,2010,VU,0.4,2003,147,Moorea,,TRUE,NA,Extant,
-,Negaprion acutidens,2011,VU,0.4,2003,147,Moorea,,TRUE,NA,Extant,
-,Negaprion acutidens,2012,VU,0.4,2003,147,Moorea,,TRUE,NA,Extant,
-,Negaprion acutidens,2013,VU,0.4,2003,147,Moorea,,TRUE,NA,Extant,
-,Negaprion acutidens,2014,VU,0.4,2003,147,Moorea,,TRUE,NA,Extant,
-,Negaprion acutidens,2015,VU,0.4,2003,147,Moorea,,TRUE,NA,Extant,
-,Negaprion acutidens,2016,VU,0.4,2003,147,Moorea,,TRUE,NA,Extant,
-,Negaprion acutidens,2017,VU,0.4,2003,147,Moorea,,TRUE,NA,Extant,
-,Negaprion acutidens,2018,VU,0.4,2003,147,Moorea,,TRUE,NA,Extant,
-,Nebrius ferrugineus,1992,VU,0.4,NA,147,Moorea,,TRUE,NA,Extant,
-,Nebrius ferrugineus,1993,VU,0.4,NA,147,Moorea,,TRUE,NA,Extant,
-,Nebrius ferrugineus,1994,VU,0.4,NA,147,Moorea,,TRUE,NA,Extant,
-,Nebrius ferrugineus,1995,VU,0.4,NA,147,Moorea,,TRUE,NA,Extant,
-,Nebrius ferrugineus,1996,VU,0.4,NA,147,Moorea,,TRUE,NA,Extant,
-,Nebrius ferrugineus,1997,VU,0.4,NA,147,Moorea,,TRUE,NA,Extant,
-,Nebrius ferrugineus,1998,VU,0.4,NA,147,Moorea,,TRUE,NA,Extant,
-,Nebrius ferrugineus,1999,VU,0.4,NA,147,Moorea,,TRUE,NA,Extant,
-,Nebrius ferrugineus,2.00E+03,VU,0.4,NA,147,Moorea,,TRUE,NA,Extant,
-,Nebrius ferrugineus,2001,VU,0.4,NA,147,Moorea,,TRUE,NA,Extant,
-,Nebrius ferrugineus,2002,VU,0.4,NA,147,Moorea,,TRUE,NA,Extant,
-,Nebrius ferrugineus,2003,VU,0.4,2003,147,Moorea,,TRUE,NA,Extant,
-,Nebrius ferrugineus,2004,VU,0.4,2003,147,Moorea,,TRUE,NA,Extant,
-,Nebrius ferrugineus,2005,VU,0.4,2003,147,Moorea,,TRUE,NA,Extant,
-,Nebrius ferrugineus,2006,VU,0.4,2003,147,Moorea,,TRUE,NA,Extant,
-,Nebrius ferrugineus,2007,VU,0.4,2003,147,Moorea,,TRUE,NA,Extant,
-,Nebrius ferrugineus,2008,VU,0.4,2003,147,Moorea,,TRUE,NA,Extant,
-,Nebrius ferrugineus,2009,VU,0.4,2003,147,Moorea,,TRUE,NA,Extant,
-,Nebrius ferrugineus,2010,VU,0.4,2003,147,Moorea,,TRUE,NA,Extant,
-,Nebrius ferrugineus,2011,VU,0.4,2003,147,Moorea,,TRUE,NA,Extant,
-,Nebrius ferrugineus,2012,VU,0.4,2003,147,Moorea,,TRUE,NA,Extant,
-,Nebrius ferrugineus,2013,VU,0.4,2003,147,Moorea,,TRUE,NA,Extant,
-,Nebrius ferrugineus,2014,VU,0.4,2003,147,Moorea,,TRUE,NA,Extant,
-,Nebrius ferrugineus,2015,VU,0.4,2003,147,Moorea,,TRUE,NA,Extant,
-,Nebrius ferrugineus,2016,VU,0.4,2003,147,Moorea,,TRUE,NA,Extant,
-,Nebrius ferrugineus,2017,VU,0.4,2003,147,Moorea,,TRUE,NA,Extant,
-,Nebrius ferrugineus,2018,VU,0.4,2003,147,Moorea,,TRUE,NA,Extant,
-,Sphyrna lewini,1992,NT,0.2,NA,147,Moorea,,TRUE,NA,Extant,
-,Sphyrna lewini,1993,NT,0.2,NA,147,Moorea,,TRUE,NA,Extant,
-,Sphyrna lewini,1994,NT,0.2,NA,147,Moorea,,TRUE,NA,Extant,
-,Sphyrna lewini,1995,NT,0.2,NA,147,Moorea,,TRUE,NA,Extant,
-,Sphyrna lewini,1996,NT,0.2,NA,147,Moorea,,TRUE,NA,Extant,
-,Sphyrna lewini,1997,NT,0.2,NA,147,Moorea,,TRUE,NA,Extant,
-,Sphyrna lewini,1998,NT,0.2,NA,147,Moorea,,TRUE,NA,Extant,
-,Sphyrna lewini,1999,NT,0.2,NA,147,Moorea,,TRUE,NA,Extant,
-,Sphyrna lewini,2.00E+03,NT,0.2,2000,147,Moorea,,TRUE,NA,Extant,
-,Sphyrna lewini,2001,NT,0.2,2000,147,Moorea,,TRUE,NA,Extant,
-,Sphyrna lewini,2002,NT,0.2,2000,147,Moorea,,TRUE,NA,Extant,
-,Sphyrna lewini,2003,NT,0.2,2000,147,Moorea,,TRUE,NA,Extant,
-,Sphyrna lewini,2004,NT,0.2,2000,147,Moorea,,TRUE,NA,Extant,
-,Sphyrna lewini,2005,NT,0.2,2000,147,Moorea,,TRUE,NA,Extant,
-,Sphyrna lewini,2006,NT,0.2,2000,147,Moorea,,TRUE,NA,Extant,
-,Sphyrna lewini,2007,EN,0.6,2007,147,Moorea,,TRUE,NA,Extant,
-,Sphyrna lewini,2008,EN,0.6,2007,147,Moorea,,TRUE,NA,Extant,
-,Sphyrna lewini,2009,EN,0.6,2007,147,Moorea,,TRUE,NA,Extant,
-,Sphyrna lewini,2010,EN,0.6,2007,147,Moorea,,TRUE,NA,Extant,
-,Sphyrna lewini,2011,EN,0.6,2007,147,Moorea,,TRUE,NA,Extant,
-,Sphyrna lewini,2012,EN,0.6,2007,147,Moorea,,TRUE,NA,Extant,
-,Sphyrna lewini,2013,EN,0.6,2007,147,Moorea,,TRUE,NA,Extant,
-,Sphyrna lewini,2014,EN,0.6,2007,147,Moorea,,TRUE,NA,Extant,
-,Sphyrna lewini,2015,EN,0.6,2007,147,Moorea,,TRUE,NA,Extant,
-,Sphyrna lewini,2016,EN,0.6,2007,147,Moorea,,TRUE,NA,Extant,
-,Sphyrna lewini,2017,EN,0.6,2007,147,Moorea,,TRUE,NA,Extant,
-,Sphyrna lewini,2018,EN,0.6,2007,147,Moorea,,TRUE,NA,Extant,
-,Sphyrna mokarran,1992,DD,,NA,147,Moorea,,TRUE,NA,Extant,
-,Sphyrna mokarran,1993,DD,,NA,147,Moorea,,TRUE,NA,Extant,
-,Sphyrna mokarran,1994,DD,,NA,147,Moorea,,TRUE,NA,Extant,
-,Sphyrna mokarran,1995,DD,,NA,147,Moorea,,TRUE,NA,Extant,
-,Sphyrna mokarran,1996,DD,,NA,147,Moorea,,TRUE,NA,Extant,
-,Sphyrna mokarran,1997,DD,,NA,147,Moorea,,TRUE,NA,Extant,
-,Sphyrna mokarran,1998,DD,,NA,147,Moorea,,TRUE,NA,Extant,
-,Sphyrna mokarran,1999,DD,,NA,147,Moorea,,TRUE,NA,Extant,
-,Sphyrna mokarran,2.00E+03,DD,,2000,147,Moorea,,TRUE,NA,Extant,
-,Sphyrna mokarran,2001,DD,,2000,147,Moorea,,TRUE,NA,Extant,
-,Sphyrna mokarran,2002,DD,,2000,147,Moorea,,TRUE,NA,Extant,
-,Sphyrna mokarran,2003,DD,,2000,147,Moorea,,TRUE,NA,Extant,
-,Sphyrna mokarran,2004,DD,,2000,147,Moorea,,TRUE,NA,Extant,
-,Sphyrna mokarran,2005,DD,,2000,147,Moorea,,TRUE,NA,Extant,
-,Sphyrna mokarran,2006,DD,,2000,147,Moorea,,TRUE,NA,Extant,
-,Sphyrna mokarran,2007,EN,0.6,2007,147,Moorea,,TRUE,NA,Extant,
-,Sphyrna mokarran,2008,EN,0.6,2007,147,Moorea,,TRUE,NA,Extant,
-,Sphyrna mokarran,2009,EN,0.6,2007,147,Moorea,,TRUE,NA,Extant,
-,Sphyrna mokarran,2010,EN,0.6,2007,147,Moorea,,TRUE,NA,Extant,
-,Sphyrna mokarran,2011,EN,0.6,2007,147,Moorea,,TRUE,NA,Extant,
-,Sphyrna mokarran,2012,EN,0.6,2007,147,Moorea,,TRUE,NA,Extant,
-,Sphyrna mokarran,2013,EN,0.6,2007,147,Moorea,,TRUE,NA,Extant,
-,Sphyrna mokarran,2014,EN,0.6,2007,147,Moorea,,TRUE,NA,Extant,
-,Sphyrna mokarran,2015,EN,0.6,2007,147,Moorea,,TRUE,NA,Extant,
-,Sphyrna mokarran,2016,EN,0.6,2007,147,Moorea,,TRUE,NA,Extant,
-,Sphyrna mokarran,2017,EN,0.6,2007,147,Moorea,,TRUE,NA,Extant,
-,Sphyrna mokarran,2018,EN,0.6,2007,147,Moorea,,TRUE,NA,Extant,
-,Eschrichtius robustus,1992,NT,0.2,NA,147,Moorea,,TRUE,NA,Extant,
-,Eschrichtius robustus,1993,NT,0.2,NA,147,Moorea,,TRUE,NA,Extant,
-,Eschrichtius robustus,1994,NT,0.2,NA,147,Moorea,,TRUE,NA,Extant,
-,Eschrichtius robustus,1995,NT,0.2,NA,147,Moorea,,TRUE,NA,Extant,
-,Eschrichtius robustus,1996,NT,0.2,1996,147,Moorea,,TRUE,NA,Extant,
-,Eschrichtius robustus,1997,NT,0.2,1996,147,Moorea,,TRUE,NA,Extant,
-,Eschrichtius robustus,1998,NT,0.2,1996,147,Moorea,,TRUE,NA,Extant,
-,Eschrichtius robustus,1999,NT,0.2,1996,147,Moorea,,TRUE,NA,Extant,
-,Eschrichtius robustus,2.00E+03,NT,0.2,1996,147,Moorea,,TRUE,NA,Extant,
-,Eschrichtius robustus,2001,NT,0.2,1996,147,Moorea,,TRUE,NA,Extant,
-,Eschrichtius robustus,2002,NT,0.2,1996,147,Moorea,,TRUE,NA,Extant,
-,Eschrichtius robustus,2003,NT,0.2,1996,147,Moorea,,TRUE,NA,Extant,
-,Eschrichtius robustus,2004,NT,0.2,1996,147,Moorea,,TRUE,NA,Extant,
-,Eschrichtius robustus,2005,NT,0.2,1996,147,Moorea,,TRUE,NA,Extant,
-,Eschrichtius robustus,2006,NT,0.2,1996,147,Moorea,,TRUE,NA,Extant,
-,Eschrichtius robustus,2007,NT,0.2,1996,147,Moorea,,TRUE,NA,Extant,
-,Eschrichtius robustus,2008,LC,0,2008,147,Moorea,,TRUE,NA,Extant,
-,Eschrichtius robustus,2009,LC,0,2008,147,Moorea,,TRUE,NA,Extant,
-,Eschrichtius robustus,2010,LC,0,2008,147,Moorea,,TRUE,NA,Extant,
-,Eschrichtius robustus,2011,LC,0,2008,147,Moorea,,TRUE,NA,Extant,
-,Eschrichtius robustus,2012,LC,0,2008,147,Moorea,,TRUE,NA,Extant,
-,Eschrichtius robustus,2013,LC,0,2008,147,Moorea,,TRUE,NA,Extant,
-,Eschrichtius robustus,2014,LC,0,2008,147,Moorea,,TRUE,NA,Extant,
-,Eschrichtius robustus,2015,LC,0,2008,147,Moorea,,TRUE,NA,Extant,
-,Eschrichtius robustus,2016,LC,0,2008,147,Moorea,,TRUE,NA,Extant,
-,Eschrichtius robustus,2017,LC,0,2017,147,Moorea,,TRUE,NA,Extant,
-,Eschrichtius robustus,2018,LC,0,2017,147,Moorea,,TRUE,NA,Extant,
+iucn_sid,sciname,rgn_name,rgn_id,year,eval_yr,cat,cat_score
+3897,Caretta caretta,French Polynesia,147,1992,1990,VU,0.4
+3897,Caretta caretta,French Polynesia,147,1993,1990,VU,0.4
+3897,Caretta caretta,French Polynesia,147,1994,1994,VU,0.4
+3897,Caretta caretta,French Polynesia,147,1995,1994,VU,0.4
+3897,Caretta caretta,French Polynesia,147,1996,1996,EN,0.6
+3897,Caretta caretta,French Polynesia,147,1997,1996,EN,0.6
+3897,Caretta caretta,French Polynesia,147,1998,1996,EN,0.6
+3897,Caretta caretta,French Polynesia,147,1999,1996,EN,0.6
+3897,Caretta caretta,French Polynesia,147,2e3,1996,EN,0.6
+3897,Caretta caretta,French Polynesia,147,2001,1996,EN,0.6
+3897,Caretta caretta,French Polynesia,147,2002,1996,EN,0.6
+3897,Caretta caretta,French Polynesia,147,2003,1996,EN,0.6
+3897,Caretta caretta,French Polynesia,147,2004,1996,EN,0.6
+3897,Caretta caretta,French Polynesia,147,2005,1996,EN,0.6
+3897,Caretta caretta,French Polynesia,147,2006,1996,EN,0.6
+3897,Caretta caretta,French Polynesia,147,2007,1996,EN,0.6
+3897,Caretta caretta,French Polynesia,147,2008,1996,EN,0.6
+3897,Caretta caretta,French Polynesia,147,2009,1996,EN,0.6
+3897,Caretta caretta,French Polynesia,147,2010,1996,EN,0.6
+3897,Caretta caretta,French Polynesia,147,2011,1996,EN,0.6
+3897,Caretta caretta,French Polynesia,147,2012,1996,EN,0.6
+3897,Caretta caretta,French Polynesia,147,2013,1996,EN,0.6
+3897,Caretta caretta,French Polynesia,147,2014,1996,EN,0.6
+3897,Caretta caretta,French Polynesia,147,2015,2015,VU,0.4
+3897,Caretta caretta,French Polynesia,147,2016,2015,VU,0.4
+3897,Caretta caretta,French Polynesia,147,2017,2017,VU,0.4
+3897,Caretta caretta,French Polynesia,147,2018,2017,VU,0.4
+4592,Cheilinus undulatus,French Polynesia,147,1992,NA,VU,0.4
+4592,Cheilinus undulatus,French Polynesia,147,1993,NA,VU,0.4
+4592,Cheilinus undulatus,French Polynesia,147,1994,NA,VU,0.4
+4592,Cheilinus undulatus,French Polynesia,147,1995,NA,VU,0.4
+4592,Cheilinus undulatus,French Polynesia,147,1996,1996,VU,0.4
+4592,Cheilinus undulatus,French Polynesia,147,1997,1996,VU,0.4
+4592,Cheilinus undulatus,French Polynesia,147,1998,1996,VU,0.4
+4592,Cheilinus undulatus,French Polynesia,147,1999,1996,VU,0.4
+4592,Cheilinus undulatus,French Polynesia,147,2e3,1996,VU,0.4
+4592,Cheilinus undulatus,French Polynesia,147,2001,1996,VU,0.4
+4592,Cheilinus undulatus,French Polynesia,147,2002,1996,VU,0.4
+4592,Cheilinus undulatus,French Polynesia,147,2003,1996,VU,0.4
+4592,Cheilinus undulatus,French Polynesia,147,2004,2004,EN,0.6
+4592,Cheilinus undulatus,French Polynesia,147,2005,2004,EN,0.6
+4592,Cheilinus undulatus,French Polynesia,147,2006,2004,EN,0.6
+4592,Cheilinus undulatus,French Polynesia,147,2007,2004,EN,0.6
+4592,Cheilinus undulatus,French Polynesia,147,2008,2004,EN,0.6
+4592,Cheilinus undulatus,French Polynesia,147,2009,2004,EN,0.6
+4592,Cheilinus undulatus,French Polynesia,147,2010,2004,EN,0.6
+4592,Cheilinus undulatus,French Polynesia,147,2011,2004,EN,0.6
+4592,Cheilinus undulatus,French Polynesia,147,2012,2004,EN,0.6
+4592,Cheilinus undulatus,French Polynesia,147,2013,2004,EN,0.6
+4592,Cheilinus undulatus,French Polynesia,147,2014,2004,EN,0.6
+4592,Cheilinus undulatus,French Polynesia,147,2015,2004,EN,0.6
+4592,Cheilinus undulatus,French Polynesia,147,2016,2004,EN,0.6
+4592,Cheilinus undulatus,French Polynesia,147,2017,2004,EN,0.6
+4592,Cheilinus undulatus,French Polynesia,147,2018,2004,EN,0.6
+4615,Chelonia mydas,French Polynesia,147,1992,1990,EN,0.6
+4615,Chelonia mydas,French Polynesia,147,1993,1990,EN,0.6
+4615,Chelonia mydas,French Polynesia,147,1994,1994,EN,0.6
+4615,Chelonia mydas,French Polynesia,147,1995,1994,EN,0.6
+4615,Chelonia mydas,French Polynesia,147,1996,1996,EN,0.6
+4615,Chelonia mydas,French Polynesia,147,1997,1996,EN,0.6
+4615,Chelonia mydas,French Polynesia,147,1998,1996,EN,0.6
+4615,Chelonia mydas,French Polynesia,147,1999,1996,EN,0.6
+4615,Chelonia mydas,French Polynesia,147,2e3,1996,EN,0.6
+4615,Chelonia mydas,French Polynesia,147,2001,1996,EN,0.6
+4615,Chelonia mydas,French Polynesia,147,2002,1996,EN,0.6
+4615,Chelonia mydas,French Polynesia,147,2003,1996,EN,0.6
+4615,Chelonia mydas,French Polynesia,147,2004,2004,EN,0.6
+4615,Chelonia mydas,French Polynesia,147,2005,2004,EN,0.6
+4615,Chelonia mydas,French Polynesia,147,2006,2004,EN,0.6
+4615,Chelonia mydas,French Polynesia,147,2007,2004,EN,0.6
+4615,Chelonia mydas,French Polynesia,147,2008,2004,EN,0.6
+4615,Chelonia mydas,French Polynesia,147,2009,2004,EN,0.6
+4615,Chelonia mydas,French Polynesia,147,2010,2004,EN,0.6
+4615,Chelonia mydas,French Polynesia,147,2011,2004,EN,0.6
+4615,Chelonia mydas,French Polynesia,147,2012,2004,EN,0.6
+4615,Chelonia mydas,French Polynesia,147,2013,2004,EN,0.6
+4615,Chelonia mydas,French Polynesia,147,2014,2004,EN,0.6
+4615,Chelonia mydas,French Polynesia,147,2015,2004,EN,0.6
+4615,Chelonia mydas,French Polynesia,147,2016,2004,EN,0.6
+4615,Chelonia mydas,French Polynesia,147,2017,2004,EN,0.6
+4615,Chelonia mydas,French Polynesia,147,2018,2004,EN,0.6
+6494,Dermochelys coriacea,French Polynesia,147,1992,1990,EN,0.6
+6494,Dermochelys coriacea,French Polynesia,147,1993,1990,EN,0.6
+6494,Dermochelys coriacea,French Polynesia,147,1994,1994,EN,0.6
+6494,Dermochelys coriacea,French Polynesia,147,1995,1994,EN,0.6
+6494,Dermochelys coriacea,French Polynesia,147,1996,1996,EN,0.6
+6494,Dermochelys coriacea,French Polynesia,147,1997,1996,EN,0.6
+6494,Dermochelys coriacea,French Polynesia,147,1998,1996,EN,0.6
+6494,Dermochelys coriacea,French Polynesia,147,1999,1996,EN,0.6
+6494,Dermochelys coriacea,French Polynesia,147,2e3,2000,CR,0.8
+6494,Dermochelys coriacea,French Polynesia,147,2001,2000,CR,0.8
+6494,Dermochelys coriacea,French Polynesia,147,2002,2000,CR,0.8
+6494,Dermochelys coriacea,French Polynesia,147,2003,2000,CR,0.8
+6494,Dermochelys coriacea,French Polynesia,147,2004,2000,CR,0.8
+6494,Dermochelys coriacea,French Polynesia,147,2005,2000,CR,0.8
+6494,Dermochelys coriacea,French Polynesia,147,2006,2000,CR,0.8
+6494,Dermochelys coriacea,French Polynesia,147,2007,2000,CR,0.8
+6494,Dermochelys coriacea,French Polynesia,147,2008,2000,CR,0.8
+6494,Dermochelys coriacea,French Polynesia,147,2009,2000,CR,0.8
+6494,Dermochelys coriacea,French Polynesia,147,2010,2000,CR,0.8
+6494,Dermochelys coriacea,French Polynesia,147,2011,2000,CR,0.8
+6494,Dermochelys coriacea,French Polynesia,147,2012,2000,CR,0.8
+6494,Dermochelys coriacea,French Polynesia,147,2013,2013,VU,0.4
+6494,Dermochelys coriacea,French Polynesia,147,2014,2013,VU,0.4
+6494,Dermochelys coriacea,French Polynesia,147,2015,2013,VU,0.4
+6494,Dermochelys coriacea,French Polynesia,147,2016,2013,VU,0.4
+6494,Dermochelys coriacea,French Polynesia,147,2017,2013,VU,0.4
+6494,Dermochelys coriacea,French Polynesia,147,2018,2013,VU,0.4
+13006,Megaptera novaeangliae,French Polynesia,147,1992,1990,VU,0.4
+13006,Megaptera novaeangliae,French Polynesia,147,1993,1990,VU,0.4
+13006,Megaptera novaeangliae,French Polynesia,147,1994,1994,VU,0.4
+13006,Megaptera novaeangliae,French Polynesia,147,1995,1994,VU,0.4
+13006,Megaptera novaeangliae,French Polynesia,147,1996,1996,VU,0.4
+13006,Megaptera novaeangliae,French Polynesia,147,1997,1996,VU,0.4
+13006,Megaptera novaeangliae,French Polynesia,147,1998,1996,VU,0.4
+13006,Megaptera novaeangliae,French Polynesia,147,1999,1996,VU,0.4
+13006,Megaptera novaeangliae,French Polynesia,147,2e3,1996,VU,0.4
+13006,Megaptera novaeangliae,French Polynesia,147,2001,1996,VU,0.4
+13006,Megaptera novaeangliae,French Polynesia,147,2002,1996,VU,0.4
+13006,Megaptera novaeangliae,French Polynesia,147,2003,1996,VU,0.4
+13006,Megaptera novaeangliae,French Polynesia,147,2004,1996,VU,0.4
+13006,Megaptera novaeangliae,French Polynesia,147,2005,1996,VU,0.4
+13006,Megaptera novaeangliae,French Polynesia,147,2006,1996,VU,0.4
+13006,Megaptera novaeangliae,French Polynesia,147,2007,1996,VU,0.4
+13006,Megaptera novaeangliae,French Polynesia,147,2008,2008,LC,0
+13006,Megaptera novaeangliae,French Polynesia,147,2009,2008,LC,0
+13006,Megaptera novaeangliae,French Polynesia,147,2010,2008,LC,0
+13006,Megaptera novaeangliae,French Polynesia,147,2011,2008,LC,0
+13006,Megaptera novaeangliae,French Polynesia,147,2012,2008,LC,0
+13006,Megaptera novaeangliae,French Polynesia,147,2013,2008,LC,0
+13006,Megaptera novaeangliae,French Polynesia,147,2014,2008,LC,0
+13006,Megaptera novaeangliae,French Polynesia,147,2015,2008,LC,0
+13006,Megaptera novaeangliae,French Polynesia,147,2016,2008,LC,0
+13006,Megaptera novaeangliae,French Polynesia,147,2017,2008,LC,0
+13006,Megaptera novaeangliae,French Polynesia,147,2018,2008,LC,0
+19488,Rhincodon typus,French Polynesia,147,1992,NA,VU,0.4
+19488,Rhincodon typus,French Polynesia,147,1993,NA,VU,0.4
+19488,Rhincodon typus,French Polynesia,147,1994,NA,VU,0.4
+19488,Rhincodon typus,French Polynesia,147,1995,NA,VU,0.4
+19488,Rhincodon typus,French Polynesia,147,1996,NA,VU,0.4
+19488,Rhincodon typus,French Polynesia,147,1997,NA,VU,0.4
+19488,Rhincodon typus,French Polynesia,147,1998,NA,VU,0.4
+19488,Rhincodon typus,French Polynesia,147,1999,NA,VU,0.4
+19488,Rhincodon typus,French Polynesia,147,2e3,2000,VU,0.4
+19488,Rhincodon typus,French Polynesia,147,2001,2000,VU,0.4
+19488,Rhincodon typus,French Polynesia,147,2002,2000,VU,0.4
+19488,Rhincodon typus,French Polynesia,147,2003,2000,VU,0.4
+19488,Rhincodon typus,French Polynesia,147,2004,2000,VU,0.4
+19488,Rhincodon typus,French Polynesia,147,2005,2005,VU,0.4
+19488,Rhincodon typus,French Polynesia,147,2006,2005,VU,0.4
+19488,Rhincodon typus,French Polynesia,147,2007,2005,VU,0.4
+19488,Rhincodon typus,French Polynesia,147,2008,2005,VU,0.4
+19488,Rhincodon typus,French Polynesia,147,2009,2005,VU,0.4
+19488,Rhincodon typus,French Polynesia,147,2010,2005,VU,0.4
+19488,Rhincodon typus,French Polynesia,147,2011,2005,VU,0.4
+19488,Rhincodon typus,French Polynesia,147,2012,2005,VU,0.4
+19488,Rhincodon typus,French Polynesia,147,2013,2005,VU,0.4
+19488,Rhincodon typus,French Polynesia,147,2014,2005,VU,0.4
+19488,Rhincodon typus,French Polynesia,147,2015,2005,VU,0.4
+19488,Rhincodon typus,French Polynesia,147,2016,2016,EN,0.6
+19488,Rhincodon typus,French Polynesia,147,2017,2016,EN,0.6
+19488,Rhincodon typus,French Polynesia,147,2018,2016,EN,0.6
+20738,Steno bredanensis,French Polynesia,147,1992,NA,LC,0
+20738,Steno bredanensis,French Polynesia,147,1993,NA,LC,0
+20738,Steno bredanensis,French Polynesia,147,1994,NA,LC,0
+20738,Steno bredanensis,French Polynesia,147,1995,NA,LC,0
+20738,Steno bredanensis,French Polynesia,147,1996,NA,LC,0
+20738,Steno bredanensis,French Polynesia,147,1997,NA,LC,0
+20738,Steno bredanensis,French Polynesia,147,1998,NA,LC,0
+20738,Steno bredanensis,French Polynesia,147,1999,NA,LC,0
+20738,Steno bredanensis,French Polynesia,147,2e3,NA,LC,0
+20738,Steno bredanensis,French Polynesia,147,2001,NA,LC,0
+20738,Steno bredanensis,French Polynesia,147,2002,NA,LC,0
+20738,Steno bredanensis,French Polynesia,147,2003,NA,LC,0
+20738,Steno bredanensis,French Polynesia,147,2004,NA,LC,0
+20738,Steno bredanensis,French Polynesia,147,2005,NA,LC,0
+20738,Steno bredanensis,French Polynesia,147,2006,NA,LC,0
+20738,Steno bredanensis,French Polynesia,147,2007,NA,LC,0
+20738,Steno bredanensis,French Polynesia,147,2008,2008,LC,0
+20738,Steno bredanensis,French Polynesia,147,2009,2008,LC,0
+20738,Steno bredanensis,French Polynesia,147,2010,2008,LC,0
+20738,Steno bredanensis,French Polynesia,147,2011,2008,LC,0
+20738,Steno bredanensis,French Polynesia,147,2012,2012,LC,0
+20738,Steno bredanensis,French Polynesia,147,2013,2012,LC,0
+20738,Steno bredanensis,French Polynesia,147,2014,2012,LC,0
+20738,Steno bredanensis,French Polynesia,147,2015,2012,LC,0
+20738,Steno bredanensis,French Polynesia,147,2016,2012,LC,0
+20738,Steno bredanensis,French Polynesia,147,2017,2012,LC,0
+20738,Steno bredanensis,French Polynesia,147,2018,2012,LC,0
+39339,Alopias vulpinus,French Polynesia,147,1992,NA,VU,0.4
+39339,Alopias vulpinus,French Polynesia,147,1993,NA,VU,0.4
+39339,Alopias vulpinus,French Polynesia,147,1994,NA,VU,0.4
+39339,Alopias vulpinus,French Polynesia,147,1995,NA,VU,0.4
+39339,Alopias vulpinus,French Polynesia,147,1996,NA,VU,0.4
+39339,Alopias vulpinus,French Polynesia,147,1997,NA,VU,0.4
+39339,Alopias vulpinus,French Polynesia,147,1998,NA,VU,0.4
+39339,Alopias vulpinus,French Polynesia,147,1999,NA,VU,0.4
+39339,Alopias vulpinus,French Polynesia,147,2e3,NA,VU,0.4
+39339,Alopias vulpinus,French Polynesia,147,2001,NA,VU,0.4
+39339,Alopias vulpinus,French Polynesia,147,2002,NA,VU,0.4
+39339,Alopias vulpinus,French Polynesia,147,2003,NA,VU,0.4
+39339,Alopias vulpinus,French Polynesia,147,2004,NA,VU,0.4
+39339,Alopias vulpinus,French Polynesia,147,2005,NA,VU,0.4
+39339,Alopias vulpinus,French Polynesia,147,2006,NA,VU,0.4
+39339,Alopias vulpinus,French Polynesia,147,2007,NA,VU,0.4
+39339,Alopias vulpinus,French Polynesia,147,2008,NA,VU,0.4
+39339,Alopias vulpinus,French Polynesia,147,2009,2009,VU,0.4
+39339,Alopias vulpinus,French Polynesia,147,2010,2009,VU,0.4
+39339,Alopias vulpinus,French Polynesia,147,2011,2009,VU,0.4
+39339,Alopias vulpinus,French Polynesia,147,2012,2009,VU,0.4
+39339,Alopias vulpinus,French Polynesia,147,2013,2009,VU,0.4
+39339,Alopias vulpinus,French Polynesia,147,2014,2009,VU,0.4
+39339,Alopias vulpinus,French Polynesia,147,2015,2009,VU,0.4
+39339,Alopias vulpinus,French Polynesia,147,2016,2009,VU,0.4
+39339,Alopias vulpinus,French Polynesia,147,2017,2009,VU,0.4
+39339,Alopias vulpinus,French Polynesia,147,2018,2009,VU,0.4
+39341,Isurus oxyrinchus,French Polynesia,147,1992,NA,NT,0.2
+39341,Isurus oxyrinchus,French Polynesia,147,1993,NA,NT,0.2
+39341,Isurus oxyrinchus,French Polynesia,147,1994,NA,NT,0.2
+39341,Isurus oxyrinchus,French Polynesia,147,1995,NA,NT,0.2
+39341,Isurus oxyrinchus,French Polynesia,147,1996,NA,NT,0.2
+39341,Isurus oxyrinchus,French Polynesia,147,1997,NA,NT,0.2
+39341,Isurus oxyrinchus,French Polynesia,147,1998,NA,NT,0.2
+39341,Isurus oxyrinchus,French Polynesia,147,1999,NA,NT,0.2
+39341,Isurus oxyrinchus,French Polynesia,147,2e3,2000,NT,0.2
+39341,Isurus oxyrinchus,French Polynesia,147,2001,2000,NT,0.2
+39341,Isurus oxyrinchus,French Polynesia,147,2002,2000,NT,0.2
+39341,Isurus oxyrinchus,French Polynesia,147,2003,2000,NT,0.2
+39341,Isurus oxyrinchus,French Polynesia,147,2004,2000,NT,0.2
+39341,Isurus oxyrinchus,French Polynesia,147,2005,2000,NT,0.2
+39341,Isurus oxyrinchus,French Polynesia,147,2006,2000,NT,0.2
+39341,Isurus oxyrinchus,French Polynesia,147,2007,2000,NT,0.2
+39341,Isurus oxyrinchus,French Polynesia,147,2008,2000,NT,0.2
+39341,Isurus oxyrinchus,French Polynesia,147,2009,2009,VU,0.4
+39341,Isurus oxyrinchus,French Polynesia,147,2010,2009,VU,0.4
+39341,Isurus oxyrinchus,French Polynesia,147,2011,2009,VU,0.4
+39341,Isurus oxyrinchus,French Polynesia,147,2012,2009,VU,0.4
+39341,Isurus oxyrinchus,French Polynesia,147,2013,2009,VU,0.4
+39341,Isurus oxyrinchus,French Polynesia,147,2014,2009,VU,0.4
+39341,Isurus oxyrinchus,French Polynesia,147,2015,2009,VU,0.4
+39341,Isurus oxyrinchus,French Polynesia,147,2016,2009,VU,0.4
+39341,Isurus oxyrinchus,French Polynesia,147,2017,2009,VU,0.4
+39341,Isurus oxyrinchus,French Polynesia,147,2018,2009,VU,0.4
+39365,Carcharhinus amblyrhynchos,French Polynesia,147,1992,NA,NT,0.2
+39365,Carcharhinus amblyrhynchos,French Polynesia,147,1993,NA,NT,0.2
+39365,Carcharhinus amblyrhynchos,French Polynesia,147,1994,NA,NT,0.2
+39365,Carcharhinus amblyrhynchos,French Polynesia,147,1995,NA,NT,0.2
+39365,Carcharhinus amblyrhynchos,French Polynesia,147,1996,NA,NT,0.2
+39365,Carcharhinus amblyrhynchos,French Polynesia,147,1997,NA,NT,0.2
+39365,Carcharhinus amblyrhynchos,French Polynesia,147,1998,NA,NT,0.2
+39365,Carcharhinus amblyrhynchos,French Polynesia,147,1999,NA,NT,0.2
+39365,Carcharhinus amblyrhynchos,French Polynesia,147,2e3,2000,NT,0.2
+39365,Carcharhinus amblyrhynchos,French Polynesia,147,2001,2000,NT,0.2
+39365,Carcharhinus amblyrhynchos,French Polynesia,147,2002,2000,NT,0.2
+39365,Carcharhinus amblyrhynchos,French Polynesia,147,2003,2000,NT,0.2
+39365,Carcharhinus amblyrhynchos,French Polynesia,147,2004,2000,NT,0.2
+39365,Carcharhinus amblyrhynchos,French Polynesia,147,2005,2000,NT,0.2
+39365,Carcharhinus amblyrhynchos,French Polynesia,147,2006,2000,NT,0.2
+39365,Carcharhinus amblyrhynchos,French Polynesia,147,2007,2000,NT,0.2
+39365,Carcharhinus amblyrhynchos,French Polynesia,147,2008,2000,NT,0.2
+39365,Carcharhinus amblyrhynchos,French Polynesia,147,2009,2009,NT,0.2
+39365,Carcharhinus amblyrhynchos,French Polynesia,147,2010,2009,NT,0.2
+39365,Carcharhinus amblyrhynchos,French Polynesia,147,2011,2009,NT,0.2
+39365,Carcharhinus amblyrhynchos,French Polynesia,147,2012,2009,NT,0.2
+39365,Carcharhinus amblyrhynchos,French Polynesia,147,2013,2009,NT,0.2
+39365,Carcharhinus amblyrhynchos,French Polynesia,147,2014,2009,NT,0.2
+39365,Carcharhinus amblyrhynchos,French Polynesia,147,2015,2009,NT,0.2
+39365,Carcharhinus amblyrhynchos,French Polynesia,147,2016,2009,NT,0.2
+39365,Carcharhinus amblyrhynchos,French Polynesia,147,2017,2009,NT,0.2
+39365,Carcharhinus amblyrhynchos,French Polynesia,147,2018,2009,NT,0.2
+39378,Galeocerdo cuvier,French Polynesia,147,1992,NA,NT,0.2
+39378,Galeocerdo cuvier,French Polynesia,147,1993,NA,NT,0.2
+39378,Galeocerdo cuvier,French Polynesia,147,1994,NA,NT,0.2
+39378,Galeocerdo cuvier,French Polynesia,147,1995,NA,NT,0.2
+39378,Galeocerdo cuvier,French Polynesia,147,1996,NA,NT,0.2
+39378,Galeocerdo cuvier,French Polynesia,147,1997,NA,NT,0.2
+39378,Galeocerdo cuvier,French Polynesia,147,1998,NA,NT,0.2
+39378,Galeocerdo cuvier,French Polynesia,147,1999,NA,NT,0.2
+39378,Galeocerdo cuvier,French Polynesia,147,2e3,2000,NT,0.2
+39378,Galeocerdo cuvier,French Polynesia,147,2001,2000,NT,0.2
+39378,Galeocerdo cuvier,French Polynesia,147,2002,2000,NT,0.2
+39378,Galeocerdo cuvier,French Polynesia,147,2003,2000,NT,0.2
+39378,Galeocerdo cuvier,French Polynesia,147,2004,2000,NT,0.2
+39378,Galeocerdo cuvier,French Polynesia,147,2005,2000,NT,0.2
+39378,Galeocerdo cuvier,French Polynesia,147,2006,2000,NT,0.2
+39378,Galeocerdo cuvier,French Polynesia,147,2007,2000,NT,0.2
+39378,Galeocerdo cuvier,French Polynesia,147,2008,2000,NT,0.2
+39378,Galeocerdo cuvier,French Polynesia,147,2009,2009,NT,0.2
+39378,Galeocerdo cuvier,French Polynesia,147,2010,2009,NT,0.2
+39378,Galeocerdo cuvier,French Polynesia,147,2011,2009,NT,0.2
+39378,Galeocerdo cuvier,French Polynesia,147,2012,2009,NT,0.2
+39378,Galeocerdo cuvier,French Polynesia,147,2013,2009,NT,0.2
+39378,Galeocerdo cuvier,French Polynesia,147,2014,2009,NT,0.2
+39378,Galeocerdo cuvier,French Polynesia,147,2015,2009,NT,0.2
+39378,Galeocerdo cuvier,French Polynesia,147,2016,2009,NT,0.2
+39378,Galeocerdo cuvier,French Polynesia,147,2017,2009,NT,0.2
+39378,Galeocerdo cuvier,French Polynesia,147,2018,2009,NT,0.2
+39381,Prionace glauca,French Polynesia,147,1992,NA,NT,0.2
+39381,Prionace glauca,French Polynesia,147,1993,NA,NT,0.2
+39381,Prionace glauca,French Polynesia,147,1994,NA,NT,0.2
+39381,Prionace glauca,French Polynesia,147,1995,NA,NT,0.2
+39381,Prionace glauca,French Polynesia,147,1996,NA,NT,0.2
+39381,Prionace glauca,French Polynesia,147,1997,NA,NT,0.2
+39381,Prionace glauca,French Polynesia,147,1998,NA,NT,0.2
+39381,Prionace glauca,French Polynesia,147,1999,NA,NT,0.2
+39381,Prionace glauca,French Polynesia,147,2e3,2000,NT,0.2
+39381,Prionace glauca,French Polynesia,147,2001,2000,NT,0.2
+39381,Prionace glauca,French Polynesia,147,2002,2000,NT,0.2
+39381,Prionace glauca,French Polynesia,147,2003,2000,NT,0.2
+39381,Prionace glauca,French Polynesia,147,2004,2000,NT,0.2
+39381,Prionace glauca,French Polynesia,147,2005,2000,NT,0.2
+39381,Prionace glauca,French Polynesia,147,2006,2000,NT,0.2
+39381,Prionace glauca,French Polynesia,147,2007,2000,NT,0.2
+39381,Prionace glauca,French Polynesia,147,2008,2000,NT,0.2
+39381,Prionace glauca,French Polynesia,147,2009,2009,NT,0.2
+39381,Prionace glauca,French Polynesia,147,2010,2009,NT,0.2
+39381,Prionace glauca,French Polynesia,147,2011,2009,NT,0.2
+39381,Prionace glauca,French Polynesia,147,2012,2009,NT,0.2
+39381,Prionace glauca,French Polynesia,147,2013,2009,NT,0.2
+39381,Prionace glauca,French Polynesia,147,2014,2009,NT,0.2
+39381,Prionace glauca,French Polynesia,147,2015,2009,NT,0.2
+39381,Prionace glauca,French Polynesia,147,2016,2009,NT,0.2
+39381,Prionace glauca,French Polynesia,147,2017,2009,NT,0.2
+39381,Prionace glauca,French Polynesia,147,2018,2009,NT,0.2
+39384,Triaenodon obesus,French Polynesia,147,1992,NA,NT,0.2
+39384,Triaenodon obesus,French Polynesia,147,1993,NA,NT,0.2
+39384,Triaenodon obesus,French Polynesia,147,1994,NA,NT,0.2
+39384,Triaenodon obesus,French Polynesia,147,1995,NA,NT,0.2
+39384,Triaenodon obesus,French Polynesia,147,1996,NA,NT,0.2
+39384,Triaenodon obesus,French Polynesia,147,1997,NA,NT,0.2
+39384,Triaenodon obesus,French Polynesia,147,1998,NA,NT,0.2
+39384,Triaenodon obesus,French Polynesia,147,1999,NA,NT,0.2
+39384,Triaenodon obesus,French Polynesia,147,2e3,2000,NT,0.2
+39384,Triaenodon obesus,French Polynesia,147,2001,2000,NT,0.2
+39384,Triaenodon obesus,French Polynesia,147,2002,2000,NT,0.2
+39384,Triaenodon obesus,French Polynesia,147,2003,2000,NT,0.2
+39384,Triaenodon obesus,French Polynesia,147,2004,2000,NT,0.2
+39384,Triaenodon obesus,French Polynesia,147,2005,2000,NT,0.2
+39384,Triaenodon obesus,French Polynesia,147,2006,2000,NT,0.2
+39384,Triaenodon obesus,French Polynesia,147,2007,2000,NT,0.2
+39384,Triaenodon obesus,French Polynesia,147,2008,2000,NT,0.2
+39384,Triaenodon obesus,French Polynesia,147,2009,2009,NT,0.2
+39384,Triaenodon obesus,French Polynesia,147,2010,2009,NT,0.2
+39384,Triaenodon obesus,French Polynesia,147,2011,2009,NT,0.2
+39384,Triaenodon obesus,French Polynesia,147,2012,2009,NT,0.2
+39384,Triaenodon obesus,French Polynesia,147,2013,2009,NT,0.2
+39384,Triaenodon obesus,French Polynesia,147,2014,2009,NT,0.2
+39384,Triaenodon obesus,French Polynesia,147,2015,2009,NT,0.2
+39384,Triaenodon obesus,French Polynesia,147,2016,2009,NT,0.2
+39384,Triaenodon obesus,French Polynesia,147,2017,2009,NT,0.2
+39384,Triaenodon obesus,French Polynesia,147,2018,2009,NT,0.2
+132832,Megaptera novaeangliae,French Polynesia,147,1992,NA,EN,0.6
+132832,Megaptera novaeangliae,French Polynesia,147,1993,NA,EN,0.6
+132832,Megaptera novaeangliae,French Polynesia,147,1994,NA,EN,0.6
+132832,Megaptera novaeangliae,French Polynesia,147,1995,NA,EN,0.6
+132832,Megaptera novaeangliae,French Polynesia,147,1996,NA,EN,0.6
+132832,Megaptera novaeangliae,French Polynesia,147,1997,NA,EN,0.6
+132832,Megaptera novaeangliae,French Polynesia,147,1998,NA,EN,0.6
+132832,Megaptera novaeangliae,French Polynesia,147,1999,NA,EN,0.6
+132832,Megaptera novaeangliae,French Polynesia,147,2e3,NA,EN,0.6
+132832,Megaptera novaeangliae,French Polynesia,147,2001,NA,EN,0.6
+132832,Megaptera novaeangliae,French Polynesia,147,2002,NA,EN,0.6
+132832,Megaptera novaeangliae,French Polynesia,147,2003,NA,EN,0.6
+132832,Megaptera novaeangliae,French Polynesia,147,2004,NA,EN,0.6
+132832,Megaptera novaeangliae,French Polynesia,147,2005,NA,EN,0.6
+132832,Megaptera novaeangliae,French Polynesia,147,2006,NA,EN,0.6
+132832,Megaptera novaeangliae,French Polynesia,147,2007,NA,EN,0.6
+132832,Megaptera novaeangliae,French Polynesia,147,2008,2008,EN,0.6
+132832,Megaptera novaeangliae,French Polynesia,147,2009,2008,EN,0.6
+132832,Megaptera novaeangliae,French Polynesia,147,2010,2008,EN,0.6
+132832,Megaptera novaeangliae,French Polynesia,147,2011,2008,EN,0.6
+132832,Megaptera novaeangliae,French Polynesia,147,2012,2008,EN,0.6
+132832,Megaptera novaeangliae,French Polynesia,147,2013,2008,EN,0.6
+132832,Megaptera novaeangliae,French Polynesia,147,2014,2008,EN,0.6
+132832,Megaptera novaeangliae,French Polynesia,147,2015,2008,EN,0.6
+132832,Megaptera novaeangliae,French Polynesia,147,2016,2008,EN,0.6
+132832,Megaptera novaeangliae,French Polynesia,147,2017,2008,EN,0.6
+132832,Megaptera novaeangliae,French Polynesia,147,2018,2008,EN,0.6
+46967817,Dermochelys coriacea,French Polynesia,147,1992,NA,CR,0.8
+46967817,Dermochelys coriacea,French Polynesia,147,1993,NA,CR,0.8
+46967817,Dermochelys coriacea,French Polynesia,147,1994,NA,CR,0.8
+46967817,Dermochelys coriacea,French Polynesia,147,1995,NA,CR,0.8
+46967817,Dermochelys coriacea,French Polynesia,147,1996,NA,CR,0.8
+46967817,Dermochelys coriacea,French Polynesia,147,1997,NA,CR,0.8
+46967817,Dermochelys coriacea,French Polynesia,147,1998,NA,CR,0.8
+46967817,Dermochelys coriacea,French Polynesia,147,1999,NA,CR,0.8
+46967817,Dermochelys coriacea,French Polynesia,147,2e3,NA,CR,0.8
+46967817,Dermochelys coriacea,French Polynesia,147,2001,NA,CR,0.8
+46967817,Dermochelys coriacea,French Polynesia,147,2002,NA,CR,0.8
+46967817,Dermochelys coriacea,French Polynesia,147,2003,NA,CR,0.8
+46967817,Dermochelys coriacea,French Polynesia,147,2004,NA,CR,0.8
+46967817,Dermochelys coriacea,French Polynesia,147,2005,NA,CR,0.8
+46967817,Dermochelys coriacea,French Polynesia,147,2006,NA,CR,0.8
+46967817,Dermochelys coriacea,French Polynesia,147,2007,NA,CR,0.8
+46967817,Dermochelys coriacea,French Polynesia,147,2008,NA,CR,0.8
+46967817,Dermochelys coriacea,French Polynesia,147,2009,NA,CR,0.8
+46967817,Dermochelys coriacea,French Polynesia,147,2010,NA,CR,0.8
+46967817,Dermochelys coriacea,French Polynesia,147,2011,NA,CR,0.8
+46967817,Dermochelys coriacea,French Polynesia,147,2012,NA,CR,0.8
+46967817,Dermochelys coriacea,French Polynesia,147,2013,2013,CR,0.8
+46967817,Dermochelys coriacea,French Polynesia,147,2014,2013,CR,0.8
+46967817,Dermochelys coriacea,French Polynesia,147,2015,2013,CR,0.8
+46967817,Dermochelys coriacea,French Polynesia,147,2016,2013,CR,0.8
+46967817,Dermochelys coriacea,French Polynesia,147,2017,2013,CR,0.8
+46967817,Dermochelys coriacea,French Polynesia,147,2018,2013,CR,0.8
+84156809,Caretta caretta,French Polynesia,147,1992,NA,CR,0.8
+84156809,Caretta caretta,French Polynesia,147,1993,NA,CR,0.8
+84156809,Caretta caretta,French Polynesia,147,1994,NA,CR,0.8
+84156809,Caretta caretta,French Polynesia,147,1995,NA,CR,0.8
+84156809,Caretta caretta,French Polynesia,147,1996,NA,CR,0.8
+84156809,Caretta caretta,French Polynesia,147,1997,NA,CR,0.8
+84156809,Caretta caretta,French Polynesia,147,1998,NA,CR,0.8
+84156809,Caretta caretta,French Polynesia,147,1999,NA,CR,0.8
+84156809,Caretta caretta,French Polynesia,147,2e3,NA,CR,0.8
+84156809,Caretta caretta,French Polynesia,147,2001,NA,CR,0.8
+84156809,Caretta caretta,French Polynesia,147,2002,NA,CR,0.8
+84156809,Caretta caretta,French Polynesia,147,2003,NA,CR,0.8
+84156809,Caretta caretta,French Polynesia,147,2004,NA,CR,0.8
+84156809,Caretta caretta,French Polynesia,147,2005,NA,CR,0.8
+84156809,Caretta caretta,French Polynesia,147,2006,NA,CR,0.8
+84156809,Caretta caretta,French Polynesia,147,2007,NA,CR,0.8
+84156809,Caretta caretta,French Polynesia,147,2008,NA,CR,0.8
+84156809,Caretta caretta,French Polynesia,147,2009,NA,CR,0.8
+84156809,Caretta caretta,French Polynesia,147,2010,NA,CR,0.8
+84156809,Caretta caretta,French Polynesia,147,2011,NA,CR,0.8
+84156809,Caretta caretta,French Polynesia,147,2012,NA,CR,0.8
+84156809,Caretta caretta,French Polynesia,147,2013,NA,CR,0.8
+84156809,Caretta caretta,French Polynesia,147,2014,NA,CR,0.8
+84156809,Caretta caretta,French Polynesia,147,2015,2015,CR,0.8
+84156809,Caretta caretta,French Polynesia,147,2016,2015,CR,0.8
+84156809,Caretta caretta,French Polynesia,147,2017,2015,CR,0.8
+84156809,Caretta caretta,French Polynesia,147,2018,2015,CR,0.8
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA
+39375,Carcharhinus melanopterus,Moorea,147,1992,NA,NT,0.2
+39375,Carcharhinus melanopterus,Moorea,147,1993,NA,NT,0.2
+39375,Carcharhinus melanopterus,Moorea,147,1994,NA,NT,0.2
+39375,Carcharhinus melanopterus,Moorea,147,1995,NA,NT,0.2
+39375,Carcharhinus melanopterus,Moorea,147,1996,NA,NT,0.2
+39375,Carcharhinus melanopterus,Moorea,147,1997,NA,NT,0.2
+39375,Carcharhinus melanopterus,Moorea,147,1998,NA,NT,0.2
+39375,Carcharhinus melanopterus,Moorea,147,1999,NA,NT,0.2
+39375,Carcharhinus melanopterus,Moorea,147,2e3,2000,NT,0.2
+39375,Carcharhinus melanopterus,Moorea,147,2001,2000,NT,0.2
+39375,Carcharhinus melanopterus,Moorea,147,2002,2000,NT,0.2
+39375,Carcharhinus melanopterus,Moorea,147,2003,2000,NT,0.2
+39375,Carcharhinus melanopterus,Moorea,147,2004,2000,NT,0.2
+39375,Carcharhinus melanopterus,Moorea,147,2005,2005,NT,0.2
+39375,Carcharhinus melanopterus,Moorea,147,2006,2005,NT,0.2
+39375,Carcharhinus melanopterus,Moorea,147,2007,2005,NT,0.2
+39375,Carcharhinus melanopterus,Moorea,147,2008,2005,NT,0.2
+39375,Carcharhinus melanopterus,Moorea,147,2009,2005,NT,0.2
+39375,Carcharhinus melanopterus,Moorea,147,2010,2005,NT,0.2
+39375,Carcharhinus melanopterus,Moorea,147,2011,2005,NT,0.2
+39375,Carcharhinus melanopterus,Moorea,147,2012,2005,NT,0.2
+39375,Carcharhinus melanopterus,Moorea,147,2013,2005,NT,0.2
+39375,Carcharhinus melanopterus,Moorea,147,2014,2005,NT,0.2
+39375,Carcharhinus melanopterus,Moorea,147,2015,2005,NT,0.2
+39375,Carcharhinus melanopterus,Moorea,147,2016,2005,NT,0.2
+39375,Carcharhinus melanopterus,Moorea,147,2017,2005,NT,0.2
+39375,Carcharhinus melanopterus,Moorea,147,2018,2005,NT,0.2
+161526,Carcharhinus albimarginatus,Moorea,147,1992,NA,NA,0.2
+161526,Carcharhinus albimarginatus,Moorea,147,1993,NA,NA,0.2
+161526,Carcharhinus albimarginatus,Moorea,147,1994,NA,NA,0.2
+161526,Carcharhinus albimarginatus,Moorea,147,1995,NA,NA,0.2
+161526,Carcharhinus albimarginatus,Moorea,147,1996,NA,NA,0.2
+161526,Carcharhinus albimarginatus,Moorea,147,1997,NA,NA,0.2
+161526,Carcharhinus albimarginatus,Moorea,147,1998,NA,NA,0.2
+161526,Carcharhinus albimarginatus,Moorea,147,1999,NA,NA,0.2
+161526,Carcharhinus albimarginatus,Moorea,147,2e3,NA,NA,0.2
+161526,Carcharhinus albimarginatus,Moorea,147,2001,NA,NA,0.2
+161526,Carcharhinus albimarginatus,Moorea,147,2002,NA,NA,0.2
+161526,Carcharhinus albimarginatus,Moorea,147,2003,NA,NA,0.2
+161526,Carcharhinus albimarginatus,Moorea,147,2004,NA,NA,0.2
+161526,Carcharhinus albimarginatus,Moorea,147,2005,NA,NA,0.2
+161526,Carcharhinus albimarginatus,Moorea,147,2006,NA,NA,0.2
+161526,Carcharhinus albimarginatus,Moorea,147,2007,2007,NT,0.2
+161526,Carcharhinus albimarginatus,Moorea,147,2008,2007,NT,0.2
+161526,Carcharhinus albimarginatus,Moorea,147,2009,2007,NT,0.2
+161526,Carcharhinus albimarginatus,Moorea,147,2010,2007,NT,0.2
+161526,Carcharhinus albimarginatus,Moorea,147,2011,2007,NT,0.2
+161526,Carcharhinus albimarginatus,Moorea,147,2012,2007,NT,0.2
+161526,Carcharhinus albimarginatus,Moorea,147,2013,2007,NT,0.2
+161526,Carcharhinus albimarginatus,Moorea,147,2014,2007,NT,0.2
+161526,Carcharhinus albimarginatus,Moorea,147,2015,2015,VU,0.4
+161526,Carcharhinus albimarginatus,Moorea,147,2016,2015,VU,0.4
+161526,Carcharhinus albimarginatus,Moorea,147,2017,2015,VU,0.4
+161526,Carcharhinus albimarginatus,Moorea,147,2018,2015,VU,0.4
+39370,Carcharhinus falciformis,Moorea,147,1992,NA,NA,NA
+39370,Carcharhinus falciformis,Moorea,147,1993,NA,NA,NA
+39370,Carcharhinus falciformis,Moorea,147,1994,NA,NA,NA
+39370,Carcharhinus falciformis,Moorea,147,1995,NA,NA,NA
+39370,Carcharhinus falciformis,Moorea,147,1996,NA,NA,NA
+39370,Carcharhinus falciformis,Moorea,147,1997,NA,NA,NA
+39370,Carcharhinus falciformis,Moorea,147,1998,NA,NA,NA
+39370,Carcharhinus falciformis,Moorea,147,1999,NA,NA,NA
+39370,Carcharhinus falciformis,Moorea,147,2e3,2000,LC,NA
+39370,Carcharhinus falciformis,Moorea,147,2001,2000,LC,NA
+39370,Carcharhinus falciformis,Moorea,147,2002,2000,LC,NA
+39370,Carcharhinus falciformis,Moorea,147,2003,2000,LC,NA
+39370,Carcharhinus falciformis,Moorea,147,2004,2000,LC,NA
+39370,Carcharhinus falciformis,Moorea,147,2005,2000,LC,NA
+39370,Carcharhinus falciformis,Moorea,147,2006,2000,LC,NA
+39370,Carcharhinus falciformis,Moorea,147,2007,2000,LC,NA
+39370,Carcharhinus falciformis,Moorea,147,2008,2000,LC,NA
+39370,Carcharhinus falciformis,Moorea,147,2009,2009,NT,0.2
+39370,Carcharhinus falciformis,Moorea,147,2010,2009,NT,0.2
+39370,Carcharhinus falciformis,Moorea,147,2011,2009,NT,0.2
+39370,Carcharhinus falciformis,Moorea,147,2012,2009,NT,0.2
+39370,Carcharhinus falciformis,Moorea,147,2013,2009,NT,0.2
+39370,Carcharhinus falciformis,Moorea,147,2014,2009,NT,0.2
+39370,Carcharhinus falciformis,Moorea,147,2015,2009,NT,0.2
+39370,Carcharhinus falciformis,Moorea,147,2016,2016,NT,0.2
+39370,Carcharhinus falciformis,Moorea,147,2017,2017,VU,0.4
+39370,Carcharhinus falciformis,Moorea,147,2018,2017,VU,0.4
+41736,Carcharhinus galapagensis,Moorea,147,1992,NA,NT,0.2
+41736,Carcharhinus galapagensis,Moorea,147,1993,NA,NT,0.2
+41736,Carcharhinus galapagensis,Moorea,147,1994,NA,NT,0.2
+41736,Carcharhinus galapagensis,Moorea,147,1995,NA,NT,0.2
+41736,Carcharhinus galapagensis,Moorea,147,1996,NA,NT,0.2
+41736,Carcharhinus galapagensis,Moorea,147,1997,NA,NT,0.2
+41736,Carcharhinus galapagensis,Moorea,147,1998,NA,NT,0.2
+41736,Carcharhinus galapagensis,Moorea,147,1999,NA,NT,0.2
+41736,Carcharhinus galapagensis,Moorea,147,2e3,NA,NT,0.2
+41736,Carcharhinus galapagensis,Moorea,147,2001,NA,NT,0.2
+41736,Carcharhinus galapagensis,Moorea,147,2002,NA,NT,0.2
+41736,Carcharhinus galapagensis,Moorea,147,2003,2003,NT,0.2
+41736,Carcharhinus galapagensis,Moorea,147,2004,2003,NT,0.2
+41736,Carcharhinus galapagensis,Moorea,147,2005,2003,NT,0.2
+41736,Carcharhinus galapagensis,Moorea,147,2006,2003,NT,0.2
+41736,Carcharhinus galapagensis,Moorea,147,2007,2003,NT,0.2
+41736,Carcharhinus galapagensis,Moorea,147,2008,2003,NT,0.2
+41736,Carcharhinus galapagensis,Moorea,147,2009,2003,NT,0.2
+41736,Carcharhinus galapagensis,Moorea,147,2010,2003,NT,0.2
+41736,Carcharhinus galapagensis,Moorea,147,2011,2003,NT,0.2
+41736,Carcharhinus galapagensis,Moorea,147,2012,2003,NT,0.2
+41736,Carcharhinus galapagensis,Moorea,147,2013,2003,NT,0.2
+41736,Carcharhinus galapagensis,Moorea,147,2014,2003,NT,0.2
+41736,Carcharhinus galapagensis,Moorea,147,2015,2003,NT,0.2
+41736,Carcharhinus galapagensis,Moorea,147,2016,2003,NT,0.2
+41736,Carcharhinus galapagensis,Moorea,147,2017,2003,NT,0.2
+41736,Carcharhinus galapagensis,Moorea,147,2018,2003,NT,0.2
+39372,Carcharhinus leucas,Moorea,147,1992,NA,NT,0.2
+39372,Carcharhinus leucas,Moorea,147,1993,NA,NT,0.2
+39372,Carcharhinus leucas,Moorea,147,1994,NA,NT,0.2
+39372,Carcharhinus leucas,Moorea,147,1995,NA,NT,0.2
+39372,Carcharhinus leucas,Moorea,147,1996,NA,NT,0.2
+39372,Carcharhinus leucas,Moorea,147,1997,NA,NT,0.2
+39372,Carcharhinus leucas,Moorea,147,1998,NA,NT,0.2
+39372,Carcharhinus leucas,Moorea,147,1999,NA,NT,0.2
+39372,Carcharhinus leucas,Moorea,147,2e3,2000,NT,0.2
+39372,Carcharhinus leucas,Moorea,147,2001,2000,NT,0.2
+39372,Carcharhinus leucas,Moorea,147,2002,2000,NT,0.2
+39372,Carcharhinus leucas,Moorea,147,2003,2000,NT,0.2
+39372,Carcharhinus leucas,Moorea,147,2004,2000,NT,0.2
+39372,Carcharhinus leucas,Moorea,147,2005,2005,NT,0.2
+39372,Carcharhinus leucas,Moorea,147,2006,2005,NT,0.2
+39372,Carcharhinus leucas,Moorea,147,2007,2005,NT,0.2
+39372,Carcharhinus leucas,Moorea,147,2008,2005,NT,0.2
+39372,Carcharhinus leucas,Moorea,147,2009,2005,NT,0.2
+39372,Carcharhinus leucas,Moorea,147,2010,2005,NT,0.2
+39372,Carcharhinus leucas,Moorea,147,2011,2005,NT,0.2
+39372,Carcharhinus leucas,Moorea,147,2012,2005,NT,0.2
+39372,Carcharhinus leucas,Moorea,147,2013,2005,NT,0.2
+39372,Carcharhinus leucas,Moorea,147,2014,2005,NT,0.2
+39372,Carcharhinus leucas,Moorea,147,2015,2005,NT,0.2
+39372,Carcharhinus leucas,Moorea,147,2016,2005,NT,0.2
+39372,Carcharhinus leucas,Moorea,147,2017,2005,NT,0.2
+39372,Carcharhinus leucas,Moorea,147,2018,2005,NT,0.2
+3851,Carcharhinus limbatus,Moorea,147,1992,NA,VU,0.4
+3851,Carcharhinus limbatus,Moorea,147,1993,NA,VU,0.4
+3851,Carcharhinus limbatus,Moorea,147,1994,NA,VU,0.4
+3851,Carcharhinus limbatus,Moorea,147,1995,NA,VU,0.4
+3851,Carcharhinus limbatus,Moorea,147,1996,1996,VU,0.4
+3851,Carcharhinus limbatus,Moorea,147,1997,1996,VU,0.4
+3851,Carcharhinus limbatus,Moorea,147,1998,1996,VU,0.4
+3851,Carcharhinus limbatus,Moorea,147,1999,1996,VU,0.4
+3851,Carcharhinus limbatus,Moorea,147,2e3,2000,NT,0.2
+3851,Carcharhinus limbatus,Moorea,147,2001,2000,NT,0.2
+3851,Carcharhinus limbatus,Moorea,147,2002,2000,NT,0.2
+3851,Carcharhinus limbatus,Moorea,147,2003,2000,NT,0.2
+3851,Carcharhinus limbatus,Moorea,147,2004,2000,NT,0.2
+3851,Carcharhinus limbatus,Moorea,147,2005,2005,NT,0.2
+3851,Carcharhinus limbatus,Moorea,147,2006,2005,NT,0.2
+3851,Carcharhinus limbatus,Moorea,147,2007,2005,NT,0.2
+3851,Carcharhinus limbatus,Moorea,147,2008,2005,NT,0.2
+3851,Carcharhinus limbatus,Moorea,147,2009,2005,NT,0.2
+3851,Carcharhinus limbatus,Moorea,147,2010,2005,NT,0.2
+3851,Carcharhinus limbatus,Moorea,147,2011,2005,NT,0.2
+3851,Carcharhinus limbatus,Moorea,147,2012,2005,NT,0.2
+3851,Carcharhinus limbatus,Moorea,147,2013,2005,NT,0.2
+3851,Carcharhinus limbatus,Moorea,147,2014,2005,NT,0.2
+3851,Carcharhinus limbatus,Moorea,147,2015,2005,NT,0.2
+3851,Carcharhinus limbatus,Moorea,147,2016,2005,NT,0.2
+3851,Carcharhinus limbatus,Moorea,147,2017,2005,NT,0.2
+3851,Carcharhinus limbatus,Moorea,147,2018,2005,NT,0.2
+41836,Negaprion acutidens,Moorea,147,1992,NA,VU,0.4
+41836,Negaprion acutidens,Moorea,147,1993,NA,VU,0.4
+41836,Negaprion acutidens,Moorea,147,1994,NA,VU,0.4
+41836,Negaprion acutidens,Moorea,147,1995,NA,VU,0.4
+41836,Negaprion acutidens,Moorea,147,1996,NA,VU,0.4
+41836,Negaprion acutidens,Moorea,147,1997,NA,VU,0.4
+41836,Negaprion acutidens,Moorea,147,1998,NA,VU,0.4
+41836,Negaprion acutidens,Moorea,147,1999,NA,VU,0.4
+41836,Negaprion acutidens,Moorea,147,2e3,NA,VU,0.4
+41836,Negaprion acutidens,Moorea,147,2001,NA,VU,0.4
+41836,Negaprion acutidens,Moorea,147,2002,NA,VU,0.4
+41836,Negaprion acutidens,Moorea,147,2003,2003,VU,0.4
+41836,Negaprion acutidens,Moorea,147,2004,2003,VU,0.4
+41836,Negaprion acutidens,Moorea,147,2005,2003,VU,0.4
+41836,Negaprion acutidens,Moorea,147,2006,2003,VU,0.4
+41836,Negaprion acutidens,Moorea,147,2007,2003,VU,0.4
+41836,Negaprion acutidens,Moorea,147,2008,2003,VU,0.4
+41836,Negaprion acutidens,Moorea,147,2009,2003,VU,0.4
+41836,Negaprion acutidens,Moorea,147,2010,2003,VU,0.4
+41836,Negaprion acutidens,Moorea,147,2011,2003,VU,0.4
+41836,Negaprion acutidens,Moorea,147,2012,2003,VU,0.4
+41836,Negaprion acutidens,Moorea,147,2013,2003,VU,0.4
+41836,Negaprion acutidens,Moorea,147,2014,2003,VU,0.4
+41836,Negaprion acutidens,Moorea,147,2015,2003,VU,0.4
+41836,Negaprion acutidens,Moorea,147,2016,2003,VU,0.4
+41836,Negaprion acutidens,Moorea,147,2017,2003,VU,0.4
+41836,Negaprion acutidens,Moorea,147,2018,2003,VU,0.4
+41835,Nebrius ferrugineus,Moorea,147,1992,NA,VU,0.4
+41835,Nebrius ferrugineus,Moorea,147,1993,NA,VU,0.4
+41835,Nebrius ferrugineus,Moorea,147,1994,NA,VU,0.4
+41835,Nebrius ferrugineus,Moorea,147,1995,NA,VU,0.4
+41835,Nebrius ferrugineus,Moorea,147,1996,NA,VU,0.4
+41835,Nebrius ferrugineus,Moorea,147,1997,NA,VU,0.4
+41835,Nebrius ferrugineus,Moorea,147,1998,NA,VU,0.4
+41835,Nebrius ferrugineus,Moorea,147,1999,NA,VU,0.4
+41835,Nebrius ferrugineus,Moorea,147,2e3,NA,VU,0.4
+41835,Nebrius ferrugineus,Moorea,147,2001,NA,VU,0.4
+41835,Nebrius ferrugineus,Moorea,147,2002,NA,VU,0.4
+41835,Nebrius ferrugineus,Moorea,147,2003,2003,VU,0.4
+41835,Nebrius ferrugineus,Moorea,147,2004,2003,VU,0.4
+41835,Nebrius ferrugineus,Moorea,147,2005,2003,VU,0.4
+41835,Nebrius ferrugineus,Moorea,147,2006,2003,VU,0.4
+41835,Nebrius ferrugineus,Moorea,147,2007,2003,VU,0.4
+41835,Nebrius ferrugineus,Moorea,147,2008,2003,VU,0.4
+41835,Nebrius ferrugineus,Moorea,147,2009,2003,VU,0.4
+41835,Nebrius ferrugineus,Moorea,147,2010,2003,VU,0.4
+41835,Nebrius ferrugineus,Moorea,147,2011,2003,VU,0.4
+41835,Nebrius ferrugineus,Moorea,147,2012,2003,VU,0.4
+41835,Nebrius ferrugineus,Moorea,147,2013,2003,VU,0.4
+41835,Nebrius ferrugineus,Moorea,147,2014,2003,VU,0.4
+41835,Nebrius ferrugineus,Moorea,147,2015,2003,VU,0.4
+41835,Nebrius ferrugineus,Moorea,147,2016,2003,VU,0.4
+41835,Nebrius ferrugineus,Moorea,147,2017,2003,VU,0.4
+41835,Nebrius ferrugineus,Moorea,147,2018,2003,VU,0.4
+39385,Sphyrna lewini,Moorea,147,1992,NA,NT,0.2
+39385,Sphyrna lewini,Moorea,147,1993,NA,NT,0.2
+39385,Sphyrna lewini,Moorea,147,1994,NA,NT,0.2
+39385,Sphyrna lewini,Moorea,147,1995,NA,NT,0.2
+39385,Sphyrna lewini,Moorea,147,1996,NA,NT,0.2
+39385,Sphyrna lewini,Moorea,147,1997,NA,NT,0.2
+39385,Sphyrna lewini,Moorea,147,1998,NA,NT,0.2
+39385,Sphyrna lewini,Moorea,147,1999,NA,NT,0.2
+39385,Sphyrna lewini,Moorea,147,2e3,2000,NT,0.2
+39385,Sphyrna lewini,Moorea,147,2001,2000,NT,0.2
+39385,Sphyrna lewini,Moorea,147,2002,2000,NT,0.2
+39385,Sphyrna lewini,Moorea,147,2003,2000,NT,0.2
+39385,Sphyrna lewini,Moorea,147,2004,2000,NT,0.2
+39385,Sphyrna lewini,Moorea,147,2005,2000,NT,0.2
+39385,Sphyrna lewini,Moorea,147,2006,2000,NT,0.2
+39385,Sphyrna lewini,Moorea,147,2007,2007,EN,0.6
+39385,Sphyrna lewini,Moorea,147,2008,2007,EN,0.6
+39385,Sphyrna lewini,Moorea,147,2009,2007,EN,0.6
+39385,Sphyrna lewini,Moorea,147,2010,2007,EN,0.6
+39385,Sphyrna lewini,Moorea,147,2011,2007,EN,0.6
+39385,Sphyrna lewini,Moorea,147,2012,2007,EN,0.6
+39385,Sphyrna lewini,Moorea,147,2013,2007,EN,0.6
+39385,Sphyrna lewini,Moorea,147,2014,2007,EN,0.6
+39385,Sphyrna lewini,Moorea,147,2015,2007,EN,0.6
+39385,Sphyrna lewini,Moorea,147,2016,2007,EN,0.6
+39385,Sphyrna lewini,Moorea,147,2017,2007,EN,0.6
+39385,Sphyrna lewini,Moorea,147,2018,2007,EN,0.6
+39385,Sphyrna mokarran,Moorea,147,1992,NA,DD,NA
+39385,Sphyrna mokarran,Moorea,147,1993,NA,DD,NA
+39385,Sphyrna mokarran,Moorea,147,1994,NA,DD,NA
+39385,Sphyrna mokarran,Moorea,147,1995,NA,DD,NA
+39385,Sphyrna mokarran,Moorea,147,1996,NA,DD,NA
+39385,Sphyrna mokarran,Moorea,147,1997,NA,DD,NA
+39385,Sphyrna mokarran,Moorea,147,1998,NA,DD,NA
+39385,Sphyrna mokarran,Moorea,147,1999,NA,DD,NA
+39385,Sphyrna mokarran,Moorea,147,2e3,2000,DD,NA
+39385,Sphyrna mokarran,Moorea,147,2001,2000,DD,NA
+39385,Sphyrna mokarran,Moorea,147,2002,2000,DD,NA
+39385,Sphyrna mokarran,Moorea,147,2003,2000,DD,NA
+39385,Sphyrna mokarran,Moorea,147,2004,2000,DD,NA
+39385,Sphyrna mokarran,Moorea,147,2005,2000,DD,NA
+39385,Sphyrna mokarran,Moorea,147,2006,2000,DD,NA
+39385,Sphyrna mokarran,Moorea,147,2007,2007,EN,0.6
+39385,Sphyrna mokarran,Moorea,147,2008,2007,EN,0.6
+39385,Sphyrna mokarran,Moorea,147,2009,2007,EN,0.6
+39385,Sphyrna mokarran,Moorea,147,2010,2007,EN,0.6
+39385,Sphyrna mokarran,Moorea,147,2011,2007,EN,0.6
+39385,Sphyrna mokarran,Moorea,147,2012,2007,EN,0.6
+39385,Sphyrna mokarran,Moorea,147,2013,2007,EN,0.6
+39385,Sphyrna mokarran,Moorea,147,2014,2007,EN,0.6
+39385,Sphyrna mokarran,Moorea,147,2015,2007,EN,0.6
+39385,Sphyrna mokarran,Moorea,147,2016,2007,EN,0.6
+39385,Sphyrna mokarran,Moorea,147,2017,2007,EN,0.6
+39385,Sphyrna mokarran,Moorea,147,2018,2007,EN,0.6
+8097,Eschrichtius robustus,Moorea,147,1992,NA,NT,0.2
+8097,Eschrichtius robustus,Moorea,147,1993,NA,NT,0.2
+8097,Eschrichtius robustus,Moorea,147,1994,NA,NT,0.2
+8097,Eschrichtius robustus,Moorea,147,1995,NA,NT,0.2
+8097,Eschrichtius robustus,Moorea,147,1996,1996,NT,0.2
+8097,Eschrichtius robustus,Moorea,147,1997,1996,NT,0.2
+8097,Eschrichtius robustus,Moorea,147,1998,1996,NT,0.2
+8097,Eschrichtius robustus,Moorea,147,1999,1996,NT,0.2
+8097,Eschrichtius robustus,Moorea,147,2e3,1996,NT,0.2
+8097,Eschrichtius robustus,Moorea,147,2001,1996,NT,0.2
+8097,Eschrichtius robustus,Moorea,147,2002,1996,NT,0.2
+8097,Eschrichtius robustus,Moorea,147,2003,1996,NT,0.2
+8097,Eschrichtius robustus,Moorea,147,2004,1996,NT,0.2
+8097,Eschrichtius robustus,Moorea,147,2005,1996,NT,0.2
+8097,Eschrichtius robustus,Moorea,147,2006,1996,NT,0.2
+8097,Eschrichtius robustus,Moorea,147,2007,1996,NT,0.2
+8097,Eschrichtius robustus,Moorea,147,2008,2008,LC,0
+8097,Eschrichtius robustus,Moorea,147,2009,2008,LC,0
+8097,Eschrichtius robustus,Moorea,147,2010,2008,LC,0
+8097,Eschrichtius robustus,Moorea,147,2011,2008,LC,0
+8097,Eschrichtius robustus,Moorea,147,2012,2008,LC,0
+8097,Eschrichtius robustus,Moorea,147,2013,2008,LC,0
+8097,Eschrichtius robustus,Moorea,147,2014,2008,LC,0
+8097,Eschrichtius robustus,Moorea,147,2015,2008,LC,0
+8097,Eschrichtius robustus,Moorea,147,2016,2008,LC,0
+8097,Eschrichtius robustus,Moorea,147,2017,2017,LC,0
+8097,Eschrichtius robustus,Moorea,147,2018,2017,LC,0
+39374,Carcharhinus longimanus,Moorea,147,1992,NA,NT,0.2
+39374,Carcharhinus longimanus,Moorea,147,1993,NA,NT,0.2
+39374,Carcharhinus longimanus,Moorea,147,1994,NA,NT,0.2
+39374,Carcharhinus longimanus,Moorea,147,1995,NA,NT,0.2
+39374,Carcharhinus longimanus,Moorea,147,1996,NA,NT,0.2
+39374,Carcharhinus longimanus,Moorea,147,1997,NA,NT,0.2
+39374,Carcharhinus longimanus,Moorea,147,1998,NA,NT,0.2
+39374,Carcharhinus longimanus,Moorea,147,1999,NA,NT,0.2
+39374,Carcharhinus longimanus,Moorea,147,2e3,2000,NT,0.2
+39374,Carcharhinus longimanus,Moorea,147,2001,2000,NT,0.2
+39374,Carcharhinus longimanus,Moorea,147,2002,2000,NT,0.2
+39374,Carcharhinus longimanus,Moorea,147,2003,2000,NT,0.2
+39374,Carcharhinus longimanus,Moorea,147,2004,2000,NT,0.2
+39374,Carcharhinus longimanus,Moorea,147,2005,2000,NT,0.2
+39374,Carcharhinus longimanus,Moorea,147,2006,2006,VU,0.4
+39374,Carcharhinus longimanus,Moorea,147,2007,2006,VU,0.4
+39374,Carcharhinus longimanus,Moorea,147,2008,2006,VU,0.4
+39374,Carcharhinus longimanus,Moorea,147,2009,2006,VU,0.4
+39374,Carcharhinus longimanus,Moorea,147,2010,2006,VU,0.4
+39374,Carcharhinus longimanus,Moorea,147,2011,2006,VU,0.4
+39374,Carcharhinus longimanus,Moorea,147,2012,2006,VU,0.4
+39374,Carcharhinus longimanus,Moorea,147,2013,2006,VU,0.4
+39374,Carcharhinus longimanus,Moorea,147,2014,2006,VU,0.4
+39374,Carcharhinus longimanus,Moorea,147,2015,2006,VU,0.4
+39374,Carcharhinus longimanus,Moorea,147,2016,2006,VU,0.4
+39374,Carcharhinus longimanus,Moorea,147,2017,2006,VU,0.4
+39374,Carcharhinus longimanus,Moorea,147,2018,2006,VU,0.4
