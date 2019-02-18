@@ -44,9 +44,7 @@ It is still ongoing...
 Ocean Health Index. 2018. ohiprep version 2018: Preparation of data for global scenarios of the Ocean Health Index, [04/02/2019]. National Center for Ecological Analysis and Synthesis, University of California, Santa Barbara. Available at: https://github.com/OHI-Science/ohiprep/releases.
 
 Profil d'écosystèmes de la Polynésie Française – Région Pacifique. 2016. Union
-européennes Régions Ultra-pèriphériques et Pays et Territoires d’Outre-mer, Eleonora Avagliano &
-Flora Artzner ; BEST, contract de service 07.0307.2013/666363/SER/B2, Commission
-Européenne, 2016, 224 p + annexes.
+européennes Régions Ultra-pèriphériques et Pays et Territoires d’Outre-mer, Eleonora Avagliano & Flora Artzner ; BEST, contract de service 07.0307.2013/666363/SER/B2, Commission Européenne, 2016, 224 p + annexes.
 
 
 The [OHI Manual R tutorials for OHI](http://ohi-science.org/manual/#appendix-5-r-tutorials-for-ohi) has instruction and resources about how to work with data in R. 
