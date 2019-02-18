@@ -18,7 +18,7 @@ When you click the **Knit** button a document will be generated that includes bo
 ```{r , echo=FALSE}
 library(readr)
 rgn_spp_gl <- read_csv("prep/SPP_ICO/rgn_spp_gl.csv")
-
+read_csv("prep/SPP_ICO/rgn_spp_gl.csv")
 ```
 ##Observations
 
@@ -96,3 +96,180 @@ We need :
 - Average species condition
 - Average species condition trend
 Check OHI 2018 for calculations
+
+#Sense of place Goal-Iconic species subgoal: Data exploration and wrangling 
+## Import dataset "iconic species taken from Biocode species list"
+```{r , echo=FALSE}
+library(readr)
+ico_spp_biocode_cat <- read_csv("prep/SPP_ICO/ico_spp_biocode_cat.csv")
+View(ico_spp_biocode_cat)
+```
+
+## Observations
+```{r exploration , echo=FALSE, warning=FALSE}
+str (ico_spp_biocode_cat)
+ncol(ico_spp_biocode_cat)
+nrow(ico_spp_biocode_cat)
+summary(ico_spp_biocode_cat)
+dim(ico_spp_biocode_cat)
+```
+This dataset has 12 columns and 324 rows.
+
+## Import dataset of iconic speceis for FP (Ocean Health Index 2018)
+```{r , echo=FALSE}
+library(readr)
+ico_spp_rgn_cat <- read_csv("prep/SPP_ICO/ico_spp_rgn_cat.csv")
+View(ico_spp_rgn_cat)View(ico_spp_biocode_cat)
+```
+
+## Observations
+```{r exploration , echo=FALSE, warning=FALSE}
+str (ico_spp_rgn_cat)
+ncol(ico_spp_rgn_cat)
+nrow(ico_spp_rgn_cat)
+summary(ico_spp_rgn_cat)
+dim(ico_spp_rgn_cat)
+library(skimr)
+skimr(ico_spp_rgn_cat)
+    ```
+    
+## Join dataset created with Moorea biocode and FP. The data manipulation have been done in excel as it is short
+
+```{r explore, echo=FALSE, warning=FALSE}
+library(tidyverse)
+ico_spp_mra_cat<- ico_spp_rgn_cat %>%
+  full_join(ico_spp_biocode_cat)%>%
+  select(iucn_sid, sciname, rgn_name,rgn_id, year,eval_yr, cat,cat_score)
+  View(ico_spp_mra_cat)
+  write_csv(ico_spp_mra_cat,file.path('ico_spp_mra_cat.csv'))
+
+```
+
+## Observations
+```{r exploration , echo=FALSE, warning=FALSE}
+str (ico_spp_mra_cat)
+ncol(ico_spp_mra_cat)
+nrow(ico_spp_mra_cat)
+summary(ico_spp_mra_cat)
+dim(ico_spp_mra_cat)
+```
+
+1035 observations and 14 columns
+
+NOTE:seq_num is identifying numer within BIOCODE datase and IUCN_sid within IUCN. Species with seq_num where added species from BIOCODE, not considered as iconic sp by IUCN. Some of iconic species considered by IUCN are within BIOCODE dataset but the identifying number is from IUCN because the starting point was the iconic species from FP.
+
+## Prepare dataframe for toolbox; estimate status and trend
+
+  1.Prepare the dataset for the caculation
+  
+```{r raw, echo=FALSE, warning=FALSE}
+ico_status_raw<- ico_spp_mra_cat %>% 
+ select(rgn_id,rgn_name, sciname, iucn_sid, cat, cat_score, year, eval_yr) %>%
+ arrange(rgn_id, desc(year),sciname)%>%
+ ungroup()
+View(ico_status_raw)
+```
+  2. Status estimation
+  
+The status is estimated per region (in our case just one region: Moorea) and year. Group_by after mean calculation: to calculate the average of the IUCN risk status scores(cat_score) per year. Afterwards, the reference point is applied--> ico_status =1 if all assessed species are catalogued as "least concern (0 score)".
+
+```{r status, echo=FALSE, warning=FALSE}
+ico_status_calc <- ico_status_raw %>%
+  group_by(rgn_id, sciname, year) %>%
+  filter(!is.na(cat_score)) %>% # remove any DDs
+  summarize(cat_score = mean(cat_score)) %>% 
+  group_by(rgn_id, year) %>% # to calculate the average of the IUCN risk status scores(cat_score) per year and region (in our case Moorea-FP)
+  summarize(mean_cat = round(mean(cat_score), 5), 
+            ico_status = (1 - mean_cat) * 100, #the reference point is applied--> ico_status =1 if all assessed species are catalogued as "least concern (0 score)"
+            n_spp = n()) %>%
+  ungroup()
+View(ico_status_calc)
+```
+
+3. Trend estimation
+```{r trend, echo=FALSE, warning=FALSE}
+ico_trend <- data.frame()
+for (i in 1993:max(ico_status_calc$year, na.rm = TRUE)) { # i <- 2013
+  tmp_status <- ico_status_calc %>%
+    filter(year <= i & year > (i - 10)) # trend based on 10-year average since assessments are sporadic
+  tmp_trend <- tmp_status %>%
+    group_by(rgn_id) %>%
+    do(trend_lm = lm(ico_status ~ year, data = .)$coefficients[2]) %>%
+    mutate(year = i,
+           trend_lm  = as.numeric(trend_lm)/100, # status is 0 - 100; trend should be +1 to -1
+           ico_trend = round(trend_lm * 5, 5)) %>% # trend prediction five years out
+    ungroup()
+  ico_trend <- ico_trend %>%
+    bind_rows(tmp_trend)
+}
+View(ico_trend)
+```
+
+4. Compiling the information
+
+```{r joinning, echo=FALSE, warning=FALSE}
+ico_sum <- ico_status_raw %>%
+  left_join(ico_status_calc, by = c('rgn_id', 'year')) %>%
+  left_join(ico_trend, by = c('rgn_id', 'year'))
+View (ico_sum)
+write_csv(ico_sum, 'ico_summary.csv')
+
+```
+
+
+### Report out for finalized status and trend values per region
+
+```{r write, echo=FALSE, warning=FALSE}
+ico_status_raw1 <- ico_status_raw %>%
+  dplyr::select(rgn_id, sciname, iucn_sid, year, eval_yr, category = cat)
+
+write_csv(ico_status_calc, file.path('output/ico_status_calc.csv'))
+write_csv(ico_trend,file.path('output/ico_trend.csv'))
+
+ico_status_raw1[duplicated(ico_status_raw1 ), ] 
+### NOTE: if iucn_sid were removed, this would show duplicates due to subpops with same category.
+table(ico_status_raw1$category)
+```
+
+## Iconic sp full list
+```{r list, echo=FALSE, warning=FALSE}
+DT::datatable(ico_status_raw %>% filter(year == 2018))
+```
+
+##Plot scores time series
+
+```{r plot, echo=FALSE, warning=FALSE}
+library(ggplot2)
+library(plotly)
+
+status_ts_plot <- ggplot(ico_sum %>%
+                           filter(!is.na(rgn_id)),
+                         aes(x = year, y = ico_status, color = rgn_id, group = rgn_id)) +
+  geom_line(size = 1.2, alpha = .4) +
+  labs(x = 'year',
+       y = 'ICO status',
+       title = 'ICO status over time',
+       color = 'Region')
+
+ggplotly(status_ts_plot)
+
+trend_ts_plot <- ggplot(ico_sum %>%
+                           filter(!is.na(rgn_id) &!is.na(ico_trend)),
+                         aes(x = year, y = ico_trend, color = rgn_id, group = rgn_id)) +
+  geom_line(size = 1.2, alpha = .4) +
+  labs(x = 'year',
+       y = 'ICO trend',
+       title = 'ICO trend over time',
+       color = 'Region')
+ggplotly(trend_ts_plot)
+```
+
+## Potential dataframe for toolbox
+```{r plot, echo=FALSE, warning=FALSE}
+ico_spp_IUCN_status_mra<- ico_spp_mra_cat %>% 
+  select(rgn_id, sciname, iucn_sid, cat, year) %>%
+  ungroup()
+  View(ico_spp_IUCN_status)
+  write_csv(ico_spp_IUCN_status_mra,file.path('output/ico_spp_IUCN_status_mra.csv'))
+
+```
