@@ -101,7 +101,7 @@ Check OHI 2018 for calculations
 ## Import dataset "iconic species taken from Biocode species list"
 ```{r , echo=FALSE}
 library(readr)
-ico_spp_biocode_cat <- read_csv("prep/SPP_ICO/ico_spp_biocode_cat.csv")
+ico_spp_biocode_cat <-read_csv(file.path('C:/Users/mdolo/github/mra/prep/SPP_ICO/ico_spp_biocode_cat.csv'))
 View(ico_spp_biocode_cat)
 ```
 
@@ -118,8 +118,9 @@ This dataset has 12 columns and 324 rows.
 ## Import dataset of iconic speceis for FP (Ocean Health Index 2018)
 ```{r , echo=FALSE}
 library(readr)
-ico_spp_rgn_cat <- read_csv("prep/SPP_ICO/ico_spp_rgn_cat.csv")
-View(ico_spp_rgn_cat)View(ico_spp_biocode_cat)
+getwd() 
+ico_spp_rgn_cat<- read_csv(file.path('C:/Users/mdolo/github/mra/prep/SPP_ICO/ico_spp_rgn_cat.csv'))
+View(ico_spp_rgn_cat)
 ```
 
 ## Observations
