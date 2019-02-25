@@ -267,10 +267,11 @@ ggplotly(trend_ts_plot)
 
 ## Potential dataframe for toolbox
 ```{r plot, echo=FALSE, warning=FALSE}
-ico_spp_IUCN_status_mra<- ico_spp_mra_cat %>% 
-  select(rgn_id, sciname, iucn_sid, cat, year) %>%
+ico_spp_IUCN_status<- ico_spp_mra_cat %>% 
+  select(rgn_id, sciname, iucn_sid, year, eval_yr) %>%
   ungroup()
-  View(ico_spp_IUCN_status)
-  write_csv(ico_spp_IUCN_status_mra,file.path('output/ico_spp_IUCN_status_mra.csv'))
+
+View(ico_spp_IUCN_status)
+  write_csv(ico_spp_IUCN_status_mra,file.path('output/ico_spp_IUCN_status.csv'))
 
 ```
