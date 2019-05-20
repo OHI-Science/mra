@@ -1,0 +1,90 @@
+---
+title: "ao_prep"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+# Artisanal Fisheries Oportunities Access
+```{r setup, include=FALSE}
+
+library(dplyr)
+library(here)
+library(ggridges)
+library(ggplot2)
+library(raster)
+library(sp)
+library(maps)
+library(ggmap)
+library(rgdal)
+library(rasterVis)
+
+#Read the raster file
+ao_mra_data<- raster(file.path("r_fishing.tif"))
+ao_mra_data
+
+plot(ao_mra_data)
+
+#Plot the raster file
+png("ao_mra_data.png")
+plot(ao_mra_data, main= "ao_mra")
+dev.off()
+
+#Get the values
+fish_table <- rasterToPoints(ao_mra_data, progress="text")
+summary (fish_table) 
+
+library(xlsx)
+write.csv(fish_table, 'intermediate/ao_raw_mra.csv') 
+
+fish_table<- read.csv('intermediate/ao_raw_mra.csv') %>%
+  dplyr::select(r_fishing) #select just the target column
+
+r_fishing<- fish_table %>%
+  dplyr::mutate(log_fish=log1p(r_fishing))
+
+r_fishing_all<- r_fishing %>%
+    dplyr::summarise(status=mean(log_fish))%>% #calculating mean
+  dplyr::mutate(rgn_id=147)
+
+#Calculate reference point, 99th quantile all raster values. SPATIAL REFERENCE!
+
+ref_calc <- r_fishing %>% 
+dplyr::summarise(ref= quantile(log_fish, probs=c(0.99), na.rm = TRUE)) %>% 
+  .$ref
+
+ref_ao<-4.54
+
+# Calculate current status
+
+ao_status<-r_fishing_all %>%
+  mutate(value=status/ref_ao)%>% #mean value referred to the 99th quantile
+  select(-status)%>%
+  mutate(rgn_id=147)%>%
+  mutate(year=2018) #assessment year
+
+# reorder by column name
+ao_access <- ao_status[c("rgn_id","year","value")]
+
+write.csv(ao_access,row.names = FALSE, 'output/ao_access_mra_2018.csv') 
+
+```
+
+#Economic need for artisanal fishing
+```{r setup, include=FALSE}
+gdp_mra<-read.csv("le_gdp.csv")
+
+  
+gpd_mra_prep<- gdp_mra %>%
+  mutate(log_gdp=log(fcp))%>%
+  mutate(value=log_gdp/max(log_gdp)) #yearly gdp referred to the maximum value across the years (Temporal comparison)
+
+
+
+```
