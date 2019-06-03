@@ -1,0 +1,571 @@
+---
+title: "liv_prep"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+# Employment proportion in Moorea
+
+1.Import dataset
+
+```{r setup, include=FALSE}
+library(readr)
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+employment_raw <- read_delim("employment_mra.csv", 
+    ";", escape_double = FALSE, trim_ws = TRUE)
+head(employment_raw)
+```
+
+2. Data wrangling
+Calculate percent/proportion employment of each year, it is used to adjust jobs data (jobs data* prop employment)
+
+```{r setup, include=FALSE}
+employment_prep<- employment_raw %>%
+ dplyr::mutate(proportion_employment=Employed_people/Total) %>%
+  select(rgn_id,year,proportion_employment)
+
+```
+
+2.1. Temporal Gapfilling 
+Check the model that fit the best
+```{r setup, include=FALSE}
+DF <- data.frame(employment_prep$year, employment_prep$proportion_employment)
+
+p <- ggplot(DF, aes(x =employment_prep$year , y = employment_prep$proportion_employment)) + geom_point() +
+    stat_smooth(method = 'lm', aes(colour = 'linear'), se = FALSE)+
+  stat_smooth(method = 'lm', formula = y ~ poly(x,2), aes(colour = 'polynomial'), se= FALSE) +
+    stat_smooth(method = 'nls', formula = y ~ a * log(x) +b, aes(colour = 'logarithmic'), se = FALSE, start = list(a=1,b=1)) +
+    stat_smooth(method = 'nls', formula = y ~ a*exp(b *x), aes(colour = 'Exponential'), se = FALSE, start = list(a=1,b=1))
+p
+
+model1 <- lm( employment_prep$proportion_employment~ poly(employment_prep$year,2))
+summary(model1) # r2=0.79. p  significative= 0.04 <0.05*
+
+model2<-lm(employment_prep$proportion_employment ~ employment_prep$year)
+summary(model2) # R2=0.76, p=0.01** <--> using linear
+
+model3<-lm(employment_prep$proportion_employment  ~  log(employment_prep$year))
+summary(model3)#r2=0.76, p=0.01**
+
+plot(fitted(model),residuals(model)) #
+```
+
+2.2. Gapfilling using linear model
+```{r setup, include=FALSE}
+
+employment_gf_lm <- employment_prep %>%
+  dplyr::group_by(rgn_id) %>%
+  dplyr::do({
+    mod <- lm(proportion_employment~ year, data = .)
+    gf_lm <- predict(mod, newdata = .[c('year')])
+    data.frame(., gf_lm)
+  }) %>%
+    dplyr::ungroup()
+
+
+
+summary(employment_gf_lm)
+
+employment_gf_lm<- employment_gf_lm%>%
+  mutate(gf_lm = ifelse(gf_lm >1,1, gf_lm)) %>% # constrain predictions to <=1 
+  mutate(method = ifelse(is.na(proportion_employment), "lm prediction", NA)) %>%
+  mutate(proportion_employment=ifelse(is.na(proportion_employment), gf_lm, proportion_employment))
+
+library(xlsx)
+write.csv(employment_gf_lm, "output/employment_prop.csv", row.names=FALSE)
+```
+
+# Jobs data per marine related sector
+1. Import dataset
+```{r setup, include=FALSE}
+library(readr)
+library(dplyr)
+library(tidyr)
+jobs_data <- read_delim("jobs_data.csv", 
+    ";", escape_double = FALSE, trim_ws = TRUE)
+View(jobs_data)
+```
+
+2. Data wrangling
+2.1. Data visualization
+```{r setup, include=FALSE}
+library(ggplot2)
+jobs_sector<-ggplot(jobs_data)+
+  geom_point(aes(x=year, y=jobs, color=sector), size=4)
+jobs_sector
+
+summary(jobs_sector)
+
+jobs_barplot<- ggplot(jobs_data) + geom_bar(aes(y = jobs, x = year, fill = factor(sector_id), color=factor(sector_id)),stat="identity")
+jobs_barplot
+
+png('jobs_sectors.png')
+plot(jobs_sector)
+dev.off()
+```
+
+Observations: tourism increase, the rest decrease over time.
+
+2.2. Temporal gapfilling
+Do it per sector
+# Fishing and aquaculture
+```{r setup, include=FALSE}
+
+jobs_prep_fish<-jobs_data %>%
+  dplyr::filter(sector_id==2) 
+
+DF <- data.frame(jobs_prep_fish$year,jobs_prep_fish$jobs)
+
+p <- ggplot(DF, aes(x =jobs_prep_fish$year , y = jobs_prep_fish$jobs)) + geom_point() +
+    stat_smooth(method = 'lm', aes(colour = 'linear'), se = FALSE)+
+  stat_smooth(method = 'lm', formula = y ~ poly(x,2), aes(colour = 'polynomial'), se= FALSE) +
+    stat_smooth(method = 'nls', formula = y ~ a * log(x) +b, aes(colour = 'logarithmic'), se = FALSE, start = list(a=1,b=1)) +
+    stat_smooth(method = 'nls', formula = y ~ a*exp(b *x), aes(colour = 'Exponential'), se = FALSE, start = list(a=1,b=1))
+p
+
+png('jobs_fisheries.png')
+plot(p)
+dev.off()
+
+model1 <- lm( jobs_prep_fish$jobs~ poly(jobs_prep_fish$year,2))
+summary(model1) # r2=0.58. p no significative
+
+model2<-lm(jobs_prep_fish$jobs ~ jobs_prep_fish$year)
+summary(model2) # R2=0.48, p no significative 
+
+model3<-lm(jobs_prep_fish$jobs  ~  log(jobs_prep_fish$year))
+summary(model3)#r2=0.48, p=no significative
+
+# no significance, look how it is if we constrain the time window
+#After checking different time windows, the following has been selected as it contains the most points and the model fits and it is significant.
+
+jobs_prep_fish1<-jobs_data %>%
+  dplyr::filter(sector_id==2) %>%
+  dplyr::filter(year>=1988)
+
+DF <- data.frame(jobs_prep_fish1$year,jobs_prep_fish1$jobs)
+
+
+model1 <- lm( jobs_prep_fish1$jobs~ poly(jobs_prep_fish1$year,2))
+summary(model1) # r2=0.74. p no significative p=0.13
+
+model2<-lm(jobs_prep_fish1$jobs ~ jobs_prep_fish1$year)
+summary(model2) #r2=0.74, p=0.029 p significant
+
+model3<-lm(jobs_prep_fish1$jobs  ~  log(jobs_prep_fish1$year))
+summary(model3)#r2=0.74, p=0.029 p significant
+
+# So temporal gapfilling using linear regression model
+
+jobs_fish_gf_lm <- jobs_prep_fish1 %>%
+  dplyr::group_by(rgn_id) %>%
+  dplyr::do({
+    mod <- lm(jobs~ year, data = .)
+    gf_lm <- predict(mod, newdata = .[c('year')])
+    data.frame(., gf_lm)
+  }) %>%
+    dplyr::ungroup()
+
+
+summary(jobs_fish_gf_lm )
+
+jobs_fish_lm <-jobs_fish_gf_lm %>%
+  mutate(gf_lm = ifelse(gf_lm >1, gf_lm)) %>% 
+  mutate(method = ifelse(is.na(jobs), "lm prediction", NA)) %>%
+  mutate(Jobs=as.integer(ifelse(is.na(jobs), gf_lm,jobs)))
+
+```
+
+# Tourism
+```{r setup, include=FALSE}
+
+jobs_prep_tr<-jobs_data %>%
+  dplyr::filter(sector_id==1) 
+
+DF <- data.frame(jobs_prep_tr$year,jobs_prep_tr$jobs)
+
+p <- ggplot(DF, aes(x =jobs_prep_tr$year , y = jobs_prep_tr$jobs)) + geom_point() +
+    stat_smooth(method = 'lm', aes(colour = 'linear'), se = FALSE)+
+  stat_smooth(method = 'lm', formula = y ~ poly(x,2), aes(colour = 'polynomial'), se= FALSE) +
+    stat_smooth(method = 'nls', formula = y ~ a * log(x) +b, aes(colour = 'logarithmic'), se = FALSE, start = list(a=1,b=1)) +
+    stat_smooth(method = 'nls', formula = y ~ a*exp(b *x), aes(colour = 'Exponential'), se = FALSE, start = list(a=1,b=1))
+p
+
+png('jobs_tr.png')
+plot(p)
+dev.off()
+
+model1 <- lm( jobs_prep_tr$jobs~ poly(jobs_prep_tr$year,2))
+summary(model1) # r2=0.98. p<0.001
+
+model2<-lm(jobs_prep_tr$jobs ~ jobs_prep_tr$year)
+summary(model2) # R2=0.0.94, p<0.001 
+
+model3<-lm(jobs_prep_tr$jobs  ~  log(jobs_prep_tr$year))
+summary(model3)#r2=0.94, p<0.001
+
+
+# So temporal gapfilling using polynomial regression model
+
+jobs_tr_gf_lm <- jobs_prep_tr %>%
+  dplyr::group_by(rgn_id) %>%
+  dplyr::do({
+    mod <- lm(jobs~ poly(year,2), data = .)
+    gf_lm <- predict(mod, newdata = .[c('year')])
+    data.frame(., gf_lm)
+  }) %>%
+    dplyr::ungroup()
+
+
+summary(jobs_tr_gf_lm )
+
+jobs_tr_lm <-jobs_tr_gf_lm %>%
+  mutate(gf_lm = ifelse(gf_lm >1, gf_lm)) %>% 
+  mutate(method = ifelse(is.na(jobs), "lm prediction", NA)) %>%
+  mutate(Jobs=as.integer(ifelse(is.na(jobs), gf_lm,jobs)))
+
+write.csv(jobs_tr_lm,"intermediate/employees_tr.csv")
+```
+
+# Marine transport
+
+```{r setup, include=FALSE}
+
+jobs_prep_mart<-jobs_data %>%
+  dplyr::filter(sector_id==3) 
+
+DF <- data.frame(jobs_prep_mart$year,jobs_prep_mart$jobs)
+
+p <- ggplot(DF, aes(x =jobs_prep_mart$year , y = jobs_prep_mart$jobs)) + geom_point() +
+    stat_smooth(method = 'lm', aes(colour = 'linear'), se = FALSE)+
+  stat_smooth(method = 'lm', formula = y ~ poly(x,2), aes(colour = 'polynomial'), se= FALSE) +
+    stat_smooth(method = 'nls', formula = y ~ a * log(x) +b, aes(colour = 'logarithmic'), se = FALSE, start = list(a=1,b=1)) +
+    stat_smooth(method = 'nls', formula = y ~ a*exp(b *x), aes(colour = 'Exponential'), se = FALSE, start = list(a=1,b=1))
+p
+
+png('jobs_mart.png')
+plot(p)
+dev.off()
+
+model1 <- lm( jobs_prep_mart$jobs~ poly(jobs_prep_mart$year,2))
+summary(model1) # r2=0.74. p no significant >0.05
+
+model2<-lm(jobs_prep_mart$jobs ~ jobs_prep_mart$year)
+summary(model2) # R2=0.74, p<0.01 
+<
+model3<-lm(jobs_prep_mart$jobs  ~  log(jobs_prep_mart$year))
+summary(model3)#r2=0.74, p<0.01
+
+
+# So temporal gapfilling using linear regression model
+
+jobs_mart_gf_lm <- jobs_prep_mart %>%
+  dplyr::group_by(rgn_id) %>%
+  dplyr::do({
+    mod <- lm(jobs~ year, data = .)
+    gf_lm <- predict(mod, newdata = .[c('year')])
+    data.frame(., gf_lm)
+  }) %>%
+    dplyr::ungroup()
+
+
+summary(jobs_mart_gf_lm )
+
+jobs_mart_lm <-jobs_mart_gf_lm %>%
+  mutate(gf_lm = ifelse(gf_lm >1, gf_lm)) %>% 
+  mutate(method = ifelse(is.na(jobs), "lm prediction", NA)) %>%
+  mutate(Jobs=as.integer(ifelse(is.na(jobs), gf_lm,jobs)))
+
+```
+
+#Manufactoring Industry
+```{r setup, include=FALSE}
+
+jobs_prep_ind<-jobs_data %>%
+  dplyr::filter(sector_id==5) 
+
+DF <- data.frame(jobs_prep_ind$year,jobs_prep_ind$jobs)
+
+p <- ggplot(DF, aes(x =jobs_prep_ind$year , y = jobs_prep_ind$jobs)) + geom_point() +
+    stat_smooth(method = 'lm', aes(colour = 'linear'), se = FALSE)+
+  stat_smooth(method = 'lm', formula = y ~ poly(x,2), aes(colour = 'polynomial'), se= FALSE) +
+    stat_smooth(method = 'nls', formula = y ~ a * log(x) +b, aes(colour = 'logarithmic'), se = FALSE, start = list(a=1,b=1)) +
+    stat_smooth(method = 'nls', formula = y ~ a*exp(b *x), aes(colour = 'Exponential'), se = FALSE, start = list(a=1,b=1))
+p
+
+png('jobs_ind.png')
+plot(p)
+dev.off()
+
+model1 <- lm( jobs_prep_ind$jobs~ poly(jobs_prep_ind$year,2))
+summary(model1) # r2=0.90. p<0.001
+
+model2<-lm(jobs_prep_ind$jobs ~ jobs_prep_ind$year)
+summary(model2) # R2=0.75, p<0.01 
+
+model3<-lm(jobs_prep_ind$jobs  ~  log(jobs_prep_ind$year))
+summary(model3)#r2=0.75, p<0.01
+
+
+# So temporal gapfilling using polynomial regression model
+
+jobs_ind_gf_lm <- jobs_prep_ind %>%
+  dplyr::group_by(rgn_id) %>%
+  dplyr::do({
+    mod <- lm(jobs~ year, data = .)
+    gf_lm <- predict(mod, newdata = .[c('year')])
+    data.frame(., gf_lm)
+  }) %>%
+    dplyr::ungroup()
+
+
+summary(jobs_ind_gf_lm )
+
+jobs_ind_lm <-jobs_ind_gf_lm %>%
+  mutate(gf_lm = ifelse(gf_lm >1, gf_lm)) %>% 
+  mutate(method = ifelse(is.na(jobs), "lm prediction", NA)) %>%
+  mutate(Jobs=as.integer(ifelse(is.na(jobs), gf_lm,jobs)))
+
+```
+
+# Research
+```{r setup, include=FALSE}
+
+jobs_prep_res<-jobs_data %>%
+  dplyr::filter(sector_id==10) 
+
+DF <- data.frame(jobs_prep_res$year,jobs_prep_res$jobs)
+
+p <- ggplot(DF, aes(x =jobs_prep_res$year , y = jobs_prep_res$jobs)) + geom_point() +
+    stat_smooth(method = 'lm', aes(colour = 'linear'), se = FALSE)+
+  stat_smooth(method = 'lm', formula = y ~ poly(x,2), aes(colour = 'polynomial'), se= FALSE) +
+    stat_smooth(method = 'nls', formula = y ~ a * log(x) +b, aes(colour = 'logarithmic'), se = FALSE, start = list(a=1,b=1)) +
+    stat_smooth(method = 'nls', formula = y ~ a*exp(b *x), aes(colour = 'Exponential'), se = FALSE, start = list(a=1,b=1))
+p
+
+png('jobs_res.png')
+plot(p)
+dev.off()
+
+model1 <- lm( jobs_prep_res$jobs~ poly(jobs_prep_res$year,2))
+summary(model1) # r2=0.51. p=0.24 no significant
+model2<-lm(jobs_prep_res$jobs ~ jobs_prep_res$year)
+summary(model2) #r2=0.495, p=0.08 no significant
+
+model3<-lm(jobs_prep_res$jobs  ~  log(jobs_prep_res$year))
+summary(model3)#r2=0.495, p=0.08 no significant
+
+# Change temporal window, check when it is significant
+#There is not better option that regression although the results are not so good..
+
+# So temporal gapfilling using linear regression model
+
+jobs_res_gf_lm <- jobs_prep_res %>%
+  dplyr::group_by(rgn_id) %>%
+  dplyr::do({
+    mod <- lm(jobs~ year, data = .)
+    gf_lm <- predict(mod, newdata = .[c('year')])
+    data.frame(., gf_lm)
+  }) %>%
+    dplyr::ungroup()
+
+
+summary(jobs_res_gf_lm )
+
+jobs_res_lm <-jobs_res_gf_lm %>%
+  mutate(gf_lm = ifelse(gf_lm >1, gf_lm)) %>% 
+  mutate(method = ifelse(is.na(jobs), "lm prediction", NA)) %>%
+  mutate(Jobs=as.integer(ifelse(is.na(jobs), gf_lm,jobs)))
+
+```
+
+#Join the different datasets
+```{r setup, include=FALSE}
+jobs_join<-data.frame() %>%
+ dplyr::bind_rows(jobs_tr_lm, jobs_fish_lm, jobs_mart_lm,jobs_ind_lm,jobs_res_lm)
+
+jobs_prep<-jobs_join%>%
+  dplyr::select(rgn_id,sector,sector_id,year,Jobs) %>%
+  dplyr::filter(year>=1988)
+
+write.csv(jobs_prep, "output/jobs_sector_mra.csv")
+```
+
+2.3 Wages and job data
+- JOBS STATUS
+
+Jobs are adjusted by the proportion of employed. It assumes unemployment rate is equal to county unemployment rate and equal accross sectors
+
+```{r setup, include=FALSE}
+
+#Adjust job data
+employ_prop<-read.csv("output/employment_prop.csv") %>%
+  select(rgn_id,year,proportion_employment) %>%
+  filter(year>=1988)
+
+liv_jobs_adj<- jobs_prep %>%
+  dplyr::left_join(employ_prop, by= c('rgn_id', 'year')) %>%
+  mutate(jobs_adj = Jobs * proportion_employment) 
+
+View (le_jobs)
+#Status for jobs
+ status_job<-liv_jobs_adj %>%
+    filter(!is.na(jobs_adj)) %>%
+    filter(year >= max(year, na.rm=T) - 4) %>% # reference point is 5 years ago
+    filter(jobs_adj>0) %>%
+    # across sectors, jobs is summed
+    group_by(rgn_id, year) %>%
+    summarize(job_sum=sum(jobs_adj, na.rm=T)) %>%
+    # reference for revenue [e]: value in the current year (or most recent year) [c], relative to the value in a recent moving reference period [r] defined as 5 years prior to [c]
+    arrange(rgn_id, year) %>%
+    group_by(rgn_id) %>%
+    mutate(job_sum_first=first(job_sum)) %>%
+    # calculate final scores
+    ungroup() %>%
+    mutate(score=pmin(job_sum / job_sum_first, 1)*100) %>%
+   filter(year == max(year, na.rm=T))
+ 
+ status_job<-status_job%>%
+   select(-job_sum,-job_sum_first)
+```
+
+
+- WAGE DATA
+```{r setup, include=FALSE}
+
+#Adjust wage data
+gdp_national<-read.csv("le_gdp.csv")
+ 
+liv_wage_adj <- read_delim("wages_data.csv", 
+    ";", escape_double = FALSE, trim_ws = TRUE) %>%
+ dplyr::mutate(wage = 12*wage_monthly) %>%
+ dplyr::select(-wage_monthly) %>%
+dplyr::inner_join(gdp_national,by="year","rgn_id") %>% 
+  mutate(wage_adj=wage/fcp)%>%
+  select(rgn_id, year,sector,sector_id, wage_adj) %>%
+  ungroup()
+#it make more sense when there are several countries, it is done to be more comparable between different regions and years.
+
+#Satus for wage
+le_wage<-liv_wage_adj %>%
+    filter(!is.na(wage_adj)) %>%
+    filter(wage_adj>0) %>%
+    # across sectors, wage is averaged
+    group_by(rgn_id, year) %>%
+    summarize(wage_avg=mean(wage_adj, na.rm=T)) %>%
+    # reference for revenue [e]: current or most recent value [c], relative to the maximum value[r]
+    arrange(rgn_id, year) %>%
+    group_by(rgn_id) %>%
+    mutate(score=pmin(wage_avg / max(wage_avg), 1)*100)%>%
+    ungroup()
+status_wage<-le_wage %>%
+  filter(year==2017)%>%
+  select(-wage_avg)
+```
+
+Calculate final current status
+
+```{r setup, include=FALSE}
+liv_status<-status_job%>%
+  bind_rows(status_wage)%>%
+  group_by(rgn_id,year) %>%
+  summarize(status=mean(score))
+
+write.csv(liv_status, "output/liv_status_mra_2018.csv", row.names=FALSE)
+
+```
+
+DOUBTs: weight different sectors for wages, look hawaii. It seems that global model same weight
+#LIV trend
+Trend was calculated as the slope in the individual sector values (not summed sectors) over the most recent five years...with the average weighted by the number of jobs in each sector, averaging slopes across sectors weighted by the revenue in each sector. 
+
+Trend was calculated as the slope in the individual sector values (not summed sectors) for jobs and wages over the most recent five years (as opposed to the status, which examines changes between two points in time, current versus five years prior to current), corrected by national trends in employment rates and average wages. We then calculated the average trend for jobs across all sectors, with the average weighted by the number of jobs in each sector. We calculated the average trend for wages across all sectors. We then averaged the wages and jobs average slopes to get the livelihoods trend
+
+```{r, echo=FALSE}
+slope_jobs<-liv_jobs_adj %>%
+   filter(!is.na(jobs_adj)) %>%
+   filter(year >= max(year, na.rm=T) - 4 ) %>% # 5 year trend
+   arrange(rgn_id, year, sector) %>%
+   group_by(rgn_id, sector) %>%
+  # Calculate the weight = the number of jobs in each sector
+  mutate(
+      weight = sum(jobs_adj, na.rm=T)) %>%
+  # get linear model coefficient per sector
+  group_by(rgn_id, sector, weight) %>%
+  do(mdl = lm(jobs_adj ~ year, data=.)) %>%
+  summarize(
+      weight = weight,
+      rgn_id = rgn_id,
+      sector = sector,
+      sector_trend = pmax(-1, pmin(1, coef(mdl)[['year']] * 5))) %>%
+#calculate the average trend for jobs across all sectors, with the average weighted by the number of jobs in each sector
+    group_by(rgn_id) %>%
+    summarize(
+      score = weighted.mean(sector_trend, weight, na.rm=T)) %>%
+  # format
+    mutate(
+      goal      = 'LIV',
+      dimension = 'trend') %>%
+    dplyr::select(
+      goal, dimension,
+      region_id = rgn_id,
+      score)
+
+slope_wage<-liv_wage_adj %>%
+   filter(!is.na(wage_adj)) %>%
+   filter(year >= max(year, na.rm=T) - 4 ) %>% # 5 year trend
+   arrange(rgn_id, year, sector) %>%
+   group_by(rgn_id, sector) %>%
+   # get linear model coefficient per sector
+  group_by(rgn_id, sector) %>%
+  do(mdl = lm(wage_adj ~ year, data=.)) %>%
+  summarize(
+      rgn_id = rgn_id,
+      sector = sector,
+      sector_trend = pmax(-1, pmin(1, coef(mdl)[['year']] * 5))) %>%
+  group_by(rgn_id) %>%
+  summarize(
+      score = mean(sector_trend,na.rm=T)) %>%
+  # format
+    mutate(
+      goal      = 'LIV',
+      dimension = 'trend') %>%
+    dplyr::select(
+      goal, dimension,
+      region_id = rgn_id,
+      score)
+#Trend is the average of both slopes
+liv_trend<-slope_wage %>%
+  dplyr::bind_rows(slope_jobs) %>%
+  group_by(goal, dimension, region_id) %>%
+  summarize(trend=mean(score))
+
+
+ write.csv(liv_trend, "output/liv_trend_mra_2018.csv", row.names=FALSE)
+
+```
