@@ -1,0 +1,994 @@
+---
+title: "exploring pressures"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+```{r setup, include=FALSE}
+
+library(dplyr)
+library(rgdal)
+library(raster)
+library(here)
+library(ggridges)
+library(ggplot2)
+library(raster)
+library(sp)
+
+```
+
+
+#EXPLORING PRESSURE DATA
+
+Land_based pollution is in raster format. So the values need to be extracted.
+
+Following there are the list of needed packages:
+
+```{r setup, include=FALSE}
+library(dplyr)
+library(rgdal)
+library(raster)
+library(here)
+library(ggridges)
+library(ggplot2)
+library(raster)
+library(sp)
+library(maps)
+library(ggmap)
+library(rgdal)
+library(rasterVis)
+```
+
+## Sediment (po_lbsp_sed)
+Land-based sediment export to nearshore water
+
+```{r setup, include=FALSE}
+sedim<- raster(file.path("C:/Users/mdolo/github/mra/prep/_pressures/r_sedim.tif"))
+sedim
+summary(sedim)
+
+#Plot the raster file
+library(raster)
+library(maps)
+library(ggmap)
+library(ggplot2)
+library(rgdal)
+library(rasterVis)
+
+plot(sedim, main= "Sedimentation", xlab=element_blank(), ylab=element_blank(), xlim=c(sedim@extent@xmin, sedim@extent@xmax), ylim=c(sedim@extent@ymin, sedim@extent@ymax))
+
+## Please change the colors hehe try to do as ggplot but with colours of plot. How to change the axis to not to show the numbers.
+
+gplot(sedim,  maxpixels = 5e5) + 
+  geom_tile(aes(fill = value), alpha=1) +
+    scale_fill_gradientn("sediment pollution", colours=rev(rainbow(3))) +
+  coord_equal() + 
+  theme_classic() + 
+  theme(axis.line = element_blank(), axis.text.x = element_blank(), axis.text.y = element_blank(),
+        axis.ticks = element_blank(), axis.title.x = element_blank(), axis.title.y = element_blank()) +
+  scale_y_continuous(limits=c(sedim@extent@ymin, sedim@extent@ymax)) + 
+  scale_x_continuous(limits=c(sedim@extent@xmin, sedim@extent@xmax))
+
+#Plot the raster file
+png("sedim_moorea.png")
+plot(sedim, main= "Sediment pollution")
+dev.off()
+
+jpeg("sedim_moorea.jpeg")
+plot(sedim, main= "Sediment pollution")
+dev.off()
+
+##Extracting the values
+sedim_table <- rasterToPoints(sedim, progress="text")
+summary(sedim_table)
+
+library(xlsx)
+write.csv(sedim_table, 'intermediate/po_lbsp_interm.csv') # let's save it and then try to calculate mean
+
+sedim_table<- read.csv('intermediate/po_lbsp_interm.csv') %>%
+  dplyr::select(r_sedim) #select just the target column
+
+r_sediment<- sedim_table %>%
+  dplyr::summarise(pressure_score=mean(r_sedim))%>% #calculating mean
+  dplyr::mutate(rgn_id=147)%>% #create the needed columns
+  dplyr::mutate(year=2012)
+
+
+# reorder by column name
+po_lbsp_sed <- r_sediment[c("rgn_id","year","pressure_score")]
+
+write.csv(po_lbsp_sed, row.names = FALSE, 'output/po_lbsp_mra2018.csv') 
+```
+
+## Urban(po_lbspurbanrunof)
+Land-based source of pollution from urban runoff
+
+```{r setup, include=FALSE}
+urban<- raster(file.path("C:/Users/mdolo/github/mra/prep/_pressures/r_urb_all.tif"))
+urban
+
+#Plot the raster file
+png("urban_runoff_moorea.png")
+plot(urban, main= "Urban run off")
+dev.off()
+
+#Get the values
+urban_table <- rasterToPoints(urban, progress="text")
+summary (urban_table) # mean r_Sedim= 0.110293
+
+# let's save it and then try to calculate mean
+library(xlsx)
+write.csv(urban_table, 'intermediate/po_lbspurbanrunof_interm.csv') 
+
+urbnall_table<- read.csv('intermediate/po_lbspurbanrunof_interm.csv') %>%
+  dplyr::select(r_urb_all) #select just the target column
+
+r_urball<- urbnall_table %>%
+  dplyr::summarise(pressure_score=mean(r_urb_all))%>% #calculating mean
+  dplyr::mutate(rgn_id=147)%>% #create the needed columns
+  dplyr::mutate(year=2012)
+
+# reorder by column name
+po_lbspurbanrunof <- r_urball[c("rgn_id","year","pressure_score")]
+
+write.csv(po_lbspurbanrunof, row.names = FALSE, 'output/po_lbspurbanrunof_mra2018.csv') 
+View(po_lbspurbanrunof) #Yuhuuuuuuuuuu, once you get into the flow...it flows ;)
+
+
+```
+
+Join sediment and urban run off to get the average
+
+```{r setup, include=FALSE}
+chemical_po<-r_urball%>%
+  bind_rows(r_sediment)%>%
+  group_by(rgn_id,year)%>%
+  summarise(pressure_score=mean(pressure_score))
+write.csv(chemical_po, row.names = FALSE, 'output/po_chemicals_mra_2018.csv') 
+
+
+```
+
+##Agriculture (po_lbspagrunoff)
+Land-based source of pollution from agriculture
+
+```{r setup, include=FALSE}
+agriculture<- raster(file.path("C:/Users/mdolo/github/mra/prep/_pressures/r_agri.tif"))
+agriculture
+
+#Plot the raster file
+png("agriculture_moorea.png")
+plot(agriculture, main= "Pollution from agriculture")
+dev.off()
+
+jpeg("agriculture_moorea.jpeg")
+plot(agriculture, main= "Pollution from agriculture")
+dev.off()
+
+#Get the values
+agriculture_table <- rasterToPoints(agriculture, progress="text")
+summary (agriculture_table) # mean r_Sedim= 0.05662 . It is the same as Sedimentation¿?
+
+# let's save it and then try to calculate mean
+library(xlsx)
+write.csv(agriculture_table, 'intermediate/po_lbspagrunoff_interm.csv') 
+
+agri_table<- read.csv('intermediate/po_lbspagrunoff_interm.csv') %>%
+  dplyr::select(r_agri) #select just the target column
+
+r_agri<- agri_table %>%
+  dplyr::summarise(pressure_score=mean(r_agri))%>% #calculating mean
+  dplyr::mutate(rgn_id=147)%>% #create the needed columns
+  dplyr::mutate(year=2012)
+
+# reorder by column name
+po_lbspagrunof <- r_agri[c("rgn_id","year","pressure_score")]
+
+write.csv(po_lbspagrunof, row.names = FALSE, 'output/po_nutrients_mra_2018.csv') 
+View(po_lbspagrunof) #Yuhuuuuuuuuuu, once you get into the flow...it flows ;)
+
+
+```
+
+#Adapt our local data to the global datasets as we have local data for current statur but not for trends
+- Chemical pollution (land-based organic pollution (pesticide data), land-based inorganic pollution (using impermeable surfaces as a proxy), and ocean pollution (shipping and ports))
+Layers : Sedimentation + urban runoff+ agriculture
+
+- Nutrient pollution (Fertilizer use)
+Layers: agriculture
+
+
+##Human pathogens
+```{r setup, include=FALSE}
+
+
+##Packages
+library(ohicore) 
+devtools::install_github('ohi-science/ohicore@dev') # may require uninstall and reinstall
+library(zoo)     # for na.locf: Last Observation Carried Forward
+library(tidyverse)
+library(dplyr)
+
+```
+
+1.Import raw data**
+
+```{r setup, include=FALSE}
+sani_raw <- read.csv(file.path("raw/sanitation_ISPF_mra2018.csv"))
+head(sani_raw)
+
+```
+
+2. Data wrangling**
+The data have been processed: the amount of people with access to improved sanitation facilities have been summmed (septic, sewer and latrines), following [JMP-WHO UNICEF approach](https://washdata.org/data/household) and then calculated the percentage and proportion, considering the population density per year.
+
+```{r setup, include=FALSE}
+sani<- sani_raw  %>%
+   dplyr::mutate(sani_pop=sani_raw$Reseau_collectif + sani_raw$fosse_individuelle) %>%
+   dplyr::mutate(sani_pct=sani_pop/population*100) %>%
+   dplyr::mutate(sani_prop = sani_pct/100) %>% 
+   dplyr::select(rgn_id,year,sani_prop, population) %>%
+    ungroup()
+
+```
+
+
+ + Plot the data 
+
+```{r setup, include=FALSE}
+library(ggplot2)
+
+library(plotly)
+
+#Plotting the proportion of people with access to improved sanitation
+DF <- data.frame(sani$year, sani$sani_prop)
+
+p <- ggplot(DF, aes(x =sani$year , y = sani$sani_prop)) + geom_point() +
+    stat_smooth(method = 'lm', aes(colour = 'linear'), se = FALSE)+
+  stat_smooth(method = 'lm', formula = y ~ poly(x,2), aes(colour = 'polynomial'), se= FALSE) +
+    stat_smooth(method = 'nls', formula = y ~ a * log(x) +b, aes(colour = 'logarithmic'), se = FALSE, start = list(a=1,b=1)) +
+    stat_smooth(method = 'nls', formula = y ~ a*exp(b *x), aes(colour = 'Exponential'), se = FALSE, start = list(a=1,b=1))
+p
+
+model1 <- lm(sani$sani_prop ~ poly(sani$year,2))
+summary(model1) # r2=1 Is it correc with just 3 points?
+
+model2<-lm(sani$sani_prop ~ sani$year)
+summary(model2) # R2=0.178
+
+model3<-nls(sani$sani_prop  ~ a * log(sani$year) +b, aes(colour = 'logarithmic'), a=1,b=1)
+
+#Try moving average trendline
+mov_av<-movavg(sani$sani_prop, 4, type=c("s")) # does not work
+
+View(mov_av)
+
+#for now fit to polynomial and then try to check what is the best
+
+
+
+#Plot population density
+DF <- data.frame(sani$year, sani$population)
+
+p <- ggplot(DF, aes(x =sani$year , y = sani$population)) + geom_point() +
+    stat_smooth(method = 'lm', aes(colour = 'linear'), se = FALSE)+
+  stat_smooth(method = 'lm', formula = y ~ poly(x,2), aes(colour = 'polynomial'), se= FALSE) +
+    stat_smooth(method = 'nls', formula = y ~ a * log(x) +b, aes(colour = 'logarithmic'), se = FALSE, start = list(a=1,b=1)) +
+    stat_smooth(method = 'nls', formula = y ~ a*exp(b *x), aes(colour = 'Exponential'), se = FALSE, start = list(a=1,b=1))
+p
+
+model1 <- lm(sani$population ~ poly(sani$year,2))
+summary(model1) # r2=1 
+
+model2<-lm(sani$population ~ sani$year)
+summary(model2) # R2=0.9966 --> using linear
+
+model3<-lm(sani$population  ~  log(sani$year))
+summary(model3)#r2=0.9967
+
+plot(fitted(model),residuals(model)) #
+```
+
+
+**Gap filling**
+
+Filling the gaps for population density and population with access to improved sanitation using linear regression model.
+```{r setup, include=FALSE}
+
+sani_gf <- sani %>% 
+  dplyr::group_by(rgn_id) %>%
+  dplyr::mutate(gf_count = sum(is.na(sani_prop)))
+summary(sani_gf)
+
+#Proportion of people with access to sanitation
+
+sani_gf_lm <- sani_gf %>%
+  dplyr::group_by(rgn_id) %>%
+  dplyr::do({
+    mod <- lm(sani_prop ~ poly(year,2), data = .)
+    gf_lm <- predict(mod, newdata = .[c('year')])
+    data.frame(., gf_lm)
+  }) %>%
+  dplyr::ungroup()
+
+summary(sani_gf_lm)
+
+sani_gf_lm <- sani_gf_lm %>%
+  mutate(gf_lm = ifelse(gf_lm > 1, 1, gf_lm)) %>% # constrain predictions to <=1 
+  mutate(method = ifelse(is.na(sani_prop), "lm prediction", NA)) %>%
+  mutate(sani_prop = ifelse(is.na(sani_prop), gf_lm, sani_prop))
+
+write.csv(sani_gf_lm, "intermediate/gf_prop.csv", row.names=FALSE)
+
+##Fill data about population density (it is good)
+pop_gf_lm <- sani_raw %>%
+  dplyr::select(rgn_id,year,population)%>%
+  dplyr::group_by(rgn_id) %>%
+  dplyr::do({
+    mod <- lm(population~ year, data = .)
+    gf_lm <- predict(mod, newdata = .[c('year')])
+    data.frame(., gf_lm)
+  }) %>%
+    dplyr::ungroup()
+
+
+
+summary(pop_gf_lm)
+
+sani_gf_pop<- pop_gf_lm%>%
+  mutate(gf_lm = ifelse(gf_lm > 1, gf_lm)) %>% # constrain predictions to <=1 
+  mutate(method = ifelse(is.na(population), "lm prediction", NA)) %>%
+  mutate(pop = as.integer(ifelse(is.na(population), gf_lm, population)))
+write.csv(sani_gf_pop, "intermediate/gf_pop.csv", row.names=FALSE)
+
+
+View (sani_gf_pop)
+```
+
+Save gapfilled data records
+```{r setup, include=FALSE}
+
+library(xlsx)
+
+write.csv(sani_gf_lm, "intermediate/sani_gf_lm.csv", row.names=FALSE)
+
+sani_complete <- read.csv("intermediate/sani_gf_lm.csv")
+
+# save gapfilling info
+gf_data <- sani_gf_lm %>%
+  dplyr::select(rgn_id, year, gf_count, method)
+
+write.csv(gf_data, "output/po_pathogen_popdensity_gf.csv", row.names=FALSE)
+
+gf_data_trend <- sani_complete %>%
+  dplyr::arrange(rgn_id, year) %>%
+  dplyr::group_by(rgn_id) %>%
+  dplyr::mutate(gapfill_5year = rollsum(gf_count, 5, align="right", fill=NA)) %>%
+  dplyr::mutate(method = paste(na.exclude(unique(method)), collapse = ", ")) %>%
+  dplyr::mutate(gf_count = gapfill_5year/5) %>%
+  dplyr::select(rgn_id, year, gf_count, method)
+
+#write.csv(gf_data, "output/po_pathogen_popdensity25mi_trend_gf.csv", row.names=FALSE)
+```
+
+                   -----------------------------------------------------
+
+This parenthesis is to show how it is done in OHI global assessment 2018. The diference is the reference point, here is temporal and in our case is an established reference target.
+
+Reference point: 100% by 2020 
+###Calculate pressure scores
+
+```{r setup, include=FALSE}
+sani_gf_lm<-read.csv("intermediate/sani_gf_lm.csv")
+sani_gf_pop<-read.csv("intermediate/gf_pop.csv")
+
+unsani_pop <- sani_gf_lm %>%  
+    dplyr::select(rgn_id,year, sani_prop) %>%
+    dplyr::left_join(sani_gf_pop,pop, 
+              by=c('rgn_id', 'year')) %>%
+    dplyr::mutate(propWO_x_pop=as.integer((1 - sani_prop) * pop),
+                  propWO_x_pop_log = log(propWO_x_pop + 1)) # log is important because the skew was high otherwise
+# this calculates the population density of people without access (WO)
+View(unsani_pop)
+
+hist(unsani_pop$propWO_x_pop, main = "people without access")
+
+```
+
+They multiply by the population density by km2 to have the population density without access to sanitation facility and then they divide by the reference point. Why? Why not directly take into account the %pop without access from scaled from 0 to 1, being thus the reference point 100% of people without access (value 1 of pressure). Why do they apply log? For me does not make sense this reference point
+
+##Pressure Score
+The reference point is the 99th quantile across all countries and years 2000-2009 as a reference point.
+Let's try first without applying log
+
+```{r setup, include=FALSE}
+##Calculate reference point
+ref_calc <- unsani_pop %>% 
+  dplyr::filter(year %in% 2007:2018) %>% #years of reference
+  ##summarise(ref= max(propWO_x_pop_log, na.rm = TRUE)*1.1) %>%  # old method
+  dplyr:: summarise(ref= quantile(propWO_x_pop, probs=c(0.99), na.rm = TRUE)) %>% 
+  .$ref
+
+View(ref_calc)
+ref_value<-610.7
+
+
+unsani_prs <- unsani_pop %>%
+  dplyr::mutate(pressure_score = propWO_x_pop/ ref_value) %>% 
+  dplyr::mutate(pressure_score = ifelse(pressure_score>1, 1, pressure_score)) %>% #limits pressure scores not to be higher than 1
+  dplyr::select(rgn_id, year, pressure_score) 
+
+summary(unsani_prs)
+View(unsani_prs)
+
+#Calculate trend
+
+pathogens_trend <-unsani_prs %>%
+   filter(year >= 2013) %>%
+   filter(!is.na(pressure_score)) %>%
+   group_by(rgn_id) %>%
+   arrange(year) %>%
+   top_n(5, year) %>%
+   ungroup()
+
+ pathogens_trend <- pathogens_trend %>%
+   group_by(rgn_id) %>%
+   do(mdl = lm(pressure_score ~ year, data=.)) %>%
+   summarize(region_id = rgn_id,
+              trend = coef(mdl)['year']*5) %>%
+   ungroup()
+#Save data pressure scores 
+#write.csv(unsani_prs, "output/po_pathogen_popdensity25mi.csv", row.names=FALSE)
+
+#the trend is positive which makes sense as the number of people without access to sanitation facilities get higher than 5 years before. But it is different to the result that gives the following script 
+
+Model Trend
+Using CalculateTrend function form the ohicore, trend is calculated by applying a linear regression model to the pressuere scores using a window of 5 years of data. The solope of the linear regression (annual change in pressure) is then divided by the earliest year to get proportional change and then multiplied by 5 to get estimate trend on pressure in the next five years.
+
+##Calculate trend using CalculateTrend()
+
+##Define relevant years: Min and max year of data to calculate trend
+assess_years <- 7  ##Years for which the trend is going to be calculated for. This will change every assessment year
+maxyear <- max(unsani_prs$year) ##max year of data
+minyear <- maxyear- assess_years +1 
+
+trend_data <- data.frame() #create a data.frame to save trend socores
+
+
+##For loop: calculates trend for all assess years within the corresponding 5 year window.
+#focal_year is the year for which the trend is being calculated.
+for(focal_year in minyear:maxyear){ #focal_year = 2009 
+
+  trend_years <- (focal_year-4):focal_year #defines the 5 years window to calculate trend
+  
+  data_new <- unsani_prs %>% #format data to work in CalculateTrend()
+    select(rgn_id, year, status=pressure_score)
+  
+trend_data_focal_year <- CalculateTrend(data_new, trend_years)
+
+trend_data_focal_year <- trend_data_focal_year %>%
+  mutate(year = focal_year) %>%
+  select(rgn_id = region_id, year, trend=score) %>%
+  data.frame()
+
+trend_data <- rbind(trend_data, trend_data_focal_year) #add trend calculation to dataframe crearted outside the loop
+}
+summary(trend_data)
+
+##Save trend data
+#write.csv(trend_data, "output/po_pathogen_popdensity25mi_trend.csv", row.names=FALSE)
+### Trend
+Pathogen pollution trend (cw_pathogen_trend): Trends in percent of population without access to improved sanitation facilities as a proxy for pathogen pollution
+```
+                   -----------------------------------------
+                   
+Now, do it considering reference point is 100% of people without access to improved sanitation BY 2030 as it is the pressure. [Goal 6 Clean Water and Sanitation UN](https://www.un.org/sustainabledevelopment/water-and-sanitation/) 
+
+### Calculate pressures scores
+
+
+```{r setup, include=FALSE}
+unsani_prs <- sani_gf_lm %>%  
+    dplyr::select(rgn_id,year, sani_prop) %>%
+    dplyr::mutate(pressure_score=(1 - sani_prop)) %>%
+    dplyr::select(rgn_id,year,pressure_score)
+                 
+View (unsani_prs)
+```
+
+```{r setup, include=FALSE}
+library(xlsx)
+library(ohicore)
+
+#Save data pressure scores 
+write.csv(unsani_prs, "output/po_pathogen_mra_2018.csv", row.names=FALSE)
+
+
+#Calculate trend
+
+pathogens_trend <-unsani_prs %>%
+   filter(year >= 2013) %>%
+   filter(!is.na(pressure_score)) %>%
+   group_by(rgn_id) %>%
+   arrange(year) %>%
+   top_n(5, year) %>%
+   ungroup()
+
+ pathogens_trend <- pathogens_trend %>%
+   group_by(rgn_id) %>%
+   do(mdl = lm(pressure_score ~ year, data=.)) %>%
+   summarize(region_id = rgn_id,
+              trend = coef(mdl)['year']*5) %>%
+   ungroup()
+
+#Model Trend
+#Using CalculateTrend function form the ohicore, trend is calculated by applying a linear regression model to the pressuere scores using a window of 5 years of data. The slope of the linear regression (annual change in pressure) is then divided by the earliest year to get proportional change and then multiplied by 5 to get estimate trend on pressure in the next five years.
+
+##Calculate trend using CalculateTrend()
+library(ohicore)
+##Define relevant years: Min and max year of data to calculate trend
+assess_years <- 7  ##Years for whichthe trend is going to be calculated for. This will change every assessment year
+maxyear <- max(unsani_prs$year) ##max year of data
+minyear <- maxyear- assess_years +1 
+
+trend_data <- data.frame() #create a data.frame to save trend socores
+
+
+##For loop: calculates trend for all assess years within the corresponding 5 year window.
+#focal_year is the year for which the trend is being calculated.
+for(focal_year in minyear:maxyear){ #focal_year = 2009 
+
+  trend_years <- (focal_year-4):focal_year #defines the 5 years window to calculate trend
+  
+  data_new <- unsani_prs %>% #format data to work in CalculateTrend()
+    dplyr::select(rgn_id, year, status=pressure_score)
+  
+trend_data_focal_year <- CalculateTrend(data_new, trend_years)
+
+trend_data_focal_year <- trend_data_focal_year %>%
+  mutate(year = focal_year) %>%
+  select(rgn_id = region_id, year, trend=score) %>%
+  data.frame()
+
+trend_data <- rbind(trend_data, trend_data_focal_year)
+  #add trend calculation to dataframe crearted outside the loop
+}
+trend_data<-  trend_data %>% ## which one, 2017or 2018??? the most recent data is 2017 although we estimated 2018 too. Maybe it is better to take out this one. I took it 2017
+    dplyr::filter(year == 2017)
+library(ohicore)
+
+
+View(trend_data)
+summary(trend_data)
+
+##Save trend data
+write.csv(trend_data, "output/po_pathogen_trend_mra_2018.csv", row.names=FALSE)
+# DO IT ALSO WITH THE OTHER WAY TO CALCULATE TRENDS
+
+```
+
+There are two resultant layers:
+
+Pathogen pollution (*po_pathogens*): Percent of population without access to improved sanitation facilities as a proxy for pathogen pollution. Reference point: 1 = 100% people without access to improved sanitation, as it is a pressure and the higher the value (1) the higher the pressure - Goal Sustainable Development United Nations: 100% of people with access to improved sanitaton by 2030.
+
+Pathogen pollution trend (*cw_pathogen_trend*): Trends in percent of population without access to improved sanitation facilities as a proxy for pathogen pollution. Most recenta data:2017. 5 Year window data for calculate trends.
+
+
+# Habitat destruction:intertidal
+In Moorea assessment, the whole island population density is estimated to threat the intertidal habitat given its small size and that most population is situated close to the coastline, being an ocean dependent society (reference)- The population density was scaled from 0 to 1, by logging the density data and afterwards dividing by the ln (maximum density) across all years.
+
+```{r setup, include=FALSE}
+library(readr)
+pop_mra <- read_csv("intermediate/gf_pop.csv") %>%
+  select(rgn_id,year,pop)
+View(pop_mra)
+
+#Ln transformation
+lnpop_mra<- pop_mra %>%
+  dplyr::mutate(ln_pop=log(pop_mra$pop))
+head(lnpop_mra)
+
+#referencing to the maximum score
+pop_scaled<- lnpop_mra %>%
+  dplyr::mutate(pop_scaled=ln_pop/max(ln_pop)) %>%
+  dplyr::rename(pressure_score=pop_scaled)%>%
+  select(rgn_id,year,pressure_score)
+
+
+#save the pressure layer
+library(xlsx)
+write.csv(pop_scaled, "output/hd_intertidal_mra2018.csv", row.names=FALSE)
+
+```
+
+
+# Habitat destruction: coastal engineering
+The reference point is the max value across all countries and years 2000-2009 as a reference point (CHECK THAT!!)
+
+1. Import dataset 
+```{r setup, include=FALSE}
+library(readr)
+library(dplyr)
+library(tidyr)
+
+coastaleng_mra <- read.csv("coastaleng_mra.csv") 
+View(coastaleng_mra)
+```
+
+2. Plot the data
+```{r setup, include=FALSE}
+library(ggplot2)
+
+library(plotly)
+
+DF <- data.frame(coastaleng_mra$year, coastaleng_mra$Percentage_coastline)
+
+p <- ggplot(DF, aes(x =coastaleng_mra$year , y = coastaleng_mra$Percentage_coastline)) + geom_point() +
+    stat_smooth(method = 'lm', aes(colour = 'linear'), se = FALSE) +
+    stat_smooth(method = 'lm', formula = y ~ poly(x,2), aes(colour = 'polynomial'), se= FALSE) +
+    stat_smooth(method = 'nls', formula = y ~ a * log(x) +b, aes(colour = 'logarithmic'), se = FALSE, start = list(a=1,b=1)) +
+    stat_smooth(method = 'nls', formula = y ~ a*exp(b *x), aes(colour = 'Exponential'), se = FALSE, start = list(a=1,b=1))
+
+p
+
+#It is checked that polynomial fits the best
+```
+
+
+3. Temporal gap filling 
+
+Polynomial regression, check the R2 and predict the values.
+```{r setup, include=FALSE}
+library(dplyr)
+
+model <- lm(coastaleng_mra$Percentage_coastline ~ poly(coastaleng_mra$year,2))
+summary(model) # r2=0.997
+plot(fitted(model),residuals(model)) #  No clear pattern should show in the residual plot if the model is a good fit
+
+#get the values
+
+coasteng_gf_lm <- coastaleng_mra %>%
+  dplyr::group_by(rgn_id) %>%
+  dplyr::do({
+    mod <- lm(Percentage_coastline ~ poly(year,2), data = .)
+    gf_lm <- predict(mod, newdata = .[c('year')])
+    data.frame(., gf_lm)
+  }) %>%
+  dplyr::ungroup()
+
+summary(coasteng_gf_lm)
+
+coasteng_gf_lm <- coasteng_gf_lm %>%
+  mutate(Percentage_coastline =ifelse(is.na(Percentage_coastline), gf_lm, Percentage_coastline)) %>%
+  select(rgn_id,year,Percentage_coastline)
+
+#Save the gapfilled dataset
+library(xlsx)
+write.csv(coasteng_gf_lm, "intermediate/filledcoastaleng_mra.csv")
+View(coasteng_gf_lm)
+```
+
+4. Calculate the reference point
+
+```{r setup, include=FALSE}
+ref_calc <-coasteng_gf_lm  %>% 
+  dplyr::filter(year %in% 1993:2018) %>% #years of reference
+  dplyr:: summarise(ref= max(Percentage_coastline, probs=c(0.99), na.rm = TRUE)) %>% 
+  .$ref
+
+View(ref_calc)
+ref_value<-56.88432
+
+```
+
+5. Calculate pressure score 
+
+```{r setup, include=FALSE}
+#Pressure score
+coasteng_prs <- coasteng_gf_lm %>%
+  dplyr::mutate(pressure_score = Percentage_coastline/ ref_value) %>% 
+  dplyr::mutate(pressure_score = ifelse(pressure_score>1, 1, pressure_score)) %>% #limits pressure scores not to be higher than 1
+  dplyr::select(rgn_id, year, pressure_score) 
+
+summary(coasteng_prs)
+View(coasteng_prs)
+write.csv(coasteng_prs, "output/hd_coasteng_mra_2018.csv")
+
+```
+
+#TEMPERATURE
+1.Import dataset
+```{r temperature, include=FALSE}
+library(readr)
+temp_data <- read_delim("ThermographeTiahura_Data.csv", 
+    ";", escape_double = FALSE, trim_ws = TRUE)
+
+head(temp_data)
+```
+ 
+## Methodology 
+
+**OHI focus**
+
+"Weekly SST data are used to compute the standard deviation (SD) of SST’s per pixel across all years.
+
+We define an anomaly as exceeding the standard deviation of SSTs from the climatology for that location (i.e., grid cell) and week of the year. 
+
+The frequency of weekly anomalies was calculated for each year in the dataset.
+
+We then quantified the difference between the number of anomalies in the 5 most recent years and the 5 oldest years in the dataset. The 99.99th quantile of raster values from all years was used as the reference point to rescale the layer from 0 to 1, and the mean value of the raster cells within each OHI region was calculated".
+
+Look at the preparation rscript from OHI global 2018 file:///D:/Users/mdolo/Documents/M%C3%81STER%20IMBC/IMBRSea/MASTER%20TESIS/Data/ohiprep_v2018-2018.1%20(1)/ohiprep_v2018-2018.1/globalprep/prs_sst/v2018/sst_layer_prep.html --> in this case the input data is raster, in our case is a dataset
+
+**Our case**: daily/hourly SST data are used to compute the standard deviation(SD) and montly average of SST across all years. Not weekly, not in every week is measured so daily.
+
+1995 there is few data so it may be the reason of the low value...
+
+```{r temperature, include=FALSE}
+library(dplyr)
+library(tidyr)
+
+temp_prep<-temp_data %>%
+  dplyr::select(Date,Temperature, Site)%>%
+  tidyr::separate(Date,c("day","month","year","hour"))%>%
+  group_by(month,year, Site)%>%
+  ungroup()
+
+#Climatology (get monthly average and sd across all years)
+temp_sd_month_site<-temp_prep %>%
+  group_by(month,Site)%>%
+  summarise(sd_temp=sd(Temperature)) %>%
+  ungroup()
+
+temp_mean_month_site<-temp_prep %>%
+  group_by(month,Site)%>%
+  summarise(avg_temp=mean(Temperature)) %>%
+  ungroup()
+
+# join mean and sd
+climatology<-temp_sd_month_site%>%
+  left_join(temp_mean_month_site, by=c("month","Site"))
+
+#join climatology and measured temp in Moorea 
+temp_clim<-temp_prep%>%
+    left_join(climatology, by=c("month","Site"))%>%
+    mutate(avg_temp_sd=avg_temp+sd_temp)%>%
+    mutate(rel_error=Temperature-avg_temp_sd) #calculate diference between observed temperature and the mean+SD
+
+# indicate when it is anomaly
+anomaly<-temp_clim %>%
+  filter(rel_error>0) %>% #measured temp>mean+SD
+  mutate(anomaly=1)
+
+freq_anomaly<-anomaly %>%
+  group_by(year) %>%
+ summarise(freq_anomaly=sum(anomaly))%>%
+  ungroup()
+
+
+#fill the gaps, remove 1995 and infer the value
+freq_anomaly<-anomaly %>%
+  group_by(year) %>%
+ summarise(freq_anomaly=sum(anomaly))%>%
+  ungroup()
+library(ggplot2) #no model fit
+
+#6 years, no 1996 neither 1997
+freq_anomaly_old<-freq_anomaly%>%
+  dplyr::filter(year<=1998)%>%
+  summarise(freq_anom=sum(freq_anomaly))
+  
+
+freq_anomaly_recent<-freq_anomaly %>%
+  dplyr::filter(year>=2010) %>%
+   summarise(freq_anom=sum(freq_anomaly))
+
+dif_anom<- freq_anomaly_recent - freq_anomaly_old 
+diff_amom<-dif_anom%>%
+ mutate(rgn_id=147)
+
+#rescale. The 99.99th quantile of raster values from all years was used as the reference point to rescale the layer from 0 to 1, and the mean value of the raster cells within each OHI region was calculated".-----> reference point is the max from all years
+
+ref_anom<-freq_anomaly %>%
+  summarise(max_anom=max(freq_anomaly))%>%
+  mutate(rgn_id=147)
+  
+
+prs_temp<-ref_anom%>%
+  inner_join(diff_amom)%>%
+  mutate(pressure_score=freq_anom/max_anom)%>%
+  select(rgn_id,pressure_score)
+
+write.csv(prs_temp,"output/cc_sst_mra_2018.csv", row.names = FALSE)
+#the reference point is higher than the calculated ¿?
+
+
+library(rlang)
+stop(cnd)
+```
+
+3. Data visualization
+```{r temperature, include=FALSE}
+library(ggplot2)
+
+#averaging between sites
+temp<-ggplot(temp_prep)+
+  geom_point(aes(x=year, y=Temperature, size=3, color=Site))
+temp
+#averaging between sites
+temp_ys<-ggplot(temp_year_site)+
+  geom_point(aes(x=year, y=temperature, size=3, color=Site))
+
+temp_ys
+
+
+
+```
+Observations plot showing the temperature in the different sites across the years. 
+F1(fringing reef): shows more temperature variability, suffering the higher and lower temperatures.
+Outside the lagoon (Px): lower temperatures and variability
+
+Important to include the standard deviation, it is why we should do the anomalies computation.
+
+## ocean acidification
+
+1. Import dataset
+```{r oa, include=FALSE}
+
+
+
+```
+
+2. Data wrangling
+```{r temperature, include=FALSE}
+library(dplyr)
+library(tidyr)
+oa_prep<-acidification %>%
+  dplyr::select(date,ph)%>%
+  tidyr::separate(date,c("day","month","year","hour"))%>%
+  ungroup()
+
+#get temperature per year 
+
+
+oa_year<-oa_prep %>%
+    group_by(year)%>%
+     summarise(pH=mean(ph)) %>%
+  ungroup()
+
+
+oa_year<-oa_prep %>%
+    group_by(year)%>%
+    filter(ph!=-99)%>%
+    summarise(pH=mean(ph)) %>%
+
+  ungroup()
+  
+```
+
+There are some issues: non reasonable values. There may be two options: just take the "good values" or go for the global data layer. For me, it is better a local dataset.Although the time window is not large enough to establish the reference point, we could use the reference point from litterature: an average pH of 8.2 is good and pH<7.9 (approximate aragonite undersaturation). Then, what is the problem?--> the **reliability**, as there are some issues with the sonde. In the global model: Values are rescaled from 0 to 1 using the threshold at which seawater becomes undersaturated, where Ωarag=1.
+
+
+#UV 
+Global data layer for french polynesia
+
+```{r uv, include=FALSE}
+
+library(readr)
+library(dplyr)
+library(xlsx)
+cc_uv <- read_csv("cc_uv.csv")
+View(cc_uv)
+
+# Select pressure score for French Polynesia
+
+cc_uv<-cc_uv %>%
+  filter(rgn_id==147)
+
+write.csv(cc_uv, file.path("output/cc_uv_gl2018")
+
+
+```
+
+#SEA LEVEL RISE
+1.Import dataset
+```{r slr, include=FALSE}
+library(readr)
+slr_data<- read_csv("SondeSBE26Tiahura_DataProcessedWaves.csv")
+
+head(temp_data)
+```
+
+2. Data wrangling 
+The source data are hourly mean sea level anomalies, in cm. These anomalies are calculated by subtracting the current absolute sea level for each month from the average sea level for that month calculated from 2009 - 2016.
+
+Monthly mean sea level anomalies since 1993 track changes in sea level (mm) compared to a reference period from 1993-2012
+
+```{r slr, include=FALSE}
+library(dplyr)
+library(tidyr)
+
+slr_prep<-slr_data %>%
+  select(-Significant_period_sec)%>%
+    tidyr::separate(Date,c("day","month","year","hour"))%>%
+  group_by(month,year)%>%
+  ungroup()
+
+slr_prep_gap<-slr_prep %>%
+  group_by(month, year)%>%
+  summarise(avg_slr=mean(Significant_height_cm)) %>%
+  ungroup()
+write.csv(slr_prep_gap, "intermediate/slr_prep_gaps.csv", row.names=FALSE) #PREPARE THE DATASET FOR GAPFILLING
+
+#GAP FILLING. Is it needed?
+slr_mra_gaps<-read.csv("intermediate/slr_prep_gaps.csv")
+library(ggplot2)
+#gapfilling using cumulative mean: the mean in x month and y year is the mean of x month in the previous years.
+
+
+#Climatology (get monthly average and sd across all years)
+slr_prep_filled<- read.csv("intermediate/slr_prep_filled.csv") 
+
+slr_mra<- slr_prep_filled %>%
+  rename(monthly_slr=avg_slr)
+
+slr_sd_month_site<-slr_prep_filled %>%
+  group_by(month)%>%
+  summarise(sd_slr=sd(avg_slr)) %>%
+  ungroup()
+
+slr_mean_month_site<-slr_prep_filled %>%
+  group_by(month)%>%
+  summarise(avg_slr=mean(avg_slr)) %>%
+  ungroup()
+
+# join mean and sd
+climatology<-slr_sd_month_site %>%
+  left_join(slr_mean_month_site, by=c("month"))
+
+#join climatology and measured temp in Moorea 
+slr_clim<-slr_mra%>%
+    left_join(climatology, by=c("month"))%>%
+    mutate(avg_slr_sd=avg_slr+sd_slr)%>%
+    mutate(rel_error=monthly_slr-avg_slr_sd)%>% #calculate diference between observed temperature and the mean+SD...there is no anomaly according to that. It is looking at the difference between montly values and the average across all years. They said to make the difference, without accounting for the sd
+    mutate(rel_error1=monthly_slr-avg_slr)%>%
+  ungroup()
+
+#set negative values to 0, there are two ways
+
+slr_clim_mra<- transform(slr_clim, rel_error1 = ifelse(rel_error1 <0, 0, rel_error1))
+  
+
+# reference point, max value
+ref<-max(slr_clim_mra$rel_error1)
+
+slr_clim_mra<-slr_clim_mra %>%
+  mutate(pressure_score=rel_error1/ref)
+
+slr_pressure<- slr_clim_mra %>%
+  group_by(year)%>%
+  summarise(pressure_score=mean(pressure_score))
+
+slr_pressure_2018<- slr_pressure %>%
+  filter(year==2015) %>%
+  mutate(rgn_id=147)%>%
+  select(pressure_score, rgn_id)
+
+write.csv(slr_pressure, "output/cc_slr_mra.csv", row.names=FALSE)
+
+write.csv(slr_pressure_2018, "output/cc_slr_mra_2018.csv", row.names=FALSE) #in the required format for the toolbox
+
+```
