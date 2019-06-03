@@ -1,0 +1,268 @@
+---
+title: "lsp_prep"
+output: html_document
+github_document:
+    toc: true
+    toc_depth: ?
+params: 
+    datasource: csv
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+
+First, update R, I thought it was updated....now ohicore seems to work!! Yuhuuu!!!
+```{r , echo=FALSE}
+# installing/loading the package:
+if(!require(installr)) {
+install.packages("installr"); require(installr)} #load / install+load installr
+ 
+# using the package:
+updateR() # this will start the updating process of your R installation.  It will check for newer versions, and if one is available, will guide you through the decisions you'd need to make.
+
+# Installing ohicore package
+library (devtools)
+install_github('ohi-science/ohicore')
+library(ohicore)
+
+library(zoo)
+library(stringr)
+library(readr)
+library(here)
+library(readr)
+library(tidyr)
+library (dplyr)
+
+```
+##Import dataset
+```{r , echo=FALSE}
+lsp_prep <- read_delim("C:/Users/mdolo/github/mra/prep/LSP/lsp_prep.csv", 
+    "\t", escape_double = FALSE, trim_ws = TRUE)
+View(lsp_prep)
+
+```
+
+## lsp_prep_cmp
+Then, we do the weighting step:
+Fully protected areas=1, Partially protected areas=0.5, ZPR=0.15 and Aire de repos de cetacean=0 (no binding regulation).
+The area is adjusted by the management efficiency.
+
+```{r , echo=FALSE}
+
+lsp_prep_cmp1<-lsp_prep %>%
+  filter(Territory=="Lagoon")%>%
+  group_by(rgn_id, com_id, Management,Territory,man_value_w,year) %>%
+  dplyr::summarize(sum_cmpa_w = sum(a_prot_km2*man_value_w)) %>%
+                arrange(year) %>%
+                ungroup()
+View(lsp_prep_cmp1)
+
+
+````
+
+Once we have the area per commune, management type and year--> get the total marine protected area per region and year:
+
+```{r , echo=FALSE}
+lsp_prep_cmp<-lsp_prep_cmp1 %>%
+  group_by(rgn_id,year) %>%
+  dplyr::summarize(area_prot_lag_km2 = sum(sum_cmpa_w)) %>%
+  arrange(year)%>%
+  ungroup()
+
+View(lsp_prep_cmp)
+write.csv(lsp_prep_cmp, file.path("output/lsp_prot_area_lagfo_mra_2018.csv"),row.names = FALSE)
+````
+
+## lsp_prep_cp
+
+We follow the same steps as in the previous layer but there is not weighting
+```{r , echo=FALSE}
+lsp_prep_cp<-lsp_prep %>%
+  filter(Territory=="Inland")%>%
+  group_by(rgn_id,year) %>%
+  dplyr::summarize(area_prot_inl_km2 = sum(a_prot_km2)) %>%
+                arrange(year) %>%
+                ungroup()
+View(lsp_prep_cp)
+write.csv(lsp_prep_cp, file.path("output/lsp_prot_area_inland_mra_2018.csv"), row.names = FALSE)
+
+````
+
+## rgn_area_inland
+It is needed to delimitate the coastal zone, it is done based on the DEM - Digital Elevation Model . An elevation of 20 m was selected to define the limit of the coastal zone.
+
+```{r , echo=FALSE}
+# Remove variables in memory
+rm(list=ls())
+gc()
+
+library(rgdal)
+library(sp)
+library(raster)
+library(googledrive)
+library(readr)
+
+#data
+r_dem <- raster("elevation_5m_clipped.tif")
+
+#try with alti max = 10
+r_coast_10 <- r_dem
+values(r_coast_10) <- ifelse(values(r_coast_10) > 10,0,1)
+plot(r_coast_10)
+coast_table <- rasterToPoints(r_coast_10, progress="text")
+summary (coast_table) # mean r_Sedim= 0.05622
+
+#try with alti max = 20
+r_coast_20 <- r_dem
+values(r_coast_20) <- ifelse(values(r_coast_20) > 20,0,1)
+plot(r_coast_20, main="Coastal delimitation from 0 till 20 m altitute")
+
+#try with alti max = 30
+r_coast_30 <- r_dem
+values(r_coast_30) <- ifelse(values(r_coast_30) > 30,0,1)
+plot(r_coast_30)
+
+#save and export raster
+writeRaster(r_coast_20, "output/r_coast_mra_2018", overwrite = T)
+
+png('r_coast_20.png')
+plot(r_coast_20)
+dev.off()
+#it not shows the graph title 
+
+#CALCULATING THE AREA
+
+r_coast_20 <- r_dem
+#attribute 1 for values < 20 et 0 for the others
+values(r_coast_20) <- ifelse(values(r_coast_20) > 20,0,1)
+#check the resolution of your raster
+res(r_coast_20) 
+#here it’s 5x5 meters, so each pixel area is 25 squared meters
+#area of the zone in km2
+sum(values(r_coast_20),na.rm = T) * 25 / 1000000
+area_inland20m_mra_2018<-132.8101
+rgn_area_inland20m_mra_2018<- data.frame("rgn_id"= 147, "area"=132.8101)
+
+write.csv(rgn_area_inland20m_mra_2018, file.path("output/area_inland20m_mra_2018.csv"),row.names=FALSE)
+
+
+
+
+```
+## rgn_area_offshore
+Fore reef and lagoon pull together
+```{r , echo=FALSE}
+area_offshore<-read.csv("area_offshore_mra_2018.csv")
+
+area_offshore_mra_2018<- area_offshore %>%
+  dplyr::group_by(rgn_id)%>%
+  dplyr::summarise(area=sum(area_km2))%>%
+  ungroup()
+
+write.csv(area_offshore_mra_2018, file.path("output/area_offshore_mra_2018.csv"))
+  
+
+```
+
+
+
+## Estimate status score
+```{r , echo=FALSE}
+library(dplyr)
+library(tidyverse)
+library(readr)
+library(ohicore)
+
+#Reference: 30% protected
+  ref_pct_cmpa <- 30
+  ref_pct_cp <- 30
+  
+area_offshore_mra<- area_offshore_mra_2018 %>%
+  group_by(rgn_id)%>%
+  rename(area_offshore=area) %>%
+ ungroup()
+View(area_offshore_mra)
+
+area_inland_mra<-rgn_area_inland20m_mra_2018%>%
+rename(area_inland=area)
+View(area_inland_mra)
+
+total_area<- full_join(area_offshore_mra,area_inland_mra, by="rgn_id")
+
+View (total_area)
+
+lsp_data <- full_join(lsp_prep_cmp, lsp_prep_cp, by = c("rgn_id", "year"))
+View(lsp_data)
+
+ status_data <-lsp_data %>%
+    dplyr::full_join(total_area, by = "rgn_id") %>%
+    dplyr::mutate(
+      pct_cp    = pmin(area_prot_inl_km2  / area_inland  * 100, 100),
+      pct_cmpa  = pmin(area_prot_lag_km2 / area_offshore * 100, 100),
+      status    = (pmin(pct_cp / ref_pct_cp, 1) + pmin(pct_cmpa / ref_pct_cmpa, 1)) / 2
+    ) %>% 
+    dplyr::filter(!is.na(status)) %>%
+   dplyr::select(rgn_id,year,status)
+ 
+write.csv(status_data, "output/lsp_status_mra.csv", row.names=FALSE)
+# extract status based on specified year
+  
+  r.status <- status_data %>%
+    dplyr::filter(year == 2018) %>%
+    dplyr::mutate(score = status * 100) %>%
+    dplyr::select(rgn_id, score) %>%
+    dplyr::mutate(dimension = "status")
+  View(r.status)
+
+  write.csv(r.status, "output/lsp_status_mra_2018.csv", row.names=FALSE) #just current status
+
+# calculate trend
+  
+     trend_years <- (2018 - 4):(2018)
+     r.trend <-
+    CalculateTrend(status_data = status_data, trend_years = trend_years)
+     
+     #trend is 0 there is no change in the amount of protected area
+
+  write.csv(r.trend, "output/lsp_trend_mra_2018.csv", row.names = FALSE)
+  
+  
+  scores<- r.status %>%
+  select(rgn_id, score,dimension) %>%
+  #mutate(dimension='status') %>%done
+  rbind(r.trend %>%
+      select(rgn_id=region_id, score,dimension)) %>%
+      #mutate(dimension='trend')) %>%done
+  dplyr::mutate(goal='LSP')
+  
+  
+  View (scores)
+
+  return(scores) 
+
+write.csv(scores,"output/scores_LSP.csv", row.names = FALSE)
+  
+
+```
