@@ -1,0 +1,322 @@
+---
+title: "CS_CP_HAB_exploration"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+#MANGROVES
+
+##Mangrove condition
+
+1.Import dataset
+
+```{r mangrove, echo=FALSE}
+library(dplyr)
+library(tidyverse)
+library(readr)
+hab_mangrove_condition <- read.csv("hab_mangrove_condition.csv")
+View(hab_mangrove_condition)
+```
+
+2. Plot the data
+```{r setup, include=FALSE}
+library(ggplot2)
+
+library(plotly)
+
+DF <- data.frame(hab_mangrove_condition$year, hab_mangrove_condition$percentage_coastline)
+
+p <- ggplot(DF, aes(x =hab_mangrove_condition$year , y = hab_mangrove_condition$percentage_coastline)) + geom_point() +
+    stat_smooth(method = 'lm', aes(colour = 'linear'), se = FALSE) +
+    stat_smooth(method = 'lm', formula = y ~ poly(x,2), aes(colour = 'polynomial'), se= FALSE) +
+    stat_smooth(method = 'nls', formula = y ~ a * log(x) +b, aes(colour = 'logarithmic'), se = FALSE, start = list(a=1,b=1)) +
+    stat_smooth(method = 'nls', formula = y ~ a*exp(b *x), aes(colour = 'Exponential'), se = FALSE, start = list(a=1,b=1))
+
+p
+
+#Polynomial seems to fit the best
+
+png('intermediate/mangroves.png')
+plot(p)
+dev.off()
+```
+
+3. Temporal gap filling 
+
+Polynomial regression, check the R2 and predict the values.
+```{r setup, include=FALSE}
+library(dplyr)
+
+model <- lm(hab_mangrove_condition$percentage_coastline ~ poly(hab_mangrove_condition$year,2))
+summary(model) # r2=0.79
+
+plot(fitted(model),residuals(model)) #  No clear pattern should show in the residual plot if the model is a good fit
+
+model1 <- lm(hab_mangrove_condition$percentage_coastline ~ hab_mangrove_condition$year)
+summary(model1) # 2=0.24
+
+model2<-lm(hab_mangrove_condition$percentage_coastline  ~  log(hab_mangrove_condition$year))
+summary(model2) #R2=0.24
+
+
+plot(fitted(model),residuals(model)) 
+
+#get the values
+
+hab_gf_lm <- hab_mangrove_condition%>%
+  dplyr::group_by(rgn_id) %>%
+  dplyr::do({
+    mod <- lm(percentage_coastline ~ poly(year,2), data = .)
+    gf_lm <- predict(mod, newdata = .[c('year')])
+    data.frame(., gf_lm)
+  }) %>%
+  dplyr::ungroup()
+
+summary(hab_gf_lm)
+
+hab_gf_lm <- hab_gf_lm %>%
+  mutate(percentage_coastline =ifelse(is.na(percentage_coastline), gf_lm, percentage_coastline)) %>%
+  select(rgn_id,habitat, year,percentage_coastline)
+
+ if (raw) 
+        if (degree >= length(unique(x)))
+            stop("'degree' must be less than number of unique points")
+View (hab_gf_lm)
+
+#Save the gapfilled dataset
+library(xlsx)
+write.csv(hab_gf_lm, "intermediate/fillhab_mangrove_mra.csv")
+```
+
+4. Calculate the reference point
+
+```{r setup, include=FALSE}
+ref_calc <-hab_gf_lm  %>% 
+  dplyr::filter(year %in% 1987:2014) %>% #years of reference
+  dplyr:: summarise(ref= max(percentage_coastline)) %>% 
+  .$ref
+
+View(ref_calc)
+ref_value<- 7.33
+
+
+```
+
+5. Calculate mangrove condition
+```{r setup, include=FALSE}
+hab_mangrove_health<- hab_gf_lm %>%
+  dplyr::mutate(health = percentage_coastline/ref_value) %>%
+  dplyr::mutate(health = ifelse(health>1, 1, health))
+
+summary(hab_mangrove_health)
+ 
+hab_mangrove_health_current<-hab_mangrove_health %>%  
+   dplyr::filter(year==2014)%>%
+   dplyr::select(rgn_id,habitat,year,health)
+
+#Save data layer
+library(xlsx)
+write.csv(hab_mangrove_health_current, "output/hab_mangrove_health_mra_2018.csv", row.names=FALSE)
+
+```
+
+6. Calculate mangrove condition trend
+
+```{r setup, include=FALSE}
+hab_mangrove_health_trend <-hab_mangrove_health %>%
+   filter(year >= 1987) %>%
+   filter(!is.na(health)) %>%
+   group_by(rgn_id) %>%
+   arrange(year) %>%
+   top_n(5, year) %>%
+   ungroup()
+View(hab_mangrove_health_trend)
+
+ hab_mangrove_health_trend<- hab_mangrove_health_trend %>%
+   group_by(rgn_id) %>%
+   do(mdl = lm(health ~ year, data=.)) %>%
+   summarize(trend = coef(mdl)['year']*5) %>%
+   dplyr::mutate(rgn_id=147, habitat= "mangroves", year=2014) %>%
+    ungroup()
+
+
+hab_mangrove_health_trend<-hab_mangrove_health_trend[c("rgn_id","habitat","year","trend")]
+ 
+View(hab_mangrove_health_trend)
+write.csv(hab_mangrove_health_trend,"output/hab_mangrove_health_trend_mra_2018.csv",row.names=FALSE)
+
+```
+
+##Mangrove extent
+
+#CORAL
+
+##Coral condition
+Source: [SO CORAIL database](http://observatoire.criobe.pf/CRIOBEData/displayMPAMooreaBenthos_PIT.jsp)
+
+The column "type" has been created to differentiate between living coral ("coral") and the rest ("others"). The formula used in EXCEL has been:=IF(OR(I2="Astreopora"; I2= "Corail non identifié"; I2="Corail non identifi?";I2="Coscinaraea"; I2="Favia"; I2="Fungia"; I2="Gardineroseris"; I2="Herpolitha";I2= "Leptastrea"; I2="Leptoseris"; I2="Lobophylia"; I2= "Millepora"; I2="Montastrea"; I2="Montipora"; I2="Napopora"; I2="Pavona"; I2="Pocillopora"; I2="Porites"; I2="Psammocora"; I2="Synarea");"coral"; "otros")---> I2 refer to the specific column and row.
+
+1.Import dataset
+
+```{r coral, echo=FALSE}
+library(readr)
+substrate_dataset<- read.csv("20181007MPAMooreaData_substrate.csv")
+View(substrate_dataset)
+```
+
+2. Data wrangling
+Data manipulation: we want the dataset to be: year, habitat, proportion (if we want to differentiate fore and barrier/fringing reef) or pull both and have just  year and proportion of live coral. We will go for the second option.
+```{r coral, echo=FALSE}
+library(tidyverse)
+library(dplyr)
+#Sum the proportion of live coral within each transect
+substrate_year_transect<-substrate_dataset %>%
+  select(Year,Marine_area, Habitat, Transect, Type, proportion) %>%
+  dplyr::filter(Type== "coral")%>%
+  group_by(Year, Marine_area,Habitat,Transect) %>%
+  summarise(prop=sum(proportion))
+
+#get the average of live coral per year 
+
+substrate_year<-substrate_year_transect%>%
+  group_by(Year) %>%
+  dplyr::rename(year=Year) %>%
+  summarise(prop=mean(prop))
+
+#get the average of live coral per year-habitat and year-marine area to check how they behave
+
+substrate_hab<-substrate_year_transect%>%
+    group_by(Year, Habitat) %>%
+  summarise(prop=mean(prop))
+summary(substrate_hab) #:min:0.04714 , max: 0.64
+
+substrate_area<-substrate_year_transect %>%
+    group_by(Year, Marine_area) %>%
+  summarise(prop=mean(prop))
+summary(substrate_area)
+View(substrate_area) #min:0.02 max:0.69
+```
+
+
+3. Data visualization
+
+```{r coral, echo=FALSE}
+# Data visualization
+library(ggplot2)
+
+library(plotly)
+
+DF <- data.frame(substrate_year$year,substrate_year$prop)
+
+p <- ggplot(DF, aes(x =substrate_year$year , y = substrate_year$prop)) + geom_point() +
+    stat_smooth(method = 'lm', aes(colour = 'linear'), se = FALSE) +
+    stat_smooth(method = 'lm', formula = y ~ poly(x,2), aes(colour = 'polynomial'), se= FALSE) +
+    stat_smooth(method = 'nls', formula = y ~ a * log(x) +b, aes(colour = 'logarithmic'), se = FALSE, start = list(a=1,b=1)) +
+    stat_smooth(method = 'nls', formula = y ~ a*exp(b *x), aes(colour = 'Exponential'), se = FALSE, start = list(a=1,b=1))
+
+p
+
+png('intermediate/coral.png')
+plot(p)
+dev.off()
+
+#Plot per habitat. 
+coral_hab<-ggplot(substrate_hab)+
+  geom_point(aes(x=Year, y=prop, color=factor(Habitat)), size=4)
+coral_hab
+
+#plot per marine area
+coral_area<-ggplot(substrate_area)+
+  geom_point(aes(x=Year, y=prop, color=factor(Marine_area)), size=3)
+coral_area
+
+```
+
+Observations: different habitats follow the same pattern across years: decrease-"constant"-increase. Coral cover variations between areas
+
+4. Reference point
+(Bouchon,1985)--> Reference point is the estimated live coral proportion in 1979 = 37.4 %(0.374)
+
+```{r setup, include=FALSE}
+ref_value<-0.374
+
+```
+
+5. Calculate coral condition
+```{r setup, include=FALSE}
+
+coral_condition<-substrate_year %>%
+  dplyr::mutate(health = prop/ref_value) %>%
+  dplyr::mutate(health = ifelse(health>1, 1, health))%>%
+  dplyr::mutate(rgn_id="147",habitat="coral")%>%
+  dplyr::select(rgn_id,habitat,year,health)
+
+summary(coral_condition)
+ 
+#filter the most recent data
+library(dplyr)
+hab_coral_health<-coral_condition %>%  
+   dplyr::filter(year==2018)
+
+#Save data layer
+library(xlsx)
+write.csv(hab_coral_health, "output/hab_coral_health_mra_2018.csv", row.names=FALSE)
+
+```
+6. Calculate coral condition trend
+
+```{r setup, include=FALSE}
+hab_coral_health_trend <-coral_condition %>%
+   filter(!is.na(health)) %>%
+   group_by(rgn_id) %>%
+   arrange(year) %>%
+   top_n(5, year) %>%
+   ungroup()
+View(hab_coral_health_trend)
+
+ hab_coral_health_trend<- hab_coral_health_trend %>%
+   group_by(rgn_id) %>%
+   do(mdl = lm(health ~ year, data=.)) %>%
+   summarize(trend = coef(mdl)['year']*5) %>%
+     dplyr::mutate(rgn_id=147, habitat= "coral", year=2018) %>%
+    ungroup()
+ View(hab_coral_health_trend)
+
+ hab_coral_health_trend<-hab_coral_health_trend[c("rgn_id","habitat","year","trend")]
+
+
+write.csv(hab_coral_health_trend,"output/hab_coral_health_trend_mra_2018.csv",row.names=FALSE)
+
+```
+
+##Coral extent
+
+Atlas des récifs coralliens de Polynésie française (Andréfouët S., Chauvin C., Spraggins S., Centre IRD de Nouméa, février 2005).
+
+[TeFenua](https://www.tefenua.gov.pf/tefenua/?zoom=10&layers=fond&point%5B0%5D=-149.708154%2C-17.661301%7Clabel%3ATahiti%20Moorea&center=-149.708154%2C-17.661301#) 
+
+```{r setup, include=FALSE}
+
+hab_coral_ext<-read.csv("hab_coral_ext.csv")
+
+#Calculate the coral extent in Moorea
+hab_coral_extent<-hab_coral_ext %>%
+    group_by(rgn_id)%>%
+  summarise(km2=sum(km2)) %>%
+ mutate(year="2018", habitat="coral")%>%
+   ungroup()#scenario year
+
+  
+hab_coral_extent_mra_2018<-hab_coral_extent[c("rgn_id","habitat","year","km2")]
+write.csv(hab_coral_extent_mra_2018,"output/hab_coral_extent_mra_2018.csv",row.names=FALSE)
+
+```
+
+
