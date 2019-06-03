@@ -1,0 +1,14 @@
+layer,category,subcategory
+po_chemicals_mra_2018,ecological,pollution
+po_pathogens_mra_2018,ecological,pollution
+po_nutrients_mra_2018,ecological,pollution
+po_trash,ecological,pollution
+sp_alien,ecological,alien_species
+hd_coasteng_mra_2018,ecological,habitat_destruction
+hd_intertidal_mra_2018,ecological,habitat_destruction
+cc_sst_mra_2018,ecological,climate_change
+cc_acid_mra_2018,ecological,climate_change
+cc_uv,ecological,climate_change
+cc_slr_mra_2018,ecological,climate_change
+ss_wgi,social,social
+ss_spi,social,social

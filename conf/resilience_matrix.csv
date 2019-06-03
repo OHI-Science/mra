@@ -1,0 +1,15 @@
+goal,element,po_water,hd_habitat,sp_alien_species,fp_mpa_mra_2018,fp_habitat,fp_mora_artisanal,g_tourism,g_cites,species_diversity_3nm,wgi_all,res_spi,li_gci,li_sector_evenness_mra_2018,hd_mpa_mra_2018,hd_mpa_coast_mra_2018
+AO,,,x,,x,x,,,,x,x,x,,,x,x
+CP,coral,x,x,,,,,,,,x,x,,,x,x
+CP,mangroves,,x,,,,,,,,x,x,,,x,x
+CS,mangroves,,x,,,,,,,,x,x,,,x,x
+CW,,x,,,,,,,,,x,x,,,,
+ECO,,,,,,,,,,,x,x,x,,,
+FIS,,,x,,x,x,x,,,x,x,x,,,x,x
+HAB,coral,x,x,,x,x,x,x,,x,x,x,,,x,x
+HAB,mangroves,,x,,,,,x,,x,x,x,,,x,x
+ICO,,x,x,,x,x,x,,x,x,x,x,,,x,x
+SPP,,x,x,,x,x,x,x,x,,x,x,,,x,x
+LIV,,,,,,,,,,,x,x,x,x,,
+LSP,,x,x,,,,,,,,x,x,,,,
+TR,,x,,,,,,,,,x,x,,,,
