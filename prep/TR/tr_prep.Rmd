@@ -1,0 +1,226 @@
+---
+title: "tr_prep"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+# Total of employeed people
+1. Import dataset
+```{r setup, include=FALSE}
+
+library(readr)
+library(dplyr)
+library(tidyr)
+employment_prep<- read_delim("employment_mra.csv", 
+    ";", escape_double = FALSE, trim_ws = TRUE) %>%
+    select(rgn_id,year,Employed_people)
+head(employment_raw)
+
+```
+
+2. Data wrangling
+2.1. Temporal gaps filling
+```{r setup, include=FALSE}
+#Check the model that fit the best
+DF <- data.frame(employment_prep$year, employment_prep$Employed_people)
+
+p <- ggplot(DF, aes(x =employment_prep$year , y = employment_prep$Employed_people)) + geom_point() +
+    stat_smooth(method = 'lm', aes(colour = 'linear'), se = FALSE)+
+  stat_smooth(method = 'lm', formula = y ~ poly(x,2), aes(colour = 'polynomial'), se= FALSE) +
+    stat_smooth(method = 'nls', formula = y ~ a * log(x) +b, aes(colour = 'logarithmic'), se = FALSE, start = list(a=1,b=1)) +
+    stat_smooth(method = 'nls', formula = y ~ a*exp(b *x), aes(colour = 'Exponential'), se = FALSE, start = list(a=1,b=1))
+p
+
+png('TR/intermediate/employees.png')
+plot(p)
+dev.off()
+
+model1 <- lm( employment_prep$Employed_people~ poly(employment_prep$year,2))
+summary(model1) # r2=0.9676. p  significative= 0.001052<--> using polynomial. The model fit best to the data and there is significance, although less than in the other two.
+
+model2<-lm(employment_prep$Employed_people ~ employment_prep$year)
+summary(model2) # R2=0.9261, p=0.0005188 
+
+model3<-lm(employment_prep$Employed_people  ~  log(employment_prep$year))
+summary(model3)#r2=0.927, p=0.0005024
+
+#Temporal gapfilling using polynomial regression model
+employment_gf_lm <- employment_prep %>%
+  dplyr::group_by(rgn_id) %>%
+  dplyr::do({
+    mod <- lm(Employed_people~ year, data = .)
+    gf_lm <- predict(mod, newdata = .[c('year')])
+    data.frame(., gf_lm)
+  }) %>%
+    dplyr::ungroup()
+
+summary(employment_gf_lm)
+
+employment_gf_lm<- employment_gf_lm%>%
+  mutate(gf_lm = ifelse(gf_lm >1, gf_lm)) %>% 
+  mutate(method = ifelse(is.na(Employed_people), "lm prediction", NA)) %>%
+  mutate(employees=as.integer(ifelse(is.na(Employed_people), gf_lm, Employed_people)))
+head(employment_gf_lm)
+
+employment_fill<- employment_gf_lm %>%
+  select(rgn_id,year,employees)
+
+library(xlsx)
+write.csv(employment_fill, "TR/output/employees_mra_2018.csv")
+```
+
+# Tourism and travel
+Regional data
+```{r setup, include=FALSE}
+#get the employees from tourism
+library(readr)
+library(dplyr)
+employees_tr<- read.csv("intermediate/employees_tr.csv") %>%
+  select(rgn_id,year,jobs_tr=Jobs)
+
+#get the total employees
+employes_total<-read.csv("output/employees_mra_2018.csv")%>%
+  select(rgn_id,year, employees)
+
+#get the proportion of employees in the tourism and travel industry
+prop_employ_tr<-employes_total %>%
+  inner_join(employees_tr, by=c("rgn_id", "year"))%>%
+  mutate(Ep=jobs_tr/employees)%>%
+  select(rgn_id,year,Ep)
+
+```
+
+
+------ # temporal and spatial reference point --> status of 100! 
+Import global databases, "the reference point was the best scoring region across all years and rescaled all other regions across all years to that score"
+
+```{r setup, include=FALSE}
+tr_jobs_tr<-read.csv("tr_jobs_pct_tourism.csv")
+
+```
+
+Update global datasets regioin 147 with Moorea data.
+```{r setup, include=FALSE}
+tr_jobs<-tr_jobs_tr%>%
+  filter(rgn_id!=147)%>%
+  full_join(prop_employ_tr) %>%
+  ungroup()
+
+write.csv(tr_jobs, "output/tr_jobs_pct_tourism_mra_2018.csv", row.names=FALSE)
+
+```
+
+# Sustainability
+```{r setup, include=FALSE}
+tr_sust<- read.csv("output/tr_sustainability.csv") %>%
+  mutate(S=(S_score-1)/(7-1)) %>% #scale score from 1 to 7 
+  select(rgn_id,year,S)
+
+
+tr_model<-tr_jobs %>%
+  inner_join(tr_sust, by=c("rgn_id")) %>%
+  mutate(Tr=(S*Ep))%>%
+  rename(year=year.x)
+
+# Incorporate travel warnings ( Tr*multiplier)
+rgn_travel_warnings<-read.csv("tr_travelwarnings.csv")
+
+tr_model <- tr_model %>%
+     dplyr::left_join(rgn_travel_warnings, by = c('rgn_id', 'year')) %>%
+     dplyr::mutate(Tr = ifelse(!is.na(multiplier), multiplier * Tr, Tr)) %>%
+     dplyr::select(-multiplier)
+
+
+### Calculate status based on quantile reference (see function call for pct_ref)
+  pct_ref <- 90
+
+  tr_model <- tr_model %>%
+    dplyr::filter(year >=2008) %>%
+    dplyr::mutate(Tr_q = quantile(Tr, probs = pct_ref / 100, na.rm = TRUE)) %>%
+    dplyr::mutate(status  = ifelse(Tr / Tr_q > 1, 1, Tr / Tr_q)) %>% # rescale to qth percentile, cap at 1
+    dplyr::ungroup()
+#get current status
+   tr_status <- tr_model %>%
+    dplyr::filter(year== 2017) %>%
+    dplyr::filter(rgn_id==147) %>%
+    dplyr::select(region_id = rgn_id, score = status) %>%
+    dplyr::mutate(score = score * 100) %>%
+    dplyr::mutate(dimension = 'status')
+   
+trend_data <- tr_model %>%
+    dplyr::filter(!is.na(status))
+  
+trend_years <- (2017 - 4):(2017)
+library(ohicore)
+tr_trend <-CalculateTrend(status_data = trend_data, trend_years = trend_years)%>%
+  filter(region_id==147)
+tr_trend
+```
+
+----------# temporal reference point
+
+```{r setup, include=FALSE}
+tr_jobs_mra<-prop_employ_tr 
+
+write.csv(tr_jobs_mra,"output/tr_jobs_pct_tourism_mra_2018.csv", row.names=FALSE)
+
+tr_sust<- read.csv("output/tr_sustainability.csv") %>%
+  mutate(S=(S_score-1)/(7-1)) %>% #scale score from 1 to 7 
+  select(rgn_id,year,S)%>%
+  filter(rgn_id==147)
+
+tr_model<-tr_jobs_mra %>%
+  inner_join(tr_sust, by=c("rgn_id")) %>%
+  mutate(Tr=(S*Ep))%>%
+  rename(year=year.x)%>%
+  select(year,rgn_id,Tr)
+
+
+ pct_ref <- 90
+
+  tr_model_q <- tr_model %>%
+    dplyr::filter(year >=2004) %>%
+    dplyr::mutate(Tr_q = quantile(Tr, probs = pct_ref / 100, na.rm = TRUE)) %>%
+    dplyr::mutate(status  = ifelse(Tr / Tr_q > 1, 1, Tr / Tr_q)) %>% # rescale to qth percentile, cap at 1
+    dplyr::ungroup()
+#get current status
+   tr_status <- tr_model_q %>%
+    dplyr::filter(year== 2017) %>%
+    dplyr::filter(rgn_id==147) %>%
+    dplyr::select(region_id = rgn_id, score = status) %>%
+    dplyr::mutate(score = score * 100) %>%
+    dplyr::mutate(dimension = 'status') #it is also 100%
+   
+write.csv(tr_status, "output/tr_status_mra_2018.csv", row.names=FALSE)
+   
+   #if selecting reference ppoint is the max value
+   
+tr_model_max<-tr_model %>%
+  dplyr::filter(year>=2008)%>%
+  dplyr::mutate(score=Tr/max(Tr)*100) # 99.7 %
+
+
+```
