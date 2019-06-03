@@ -3,7 +3,7 @@
 This is the Ocean Health Index repository for Moorea, French Polynesia. 
 ### The "functions" R file from "conf" folder contains goal models from Moorea Ocean Health Index.
 
-Some of the R codes for data wrangling have been uploaded in "prep" folder.
+Some of the R codes for data manipulation have been uploaded in "prep" folder.
 
 For more information, please see http://ohi-science.org.
 
